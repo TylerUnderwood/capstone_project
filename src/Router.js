@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
 import Home from './components/page/Home'
 import Login from './containers/Login'
+import Error404 from './components/errors/Error404'
 
 
 const checkAuth = () => {
@@ -31,6 +32,7 @@ const Router = () => {
 			<Route path="/listing/:id" component={ListingEntry} />
             <ProtectedRoute path="/add-listing" component={ListingAdd} /> */}
 			<Route path="/login" component={Login} />
+			<Route component={Error404} />
         </Switch>
     );
 };
