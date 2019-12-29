@@ -1,0 +1,44 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Heading Content
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.heading-content {
+
+	h3 {
+		line-height: 1.2;
+		text-transform: capitalize;
+		font-size: 2.8rem;
+	}
+
+	h5 {
+		text-transform: lowercase;
+		font-size: 1.2rem;
+		color: $heading-color-alt;
+	}
+
+	h5 + h3 {
+		margin-top: 0.4rem;
+	}
+
+	.copy {
+		margin-top: 0.2rem;
+	}
+
+	hr {
+		margin: 1rem 0;
+		max-width: 12rem;
+		border-top: 2px solid currentColor;
+		border-bottom: 2px solid currentColor;
+		color: $primary-light;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.btn {
+		margin: $x-space-sm 0 0 0;
+	}
+}

@@ -1,0 +1,80 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Contact Form
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+[class*="form_message"] {
+	border: 2px solid $text-color;
+	border-radius: 0.2em;
+	width: 100%;
+	padding: 0.3em 0.6em;
+	font-size: 1.1rem;
+	color: $text-color;
+}
+.form_message_success {
+	border-color: darken(lightgreen, 10%);
+	background-color: lightgreen;
+	color: $text-color;
+}
+.form_message_error {
+	border-color: lighten(red, 20%);
+	background-color: lighten(red, 30%);
+	color: $text-color;
+}
+
+.contact-form {
+    position: relative;
+
+    label {
+		display: block;
+		font-size: $font-size;
+	}
+
+    label + label {
+        margin-top: 1.4rem;
+	}
+
+	span {
+		display: block;
+		margin: 0 0 0.4em;
+	}
+}
+
+.single-form form {
+	display: flex;
+	flex-flow: row wrap;
+	max-width: 640px;
+
+	label, input, button {
+		display: block;
+		margin: 0;
+		height: 40px;
+		line-height: 1;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	button {
+		padding-left: 1.4em;
+		padding-right: 1.4em;
+	}
+
+	.input-wrap {
+		flex: 1;
+	}
+
+	@include below(mobile) {
+		flex-direction: column;
+
+		.submit-wrap {
+			margin-top: 1rem;
+		}
+	}	
+
+	@include above(mobile) {
+		.submit-wrap {
+			margin-left: 1rem;
+		}
+	}
+}

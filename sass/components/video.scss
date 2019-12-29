@@ -1,0 +1,281 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Video
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+svg.icon-play {
+    width: 60px;
+    height: 60px;
+    fill: $white;
+    box-shadow: 0 0 10px rgba($black, 0.5);
+    border-radius: 100%;
+}
+
+.video-container {
+    h3 {
+        margin: 0;
+    }
+}
+
+.video-block {
+    position: relative;
+    padding-top: 56.25%;
+
+    iframe,
+    video,
+    img,
+    .video-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+
+        // Overlay
+        &::before {
+            content: '';
+            background-color: $black;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: opacity 300ms ease;
+        }
+
+        .icon-play {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: calc(50% - 30px);
+            left: calc(50% - 30px);
+            transition: all 300ms ease;
+        }
+
+        &:hover {
+            &::before {
+                opacity: 0.2;
+            }
+            
+            .icon-play {
+                transform: scale(1.15);
+            }
+        }
+    } 
+
+    .video-thumb,
+    img {
+        cursor: pointer;
+        transition: all 500ms ease;
+    }
+
+    .video-thumb {
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| Video Playlist
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+.video-playlist {
+    display: flex;
+    color: $text-color;
+
+    @media screen and (max-width: 1000px) {
+        flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 860px) {
+        position: relative;
+        max-width: none;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-right: -50vw;
+        margin-left: -50vw;
+    }
+
+    .current-video-container {
+        position: relative;
+        width: 65%;
+
+        @media screen and (max-width: 1000px) {
+            width: 100%;
+        }
+
+        .playlist-item {
+            width: 100%;
+            padding-top: 56.25%;
+            
+            .current-video {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+
+                .video-container {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                }
+    
+                h3 {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding: 1rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .video-list {
+        width: 35%;
+        padding-left: 1rem;
+        display: flex;
+        align-content: space-between;
+        flex-wrap: wrap;
+
+        @media screen and (max-width: 1000px) {
+            width: 100%;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        @media screen and (max-width: 860px) {
+            padding: 2rem 2rem 0;
+            margin-top: 0;
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .playlist-item {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+
+            @media screen and (max-width: 1000px) {
+                width: 50%;
+                padding-right: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            @media screen and (max-width: 620px) {
+                width: 100%;
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            } 
+
+            .video-thumb-wrapper {
+                width: 150px;
+                margin-right: 0.5rem;
+                position: relative;
+
+                @media screen and (max-width: 1023px) {
+                    width: 120px;
+                }
+
+                // is-selected indicator
+                &::before {
+                    content: '';
+                    width: 5px;
+                    height: 100%;
+                    background-color: $accent;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: -5px;
+                    opacity: 0;
+                    transition: opacity 300ms ease;
+                }
+
+                // Overlay
+                &::after {
+                    content: '';
+                    background-color: $black;
+                    opacity: 0;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    transition: opacity 300ms ease;
+                }
+                
+                .video-thumb {
+                    background-position: center;
+                    background-size: cover;
+                    width: 100%;
+                    padding-top: 56.25%;
+                    overflow: hidden;
+                    transition: opacity 300ms ease;
+                    position: relative;
+
+                    .icon-play {
+                        width: 40px;
+                        height: 40px;
+                        position: absolute;
+                        top: calc(50% - 20px);
+                        left: calc(50% - 20px);
+                        opacity: 0;
+                        box-shadow: 0 0 5px rgba($black, 0.5);
+                        transition: opacity 300ms ease;
+                        z-index: 2;
+                    }
+                }
+            }
+            
+            h3 {
+                width: 50%;
+                margin: 0;
+                color: currentColor;
+                font-size: 0.9rem;
+            }
+
+            &.is-selected {
+                .video-thumb-wrapper {
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            &:hover{
+                .video-thumb-wrapper {
+                    &::after {
+                        opacity: 0.2;
+                    }
+                }
+            }
+
+            &:hover {
+                .video-thumb-wrapper .video-thumb .icon-play {
+                    opacity: 1;
+                }
+
+                &.is-selected {
+                    .video-thumb-wrapper {
+                        &::after {
+                            opacity: 0;
+                        }
+                        .video-thumb .icon-play {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

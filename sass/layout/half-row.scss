@@ -1,0 +1,153 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| LAYOUT: Half Row
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.half-row {
+	display: flex;
+	flex-flow: row;
+	padding: 0;
+
+	&__column-left,
+	&__column-right {
+		display: flex;
+		flex-flow: column;
+	}
+
+	/* === BLOCK === */
+	// the block will have the padding and can be set to zero if needed
+	&__block {
+		display: flex;
+		position: relative;
+		width: 100%;
+		// vert_pad
+		// horz_pad
+
+		&:first-child {
+			margin-top: 0;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:not(:first-child) {
+			padding-top: 0;
+		}
+		&:not(:last-child) {
+			padding-bottom: 0;
+		}
+	}
+
+	/* === BLOCK INNER === */
+	// the inner will have a max-width that can be set to zero if needed
+	&__wrap {
+		position: relative;
+		width: 100%;
+		max-width: $wrapper-half;
+		// horz_pad
+	}
+
+	/* ===== BELOW TABLET ===== */
+	@include below(tablet) {
+		&:not(.column_right_on_top) {
+			flex-flow: column;
+		}
+		
+		&.column_right_on_top {
+			flex-flow: column-reverse;
+		}
+
+		&__block {
+			justify-content: center;
+		}
+
+		&__wrap {
+			max-width: unset;
+			padding: 0;
+		}
+	}
+
+	/* ===== ABOVE TABLET ===== */
+	@include above(tablet) {
+		flex-flow: row nowrap;
+
+		&__column-left {
+			width: 50%;
+
+			.half-row__block {
+				justify-content: flex-end;
+				padding-right: 0;
+			}
+
+			.half-row__wrap {
+				padding-left: 0;
+			}
+		}
+	
+		&__column-right {
+			width: 50%;
+
+			.half-row__block {
+				justify-content: flex-start;
+				padding-left: 0;
+			}
+
+			.half-row__wrap {
+				padding-right: 0;
+			}
+		}
+	}
+
+
+	/* ===== SPECIAL COMPONENTS ===== */
+
+	/* === FILLER === */
+	.filler {
+		flex: 1;
+		margin: 0;
+		width: 100%;
+		padding: 0;
+
+		&__wrap {
+			display: none;
+		}
+	}
+	
+	/* === HEADING CONTENT === */
+	.heading_content {
+		position: relative;
+	}
+
+	/* === IMAGE FULL === */
+	.image_full {
+		flex: 1;
+		display: flex;
+		padding: 0;
+		
+
+		&__wrap {
+			flex: 1;
+			display: flex;
+			max-width: unset;
+			padding: 0;
+		}
+
+		.bg-img {
+			flex: 1;
+		}
+
+		@include below(tablet) {
+			// make that image 16:9
+			.bg-img:after {
+				padding-top: 56.25%;
+			}
+		}
+	
+		@include above(tablet) {
+			.bg-img {
+				min-height: 24rem;
+			}
+		}
+	}	
+}

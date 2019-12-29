@@ -1,0 +1,104 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| UTILITY: Extention
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+|
+| For when you want a box to continue outside its parent
+|
+*/
+
+/* === for parent === */
+
+.extend-top {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: unset;
+		left: 0;
+		transform: translateY(100%);
+		content: '';
+	}
+}
+
+.extend-right {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: unset;
+		transform: translateX(100%);
+		content: '';
+	}
+}
+
+.extend-bottom {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		top: unset;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		transform: translateY(-100%);
+		content: '';
+	}
+}
+
+.extend-left {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		right: unset;
+		bottom: 0;
+		left: 0;
+		transform: translateX(-100%);
+		content: '';
+	}
+}
+
+/* === for child === */
+
+.put-top {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: unset;
+	left: 0;
+	transform: translateY(100%);
+}
+
+.put-right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: unset;
+	transform: translateX(100%);
+}
+
+.put-bottom {
+	position: absolute;
+	top: unset;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transform: translateY(-100%);
+}
+
+.put-left {
+	position: absolute;
+	top: 0;
+	right: unset;
+	bottom: 0;
+	left: 0;
+	transform: translateX(-100%);
+}

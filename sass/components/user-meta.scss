@@ -1,0 +1,54 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: User Meta
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.user-meta {
+
+}
+
+.post-author-meta {
+	display: flex;
+
+	.author-img {
+		display: flex;
+		flex: 0 0 auto;
+		width: 1em;
+		height: 1em;
+		border-radius: 50%;
+		overflow: hidden;
+		background-image: url('/site/themes/abf/img/blank-profile-picture.png');
+		background-position: center;
+		background-size: cover;
+		font-size: 4rem;
+
+		img {
+			align-self: center;
+			text-align: center;
+			font-size: 0.15em;
+		}
+	}
+
+	.author-info {
+		align-self: center;
+		margin: 0 0 0 1em;
+		font-size: 0.8em;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+}
+
+.read-more {
+	display: inline-block;
+	font-size: 0.7em;
+	text-transform: uppercase;
+	text-decoration: underline;
+	letter-spacing: 1px;
+	color: $link-color;
+	transition: color 300ms ease-in-out;
+	
+	&:hover {
+		color: darken($accent-alt, 10%);
+	}
+}

@@ -1,0 +1,87 @@
+.font-serif { font-family: $serif; }
+
+.font-sans-serif { font-family: $sans-serif; }
+
+.font-geo { font-family: $geometric; }
+
+.letter-space { letter-spacing: 1px; }
+
+.text-uppercase { text-transform: uppercase; }
+
+.break-words {
+	word-break: break-word;
+	hyphens: auto;
+}
+
+/* === Font Size === */
+
+.font-size-sm { font-size: $font-size-sm; }
+
+.font-size { font-size: $font-size; }
+
+.font-size-lg { font-size: $font-size-lg; }
+
+/* === Font Weight === */
+
+.font-lighter { font-weight: lighter; }
+
+.font-normal { font-weight: normal; }
+
+.font-bold { font-weight: bold; }
+
+/* === Alignment === */
+
+.text-left { text-align: left; }
+
+.text-center { text-align: center; }
+
+.text-right { text-align: right; }
+
+/* === Colors === */
+
+/* text */
+.text-dark { color: $text-dark; }
+
+.text-light { color: $text-light; }
+
+.text-white { color: $text-white; }
+
+.text-color { color: $text-color; }
+
+.heading-color { color: $heading-color; }
+
+.heading-color-alt { color: $heading-color-alt; }
+
+.label-color { color: $label-color; }
+
+.link-color { color: $link-color; }
+
+/* border */
+.border-white { border-color: $white; }
+
+.border-text-color { border-color: $text-color; }
+
+.border-dark { border-color: $primary-dark; }
+
+.border-primary { border-color: $primary; }
+
+.border-light { border-color: $primary-light; }
+
+.border-accent { border-color: $accent; }
+
+.border-alt { border-color: $accent-alt; }
+
+/* svg */
+.fill-white { fill: $white; }
+
+.fill-text-color { fill: $text-color; }
+
+.fill-dark { fill: $primary-dark; }
+
+.fill-primary { fill: $primary; }
+
+.fill-light { fill: $primary-light; }
+
+.fill-accent { fill: $accent; }
+
+.fill-alt { fill: $accent-alt; }

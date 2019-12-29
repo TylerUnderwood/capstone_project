@@ -1,0 +1,94 @@
+/* ==========================================================================
+===== THEME STYLESHEET =====
+=
+= I've divvied up the scss to go from a wider scope to a more specific scope. ( As you would )
+= The order that I have decided on is: global > module > component > layout
+= For each one, I will explain my thinking as to why they are more specific than the last.
+= Here is a link to something which explains my thinking on the mater, fairly well.
+= https://softwareengineering.stackexchange.com/questions/178927/is-there-a-difference-between-a-component-and-a-module
+=
+========================================================================== */
+
+
+
+/* ==========================================================================
+===== CORE STYLES =====
+=
+= These are for styles that will always be used. The rules here should be minimal and dry.
+= When working on more specific classes and elements you don't want to have to backpedal very much, if at all.
+= Don't see the need to add any more files to this folder, what is here should cover all the core needs.
+=
+========================================================================== */
+@import "core/reset"; // This is the file to put your favorite browser reset in; I have chosen normalize
+@import "core/settings";
+@import "core/responsiveness";
+@import "core/mixins";
+@import "core/animations";
+@import "core/body";
+@import "core/typography";
+@import "core/forms";
+@import "core/buttons";
+@import "core/media";
+
+
+
+/* ==========================================================================
+===== LAYOUT STYLES =====
+=
+= 
+=
+========================================================================== */
+@import "layout/main-layout";
+@import "layout/flex-layout";
+@import "layout/full-row";
+@import "layout/half-row";
+@import "layout/offset-row";
+
+
+
+/* ==========================================================================
+===== MODULES STYLES =====
+=
+= A module in this instance, is something that has a general purpose and might contain more specific components.
+=
+========================================================================== */
+@import "modules/transcription";
+@import "modules/navs";
+@import "modules/header";
+@import "modules/footer";
+@import "modules/hero";
+@import "modules/bard";
+@import "modules/modal";
+@import "modules/accordion";
+
+
+
+/* ==========================================================================
+===== COMPONENTS STYLES =====
+=
+= Here a component is a specific class or set of classes that relate to a singular use or style.
+=
+========================================================================== */
+@import "components/social-icons";
+@import "components/excerpt";
+@import "components/user-meta";
+@import "components/contact-form";
+@import "components/single-form";
+@import "components/pagination";
+@import "components/heading-content";
+@import "components/video";
+@import "components/twitter-feed";
+
+
+
+/* ==========================================================================
+===== UTILITY STYLES =====
+=
+= 
+=
+========================================================================== */
+@import "utility/width";
+@import "utility/alignment";
+@import "utility/whitespace";
+@import "utility/backgrounds";
+@import "utility/extention";

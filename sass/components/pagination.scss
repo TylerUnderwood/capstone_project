@@ -1,0 +1,70 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Pagination
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+nav.pagination {
+	display: flex;
+	font-size: 1.2rem;
+
+	span, a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 2em;
+		height: 2em;
+		padding: 0.5em;
+		line-height: 1;
+		vertical-align: baseline;
+		text-align: center;
+		font-weight: bold;
+		font-size: inherit;
+		font-family: $link-font;
+		color: $text-color;
+		fill: $text-color;
+
+		// bubble button stuffs
+		margin: 0 0.25em;
+		background-color: $off-white;
+		border-radius: 50%;
+
+		&:first-child {
+			margin-left: 0;
+
+			svg.arrow { transform: rotate(-90deg); }
+		}
+
+		&:last-child {
+			margin-right: 0;
+			
+			svg.arrow { transform: rotate(90deg); }
+		}
+
+		// svg alignment fix
+		&:first-child,
+		&:last-child {
+			padding: 0.5em;
+		}
+	}
+
+	a {
+		fill: $link-color;
+	}
+	
+	svg {
+		width: 100%;
+		max-width: 0.8em;
+		max-height: 0.8em;
+	}
+
+	.active {
+		color: $link-color;
+		fill: $link-color;
+	}
+
+	.disabled {
+		color: lighten($text-color, 60%);
+		fill: lighten($text-color, 60%);
+	}
+}

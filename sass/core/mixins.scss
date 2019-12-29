@@ -1,0 +1,79 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| CORE: Mixins
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/*  ________    __  __________     ________  ______  ______
+   / ____/ /   / / / /  _/ __ \   /_  __/\ \/ / __ \/ ____/
+  / /_  / /   / / / // // / / /    / /    \  / /_/ / __/   
+ / __/ / /___/ /_/ // // /_/ /    / /     / / ____/ /___   
+/_/   /_____/\____/___/_____/    /_/     /_/_/   /_____/   */
+
+// FLUID TYPE
+
+@function strip-unit($number) {
+	@if type-of($number) == "number" and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+	@media ( max-width: #{$min-vw - 1} ) {
+		@each $property in $properties {
+			#{$property}: $min-value;
+	  	}
+	}
+  
+	@media ( min-width: $min-vw ) and ( max-width: #{$max-vw - 1} ) {
+		@each $property in $properties {
+			#{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+		}
+	}
+  
+	@media ( min-width: $max-vw ) {
+		@each $property in $properties {
+			#{$property}: $max-value;
+		}
+	}
+}
+
+/*  ________  _________________  __  ___   __________  ___    ____  ___________   _____________
+   / ____/ / / / ___/_  __/ __ \/  |/  /  / ____/ __ \/   |  / __ \/  _/ ____/ | / /_  __/ ___/
+  / /   / / / /\__ \ / / / / / / /|_/ /  / / __/ /_/ / /| | / / / // // __/ /  |/ / / /  \__ \ 
+ / /___/ /_/ /___/ // / / /_/ / /  / /  / /_/ / _, _/ ___ |/ /_/ // // /___/ /|  / / /  ___/ / 
+\____/\____//____//_/  \____/_/  /_/   \____/_/ |_/_/  |_/_____/___/_____/_/ |_/ /_/  /____/ 	*/
+
+//   CUSTOM GRADIENTS
+
+// Top 2 Bottom
+@mixin t2b-gradient($from: #00ff7f, $to: #7f00ff) {
+	background-color: $to;
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+// Left 2 Right
+@mixin l2r-gradient($from: #ff3f00, $to: #3f00ff) {
+	background-color: $to;
+	background-image: linear-gradient(to right, $from, $to);
+}
+
+// Left Top 2 Right Bottom
+@mixin lt2rb-gradient($from: #3bc3fc, $to: #b428bc) {
+	background-color: $to;
+	background-image: linear-gradient(to right bottom, $from, $to);
+}
+
+// Left Bottom 2 Right Top
+@mixin lb2rt-gradient($from: #00ff7f, $to: #7f00ff) {
+	background-color: $to;
+	background-image: linear-gradient(to right top, $from, $to);
+}
+
+// Radial
+@mixin radial-gradient($from: #ff3f00, $to: #3f00ff) {
+	background-color: $to;
+	background-image: radial-gradient(circle, $from, $to);
+}

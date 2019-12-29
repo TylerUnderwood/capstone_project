@@ -1,0 +1,51 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Excerpt
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+article.excerpt {
+	display: flex;
+
+	& + & {
+		margin-top: $x-space;
+	}
+
+	&:last-of-type {
+		margin-bottom: $x-space;
+	}
+
+	.post-intro {
+		flex: 1;
+
+		p {
+			margin: 1rem 0 0 0;
+		}
+	}
+
+	.feat-img {
+		margin: 0 0 0 1.6rem;
+		width: 10rem;
+
+		.bg-img::after {
+			padding-top: 100%;
+		}
+	}
+
+	@include below(tablet) {
+		flex-flow: column-reverse;
+
+		.post-intro p {
+			display: none;
+		}
+
+		.feat-img {
+			margin: 0 0 1.6rem;
+			width: 100%;
+
+			.bg-img::after {
+				padding-top: 57.25%;
+			}
+		}
+	}
+}

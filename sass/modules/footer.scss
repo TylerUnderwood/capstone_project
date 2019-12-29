@@ -1,0 +1,102 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Site Footer 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* ===== VARIABLES ===== */
+
+// Scroll To Top Size
+$stt-size: 4rem;
+
+/* ===== LAYOUT ===== */
+
+footer.site-footer {
+	position: relative;
+    background-color: $primary-dark;
+    color: $white;
+
+    .inner-footer {
+		position: relative;
+    }
+}
+
+/* ===== COMPONENTS ===== */
+
+/* === SCROLL TO TOP BUTTON === */
+.scroll-to-top {
+	display: flex;
+	position: absolute;
+	top: 0;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em;
+    font-size: $stt-size;
+    background-color: $white;
+    fill: $link-color;
+}
+
+/* === NAVIGATION === */
+nav.site-footer-nav {
+	max-width: $text-max;
+
+    a {
+		display: block;
+		color: inherit;
+	}
+}
+
+/* === INFO LINE === */
+.info-line {
+	text-transform: uppercase;
+	font-size: $font-size-xs;
+	font-family: $geometric;
+	letter-spacing: 1px;
+
+    a {
+		font-size: inherit;
+		color: inherit;
+	}
+	
+	a + a::before {
+		background-color: $white;
+	}
+}
+
+/* === COPYRIGHT === */
+.copyright {
+	text-transform: uppercase;
+	font-size: $font-size-xs;
+	font-family: $geometric;
+	letter-spacing: 1px;
+
+    a {
+		font-size: inherit;
+		color: inherit;
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* === BELOW MOBILE === */
+@include below(mobile) {
+	nav.site-footer-nav {
+		flex-flow: column;
+		align-items: center;
+		margin: 0;
+	}
+
+	.copyright {
+		text-align: center;
+	}
+}
+
+/* === BELOW TABLET === */
+@include below(tablet) {
+	.copyright {
+		span { display: block; }
+
+		span + span { margin-top: 8px; }
+	}
+}

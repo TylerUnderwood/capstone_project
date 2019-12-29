@@ -1,0 +1,386 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Site Header 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* ===== VARIABLES ===== */
+
+// See settings for more
+
+$nav-bg: $primary-dark;
+$nav-color: $white;
+$nav-hover: $link-color;
+
+$drawer-nav-bg: $primary-dark;
+$drawer-nav-color: $white;
+
+$nav-time: 240ms;
+
+
+
+/* ===== LAYOUT ===== */
+
+#mainHeader {
+    position: relative;
+	z-index: 99;
+	box-shadow: 0 0 10px 3px $text-color;
+	padding: $header-pad;
+	background-color: $nav-bg;
+	color: $nav-color;
+}
+
+/* ===== COMPONENTS ===== */
+
+/* === LOGO === */
+/*
+| The logo height is how the header's whole size is determined, width will be automatically set.
+*/
+
+#logo {
+	display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+	align-items: center;
+	//
+	position: relative;
+	z-index: 3;
+	//
+	margin: 0;
+	height: $header-logo-ht;
+	font-size: 2rem;
+	color: $nav-color;
+
+	svg, img {
+		fill:currentColor;
+		height: inherit;
+	}
+
+	// ACTIVE STATES
+	.nav-open &,
+	.nav-opening & {
+		transition: color $nav-time ease-in-out;
+		color: $drawer-nav-color;
+	}
+
+	.nav-closed &,
+	.nav-closing & {
+		transition: color $nav-time ease-in-out;
+	}
+}
+
+/* ===== STATIC NAV ===== */
+.static-nav {
+	display: flex;
+	//
+	position: relative;
+	z-index: 1;
+	//
+    width: 100%;
+	max-width: 50%;
+
+	nav.site-header-nav a {
+		color: inherit;
+		transition: color 300ms ease-in-out;
+
+		&:hover,
+		&:active {
+			color: $nav-hover;
+		}
+	}
+
+	a.hide { display: none; }
+
+	/* === RESPONSIVE === */
+
+	@include below(desktop) {
+		display: none;
+	}
+}
+
+/* ===== DRAWER NAV ===== */
+
+.drawer-nav {
+	display: flex;
+	flex-flow: column;
+	//
+	position: fixed;
+	z-index: 2;
+	//
+	top: 0;
+	left: unset;
+	bottom: 0;
+	right: calc(100% - 100vw  + 1px);
+	transform-origin: left top;
+	margin-right: calc(50vw - 50%);
+	width: calc(100vw + 2px);
+	height: 100vh;
+	background-color: $drawer-nav-bg;
+	padding: 0;
+	padding-top: $header-ht;
+	line-height: 1;
+	font-size: 2.4rem;
+
+	// These before and afters are for fading the nav items
+	// top and bottom as you scroll through them.
+	&:before,
+	&:after {
+		position: absolute;
+		z-index: 9;
+		left: 0;
+		width: 100%;
+		height: 1em;
+		content: '';
+	}
+
+	&:before {
+		top: $header-ht;
+		background: linear-gradient(rgba($drawer-nav-bg, 1) 0%, 
+									rgba($drawer-nav-bg, 0) 100%);
+	}
+
+	&:after {
+		bottom: 0;
+		background: linear-gradient(rgba($drawer-nav-bg, 0) 0%, 
+									rgba($drawer-nav-bg, 1) 100%);
+	}
+
+	.inner-nav {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		width: 100%;
+		max-width: $max-width;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 1em 0 0;
+
+		// padding bottom isn't defining the bottom scroll position,
+		// so I am using this ::after to create some space for the last-child
+		&::after {
+			display: block;
+			opacity: 0;
+			min-height: 1em;
+			content: ' ';
+		}
+
+		> * {
+			margin: 0.5rem 0;
+	
+			&:first-child { margin-top: 0; }
+	
+			&:last-child { margin-bottom: 0; }
+		}
+	}
+
+	a {
+		display: inline-block;
+		margin-right: auto;
+		padding: 0.8rem $header-pad;
+		text-transform: capitalize;
+		font-family: $heading-font;
+		font-weight: normal;
+		transition: opacity 200ms ease-in-out;
+
+		&:hover,
+		&:active {
+			opacity: 0.8;
+		}
+	}
+
+	/* === NAVIGATION LINKS === */
+	nav.site-header-nav {
+		display: flex;
+		flex-flow: column;
+		
+		a {
+			font-size: inherit;
+			color: $drawer-nav-color;
+		}
+	}
+
+	/* === CONTACT LINKS === */
+	.contact-links {
+		display: flex;
+		flex-flow: column;
+
+		a {
+			display: flex;
+			align-items: center;
+			font-size: 1rem;
+			font-family: $copy-font;
+			color: $drawer-nav-color;
+		}
+
+		span {
+			display: inline-block;
+		}
+
+		.icon {
+			width: 1rem;
+			fill: $drawer-nav-color;
+		}
+
+		.text {
+			margin-left: 1rem;
+		}
+	}
+
+	// ANIMATIONS
+	@keyframes open_drawer {
+		from {
+			opacity: 0;
+			transform: scale(1.05);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes close_drawer {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(1.05);
+		}
+	}
+
+	// ACTIVE STATES
+	.nav-closed & {
+		visibility: hidden;	
+    }
+
+    .nav-opening & {
+		animation: open_drawer $nav-time ease-in-out forwards;
+	}
+
+	.nav-opened & {
+        visibility: visible;
+    }
+
+    .nav-closing & {
+		animation: close_drawer $nav-time ease-in-out forwards;
+	}
+}
+
+/* === NAV BUTTON === */
+button.nav-button {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	//
+	position: absolute;
+	z-index: 99;
+	right: 2em;
+	//
+	outline: none;
+	border: none;
+	border-radius: 50%;
+	width: 4em;
+	height: 4em;
+	background-color: transparent;
+	padding: 2em;
+	// font size canges the whole size
+	font-size: 8px;
+	transition: background-color 250ms ease;
+	cursor: pointer;
+
+	span {
+		background-color: $nav-color;
+	}
+
+    .dots {
+		display: flex;
+		justify-content: space-evenly;
+        align-items: center;
+        width: 50%;
+        min-width: 40px;
+        overflow: hidden;
+		cursor: pointer;
+        
+        span {
+			display: inline-block;
+			border-radius: 50%;
+            width: 5px;
+            height: 5px;
+        }
+    }
+
+    .close-x {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+        width: 3em;
+        height: 3em;
+		cursor: pointer;
+        
+        span {
+			display: block;
+			position: absolute;
+			border-radius: 2px;
+            width: 0;
+            height: 4px;
+
+            &:first-child {
+                transform: rotate(-45deg);
+            }
+            &:last-child {
+                transform: rotate(45deg);
+            }
+        }
+	}
+	
+	// HOVER STATES
+	&:hover,
+    &:focus {
+        background-color: transparent;
+    }
+
+	// ACTIVE STATES
+	.nav-open &,
+	.nav-opening & {
+		background-color: transparent;
+
+        .dots {
+            width: 0;
+            min-width: 0;
+            transition: all $nav-time ease;
+        }
+        .close-x span {
+			width: 2rem;
+			transition: all $nav-time ease;
+		}
+		
+		span {
+			background-color: $drawer-nav-color;
+		}
+	}
+
+	.nav-closed &,
+	.nav-closing & {
+        background-color: transparent;
+
+        .dots {
+            transition: all $nav-time ease;
+        }
+        .close-x span {
+			transition: all $nav-time ease;
+		}
+	}
+
+	/* ABOVE MOBILE */
+	@include above(mobile) {
+		font-size: 10px;
+	}
+
+	/* ABOVE TABLET */
+	@include above(tablet) {
+		font-size: 12px;
+	}
+}

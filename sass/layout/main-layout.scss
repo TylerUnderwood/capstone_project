@@ -1,0 +1,150 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| LAYOUT: Main Layout
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* === outer === */
+.outer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: $outer;
+
+	&--half {
+		max-width: $outer-half;
+	}
+}
+
+/* === wrapper === */
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: $wrapper;
+
+	&--half {
+		max-width: $wrapper-half;
+	}
+}
+
+/* === inner === */
+.inner {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: $inner;
+
+	&--half {
+		max-width: $inner-half;
+	}
+}
+
+
+/* === block === */
+// margin based vertical whitespace
+%vert_mar {
+	@include fluid-type(margin-top margin-bottom, $min-width, $max-width, $y-space-min, $y-space-max);
+}
+// apply to this class and its modifiers
+.frame {
+	@extend %vert_mar;
+
+	&--top {
+		margin-bottom: 0;
+	}
+	&--bot {
+		margin-top: 0;
+	}
+	&--not {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+@include below(tablet) {
+	.mb\:frame {
+		&--top {
+			margin-bottom: 0;
+		}
+		&--bot {
+			margin-top: 0;
+		}
+		&--not {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+	 
+}
+@include above(tablet) {
+	.dt\:frame {
+		&--top {
+			margin-bottom: 0;
+		}
+		&--bot {
+			margin-top: 0;
+		}
+		&--not {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+/* === trim === */
+// padding based vertical whitespace
+%vert_pad {
+	@include fluid-type(padding-top padding-bottom, $min-width, $max-width, $y-space-min, $y-space-max);
+}
+// apply to this class and its modifiers
+.trim {
+	@extend %vert_pad;
+
+	&--top {
+		padding-bottom: 0;
+	}
+	&--bot {
+		padding-top: 0;
+	}
+	&--not {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+
+/* === spacer === */
+// margin based horizontal whitespace
+%horz_mar {
+	@include fluid-type(margin-right margin-left, $min-width, $max-width, $x-space-min, $x-space-max);
+}
+// apply to this class and its modifiers
+.spacer {
+	@extend %horz_mar;
+
+	&--right {
+		margin-left: 0;
+	}
+	&--left {
+		margin-right: 0;
+	}
+}
+
+
+/* === gutter === */
+// padding based horizontal whitespace
+%horz_pad {
+	@include fluid-type(padding-right padding-left, $min-width, $max-width, $x-space-min, $x-space-max);
+}
+// apply to this class and its modifiers
+.gutter {
+	@extend %horz_pad;
+
+	&--right {
+		padding-left: 0;
+	}
+	&--left {
+		padding-right: 0;
+	}
+}

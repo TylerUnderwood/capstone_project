@@ -1,0 +1,156 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| CORE: Typography
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* ===== DEFAULTS ===== */
+
+p {
+	margin: $space 0 0;
+	max-width: $text-max;
+	line-height: 1.6;
+	font-size: $font-size;
+	hyphens: none;
+
+	// Use the first and last child to adjust margin
+	// to compensate for line-height as needed.
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+li {
+	line-height: 1.6;
+	font-size: $font-size;
+
+	// Use the first and last child to adjust margin
+	// to compensate for line-height as needed.
+	&:first-child {
+		margin-top: 0;
+	}
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1em 0 0;
+	line-height: 1.2;
+	font-weight: normal;
+	font-family: $heading-font;
+
+	// Use the first and last child to adjust margin
+	// to compensate for line-height as needed.
+	&:first-child {
+		margin-top: -0.24em;
+	}
+
+	&:last-child {
+		margin-bottom: -0.20em;
+	}
+
+	& + p {
+		margin-top: 0.5rem;
+	}
+}
+
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1.2rem; }
+
+h1, h2, h3, h4 {
+	color: $heading-color;
+}
+h5 {
+	color: $heading-color-alt;
+}
+h6 {
+	color: $text-light;
+}
+
+// a heading followed by another heading should have little to no space above
+h1, h2, h3, h4, h5, h6 {
+	& + h1, & + h2, & + h3, & + h4, & + h5, & + h6 {
+		margin-top: 0.1rem;
+		padding-top: 0.1rem;
+	}
+}
+
+hr {
+	clear: both;
+	margin: $space 0;
+	border: unset;
+	border-top: 1px solid currentColor;
+	border-bottom: 1px solid currentColor;
+	color: $off-white;
+
+	& + p {
+		margin-top: 0;
+	}
+}
+
+ul, ul li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+blockquote {
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	font-size: $font-size-lg;
+}
+
+cite {
+	font-size: $font-size-sm;
+}
+
+code {
+	border-radius: 2px;
+	background: $cloud;
+	padding: 2px;
+	line-height: 1.2;
+	font-size: inherit;
+	color: $charcoal;
+}
+
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.25em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+address {
+	font-style: normal;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		outline: none;
+		color: inherit;
+	}
+}

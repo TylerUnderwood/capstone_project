@@ -1,0 +1,22 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Accordion 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.accordion-header {
+	padding: $space-2;
+	background-color: $primary-light;
+}
+
+.collapsible {
+	opacity: 0;
+	width: 100%;
+	padding: 0;
+	overflow: hidden;
+	transition: all 500ms ease-in-out;
+
+	.collapsible-open > & {
+		opacity: 1;
+	}
+}

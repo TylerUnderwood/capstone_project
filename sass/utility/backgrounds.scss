@@ -1,0 +1,150 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| UTILITY: Backgrounds
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* === BACKGROUND IMAGE === */
+
+.bg-img,
+.background-image {
+	display: block;
+	position: relative;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+
+	// before is reserved for color overlays
+	&::before {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		content: '';
+	}
+
+	// after is reserved for ratios and height
+	&::after {
+		display: block;
+		content: '';
+	}
+}
+
+/* === BACKGROUND OVERLAYS === */
+
+.bg-overlay-lighten::before {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.bg-overlay-darken::before {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bg-overlay-primary::before {
+	background-color: rgba($primary, 0.8);
+}
+
+/* === IMAGE RATIOS === */
+
+.bg-square::after,
+.ratio-1-1::after {
+	padding-top: 100%;
+}
+
+.bg-landscape::after,
+.ratio-4-3::after {
+	padding-top: 75%;
+}
+
+.bg-portrait::after,
+.ratio-3-4::after {
+	padding-top: 133.333333%;
+}
+
+.bg-wide::after,
+.ratio-16-9::after {
+	padding-top: 56.25%;
+}
+
+.bg-tall::after,
+.ratio-9-16::after {
+	padding-top: 177.777777%;
+}
+
+.bg-ultra-wide::after,
+.ratio-21-9::after {
+	padding-top: 42.8571%;
+}
+
+/* === BORDER RADIUS === */
+
+.bg-circle {
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+/* === BACKGROUND ELEMENTS === */
+
+.relative {
+	position: relative;
+}
+
+.bg-elem,
+.background-element {
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+}
+
+/* === BACKGROUND COLORS === */
+
+.bg-white,
+.background-white {
+	background-color: $white;
+}
+
+.bg-off-white,
+.background-off-white {
+	background-color: $off-white;
+}
+
+.bg-gray,
+.background-gray {
+	background-color: $gray;
+}
+
+.bg-off-black,
+.background-off-black {
+	background-color: $off-black;
+}
+
+.bg-dark,
+.background-dark {
+	background-color: $primary-dark;
+}
+
+.bg-primary,
+.background-primary {
+	background-color: $primary;
+}
+
+.bg-light,
+.background-light {
+	background-color: $primary-light;
+}
+
+.bg-accent,
+.background-accent {
+	background-color: $accent;
+}
+
+.bg-alt,
+.background-alt {
+	background-color: $accent-alt;
+}

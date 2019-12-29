@@ -1,0 +1,84 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| UTILITY: Alignment
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.cf,
+.clearfix {
+	&::after {
+		display: block;
+		width: 100%;
+		height: 0;
+		float: none;
+		clear: both;
+		content: '';
+	}
+}
+
+/* ===== ALIGNMENT ===== */
+
+/* align self */
+.center {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.left,
+.float-left {
+	float: left;
+}
+
+.right,
+.float-right {
+	float: right;
+}
+
+// this one must be inside a centered container
+.full,
+.force-full {
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	width: 100vw;
+	max-width: unset;
+}
+
+@include below(tablet) {
+	.mb\: {
+		&center {
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		&left,
+		&float-left {
+			float: left;
+		}
+		&right,
+		&float-right {
+			float: right;
+		}
+	}
+}
+
+@include above(tablet) {
+	.dt\: {
+		&center {
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		&left,
+		&float-left {
+			float: left;
+		}
+		&right,
+		&float-right {
+			float: right;
+		}
+	}
+}

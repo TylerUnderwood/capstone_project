@@ -1,0 +1,199 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| LAYOUT: Flex Layout 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+|
+| Author: Tyler Underwood
+|
+| A flex-column must be a child element of a parent with these rules:
+| display: flex;
+| flex-flow: row wrap;
+| All flex alignment rules can be added to the parents as well.
+|
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* === Flex Helpers === */
+
+.flex {
+	display: flex;
+}
+
+// justify
+.justy-start {
+	justify-content: start;
+}
+.justy-end {
+	justify-content: end;
+}
+.justy-center {
+	justify-content: center;
+}
+.justy-between {
+	justify-content: space-between;
+}
+
+// align
+.items-start {
+	align-items: flex-start;
+}
+.items-end {
+	align-items: flex-end;
+}
+.items-center {
+	align-items: center;
+}
+.items-between {
+	align-items: space-between;
+}
+
+/* === Flex Row === */
+
+.flex-row {
+	display: flex;
+	flex-flow: row wrap;
+
+	&--top {
+		align-items: flex-start;
+	}
+	&--right {
+		justify-content: flex-end;
+	}
+	&--bottom {
+		align-items: flex-end;
+	}
+	&--left {
+		justify-content: flex-start;
+	}
+
+	&--middle {
+		align-items: center;
+	}
+	&--center {
+		justify-content: center;
+	}
+
+	&--between {
+		justify-content: space-between;
+	}
+	&--around {
+		justify-content: space-around;
+	}
+	&--evenly {
+		justify-content: space-evenly;
+	}
+}
+
+/* === Flex Columns === */
+
+.flex-col {
+	display: flex;
+	flex-flow: column wrap;
+
+	&--top {
+		justify-content: flex-start;
+	}
+	&--right {
+		align-items: flex-end;
+	}
+	&--bottom {
+		justify-content: flex-end;
+	}
+	&--left {
+		align-items: flex-start;
+	}
+
+	&--middle {
+		justify-content: center;
+	}
+	&--center {
+		align-items: center;
+	}
+	
+	&--between {
+		align-content: space-between;
+	}
+	&--around {
+		align-content: space-around;
+	}
+	&--evenly {
+		align-content: space-evenly;
+	}
+}
+
+/* === AUTO WRAP === */
+// Automaticly wrap items when they get too small and before they touch
+// Use padding to space this from other elements or put insde an element that has spacing
+
+.auto-wrap {
+	$self: &;
+
+	display: flex;
+	flex-flow: row wrap;
+	margin: -$space / 2;
+
+	&__item {
+		margin: $space / 2;
+	}
+
+	&--sm {
+		margin: -$space / 4;
+
+		#{$self}__item {
+			margin: $space / 4;
+		}
+	}
+
+	&--lg {
+		margin: -$space;
+		
+		#{$self}__item {
+			margin: $space;
+		}
+	}
+}
+
+/* === FILLER === */
+// This is used as a sibling element inside a flex row to fill empty space
+
+.filler {
+	flex: 1 1 auto;
+}
+
+
+
+
+
+/* === Flex Columns === */
+// The downside to flex-column is that you cannot use rem or em to declare the x-gap
+@mixin flex-column($columns, $x-gap, $y-gap) {
+	$gaps:    #{($columns - 1)};
+    $pillars: #{($columns + 1)};
+
+    margin: 0 $x-gap 0 0;
+	width: calc(#{(100% / #{$columns})} - (#{$x-gap} * #{$gaps}) / #{$columns});
+
+	&:nth-child(n+#{$pillars}) {
+		margin-top: $y-gap;
+	}
+
+	&:last-child,
+	&:nth-child(#{$columns}n) {
+		margin-right: 0;
+	}
+}
+
+// DEMO
+.flex-tri-col {
+	@media ( max-width: 480px ) {
+		& + & { margin-top: 2rem; }
+	}
+
+	@media ( min-width: 480px ) and ( max-width: 768px ) {
+		@include flex-column(2, 48px, 48px);
+	}
+
+	@media ( min-width: 768px ) {
+		@include flex-column(3, 64px, 64px);
+	}
+}

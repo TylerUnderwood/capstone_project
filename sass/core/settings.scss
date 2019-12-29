@@ -1,0 +1,249 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| CORE: Settings
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/*
+|–––––––––––––––––––––––––
+| Settings: COLOR
+|–––––––––––––––––––––––––
+*/
+
+/* common */
+$true-red:          #FF0000;
+$true-orange:       #FF8000;
+$true-yellow:       #FFFF00;
+$true-chartreuse:   #80FF00;
+$true-green:        #00FF00;
+$true-jade:         #00FF80;
+$true-cyan:         #00FFFF;
+$true-azure:        #0080FF;
+$true-blue:         #0000FF;
+$true-purple:       #8000FF;
+$true-magenta:      #FF00FF;
+$true-fuchsia:      #FF0080;
+
+/* gray shades */
+$white:             #ffffff;
+$off-white:         #f8f8f8;
+$cloud:             #eeeeee;
+$light-gray:        #c0c0c0;
+$gray:              #808080;
+$dark-gray:         #404040;
+$charcoal:          #333333;
+$off-black:         #202020;
+$black:             #000000;
+
+/* social media colors */
+$facebook:          #3b5998;
+$instagram:         #bc2a8d;
+$linkedin:          #0077b5;
+$periscope:         #d75444;
+$pinterest:         #c8232c;
+$soundcloud:        #FF5401;
+$twitter:           #1da1f2;
+$vimeo:             #1ab7ea;
+$youtube:           #bb0000;
+
+/* site specific */
+$dnd-red:           #e40712;
+$dnd-blue:          #1b9af0;
+
+/* site dynamic */
+
+// Branding
+$primary:       	$charcoal;
+$primary-light:		$dark-gray;
+$primary-dark: 		$off-black;
+
+$accent:            $dnd-red;
+$accent-alt:        $dnd-blue;
+
+// Text
+$text-dark:         $primary-dark;
+$text-light:        $primary;
+$text-white:        $white;
+
+$text-color:        $text-dark;
+
+// Headings
+$heading-color:     $text-color;
+$heading-color-alt: $primary;
+
+$label-color:       $heading-color;
+
+// Links
+$link-color:        $accent;
+$link-hover:        darken($link-color, 16%);
+
+// Buttons
+$button-color:          $white;
+$button-hover-color:    $white;
+
+$button-border:         $link-color;
+$button-hover-border:   $link-hover;
+
+$button-bg:             $link-color;
+$button-hover-bg:       $link-hover;
+
+// Forms
+$form-border:           darken($white, 6%);
+$form-focus-border:     $link-hover;
+
+$form-bg:               darken($white, 2%);
+$form-focus-bg:         darken($white, 1.5%);
+
+
+
+/*
+|–––––––––––––––––––––––––
+| Settings: TYPOGRAPHY
+|–––––––––––––––––––––––––
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i|Grenze|Roboto+Mono:500,600&display=swap');
+
+/* === FONT FAM === */
+
+/* default */
+$default-serif:         Times, serif;
+$default-sans-serif:    Arial, sans-serif;
+
+/* site fonts */
+$grenze: 			'Grenze', $default-serif;
+$roboto: 			'Roboto', $default-sans-serif;
+$roboto-mono: 			'Roboto Mono', $default-serif;
+
+/* dynamic fonts */
+$serif: 			$grenze;
+$sans-serif: 		$roboto;
+$geometric: 		$roboto-mono;
+
+/* site dynamic fonts */
+$heading-font: 		$serif;
+$copy-font: 		$sans-serif;
+$link-font: 		$geometric;
+
+/* === FONT SIZE === */
+
+$font-min: 			16px;
+$font-max: 			20px;
+
+$font-size-xs: 		0.7rem;
+$font-size-sm: 		0.8rem;
+$font-size: 		1.0rem;
+$font-size-lg: 		1.2rem;
+$font-size-xl: 		1.6rem;
+
+$text-max-sm: 		24rem;
+$text-max: 			32rem;
+$text-max-lg: 		36rem;
+
+
+
+/*
+|–––––––––––––––––––––––––
+| Settings: LAYOUT
+|–––––––––––––––––––––––––
+|
+| bp = break point
+|
+| w = width
+| h = height
+|
+| mb = mobile
+| tb = tablet
+| dt = desktop
+|
+*/
+
+/* === RESPONSIVE === */
+
+$mobile: 			480px;
+$tablet: 			768px;
+$desktop: 			1024px;
+
+$full-hd: 			1080px; // HD
+$quad-hd: 			1440px; // 2K
+$ultra-hd: 			2180px; // 4K
+
+/* === MAX WIDTHS === */
+
+$min-width: 		480px;
+$max-width: 		1600px;
+
+$half-min: 			$min-width / 2;
+$half-max: 			$max-width / 2;
+
+$xs-width: 			16rem; // ~ 320px
+$sm-width: 			36rem; // ~ 720px
+$md-width: 			54rem; // ~ 1080px
+$lg-width: 			64rem; // ~ 1280px
+$xl-width: 			80rem; // ~ 1600px
+
+$half-xs: 			$xs-width / 2;
+$half-sm: 			$sm-width / 2;
+$half-md: 			$md-width / 2;
+$half-lg: 			$lg-width / 2;
+$half-xl: 			$xl-width / 2;
+
+/* === DYNAMIC MAX WIDTHS === */
+
+$outer:             $max-width;
+$outer-half:        $outer / 2;
+
+$wrapper:           $md-width;
+$wrapper-half:      $wrapper / 2;
+
+$inner:             $text-max;
+$inner-half:        $inner / 2;
+
+
+
+/* === WHITESPACE === */
+
+$space:             1.6rem;
+
+// Mobile vertical space
+$x-space-min: 		32px;
+// Desktop vertical space
+$x-space-max: 		64px;
+
+// Mobile horizontal space
+$y-space-min: 		64px;
+// Desktop horizontal space
+$y-space-max: 		96px;
+
+$space-1: 			0.4rem; // ~  8px
+$space-2: 			0.8rem; // ~ 16px
+$space-3: 			1.2rem; // ~ 24px
+$space-4: 			1.6rem; // ~ 32px
+$space-5: 			2.0rem; // ~ 40px
+$space-6: 			2.4rem; // ~ 48px
+$space-7: 			2.8rem; // ~ 56px
+$space-8: 			3.2rem; // ~ 64px
+
+$x-space-sm: 		1.6rem;
+$x-space: 			2.4rem;
+$x-space-lg: 		3.2rem;
+
+$y-space-sm:   		3.2rem;
+$y-space: 			4.0rem;
+$y-space-lg:   		4.8rem;
+
+
+
+/*
+|–––––––––––––––––––––––––
+| Settings: SITE VARS
+|–––––––––––––––––––––––––
+*/
+
+/* === BORDER RADIUS === */
+$border-radius: none;
+
+/* === HEADER === */
+$header-pad: 1rem;
+$header-logo-ht: 2.4rem;
+$header-ht: $header-pad * 2 + $header-logo-ht;

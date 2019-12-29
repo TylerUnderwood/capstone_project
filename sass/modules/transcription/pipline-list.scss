@@ -1,0 +1,30 @@
+.pipline-list {
+	display: flex;
+	flex-flow: row wrap;
+
+    & > &__item {
+		display: block;
+	}
+	
+	& > &__item + &__item::before {
+		display: inline-block;
+		vertical-align: baseline;
+		width: 1px;
+		height: 0.7em;
+		background-color: currentColor;
+		margin: 0 1em;
+		content: "";
+	}
+
+	@include below(mobile) {
+		& > &__item {
+			width: 100%;
+			text-align: center;
+			line-height: 1.6;
+		}
+
+		& > &__item + &__item::before {
+			display: none;
+		}
+	}
+}

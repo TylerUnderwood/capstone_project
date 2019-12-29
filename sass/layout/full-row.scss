@@ -1,0 +1,13 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| LAYOUT: Full Row
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.full-row {
+	// so long as there is no background don't add padding to the row
+	&:not([class*="bg-"]):not([class*="background-"]) {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
