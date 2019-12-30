@@ -42,22 +42,22 @@ class Header extends Component {
 						)}
 
 						{ this.props.currentUser.loggedIn ? (
-							<Link className="static-nav__item p-1" to="/login" onClick={() => this.logout()}>LOGOUT</Link>
+							<div className="static-nav__item p-1">
+								<details className="relative">
+									<summary>{this.props.currentUser.username}</summary>
+									<Link 
+										className="put-bottom" 
+										to="/login" onClick={() => this.logout()}>
+										LOGOUT
+									</Link>
+								</details>
+							</div>
 						):(
 							<Link className="static-nav__item p-1" to="/login">LOGIN</Link>
 						)}
 
 					</nav>
 				</div>
-
-				{ this.props.currentUser.loggedIn && (
-					<div className="user wrapper pv-1 flex justy-end put-bottom text-color">
-						<details>
-							<summary>User</summary>
-							<span>{this.props.currentUser.username}</span>
-						</details>
-					</div>
-				)}
 			</header>
 		)
 	}

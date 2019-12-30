@@ -21,33 +21,39 @@ class Login extends Component {
 		this.props.login( this.state.username )
 		
 		document.cookie = `nulyphUser=${ this.state.username }; max-age=60*1000; path=/`
-		this.props.history.push('/')
+		this.props.history.push('/dev')
 	}
 
 	render() {
 		return (
-			<div className="view-login wrapper frame">
-				<form className="login-form" onSubmit={this.login}>
-					<input
-						//required
-						onChange={this.handleTextChange}
-						value={this.state.username}
-						name="username"
-						label="Username"
-						type="text" />
-					<input
-						//required
-						onChange={this.handleTextChange}
-						value={this.state.password}
-						name="password"
-						label="Password"
-						type="password" />
-					<button
-						type="submit"
-						className="btn login-button"
-						variant="contained"
-						color="primary">Login</button>
-				</form>
+			<div className="page-login">
+	
+				<section className="frame gutter">
+					<div className="wrapper mxw-text">
+						<form className="login-form" onSubmit={this.login}>
+							<input
+								//required
+								onChange={this.handleTextChange}
+								value={this.state.username}
+								name="username"
+								label="Username"
+								type="text" />
+							<input
+								//required
+								onChange={this.handleTextChange}
+								value={this.state.password}
+								name="password"
+								label="Password"
+								type="password" />
+							<button
+								type="submit"
+								className="btn login-button"
+								variant="contained"
+								color="primary">Login</button>
+						</form>
+					</div>
+				</section>
+				
 			</div>
 		);
 	}

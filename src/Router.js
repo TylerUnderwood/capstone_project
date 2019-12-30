@@ -5,6 +5,7 @@ import Home from './components/page/Home'
 import Login from './containers/Login'
 import Dev from './components/dev/Dev'
 import Typography from './components/dev/Typography'
+import Inputs from './components/dev/Inputs'
 import Error404 from './components/errors/404'
 
 
@@ -33,6 +34,7 @@ const Router = () => {
 			<Route path="/login" component={Login} />
 			<ProtectedRoute exact path="/dev" component={Dev} />
 			<ProtectedRoute path="/dev/typography" component={Typography} />
+			<ProtectedRoute path="/dev/inputs" component={Inputs} />
 			<Route component={Error404} />
         </Switch>
     );

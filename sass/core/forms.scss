@@ -9,7 +9,20 @@ form {
 	max-width: $text-max;
 }
 
-input:not([type="checkbox"]):not([type="submit"]),
+fieldset,
+input,
+select,
+textarea,
+label,
+button {
+	display: block;
+
+	&:not(:first-child) {
+		margin-top: 1rem;
+	}
+}
+
+input,
 select,
 textarea {
 	display: block;
@@ -39,26 +52,36 @@ textarea {
 	}
 }
 
-textarea {
-	position: relative;
-	height: 4em;
-	height: 12em;
-	resize: vertical;
-	line-height: 1.4;
-	transition: height 300ms ease-out,
-				border 300ms ease-in-out,
-				background-color 300ms ease-in-out;
-
-	&:focus,
-	&:active {
-		height: 12em;
-	}
-}
-
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+}
+
+textarea {
+	height: 12em;
+	resize: vertical;
+	line-height: 1.4;
+}
+
+input[type="checkbox"] {
+	display: inline-block;
+	width: unset;
+	cursor: pointer;
+}
+
+input[type="radio"] {
+	display: inline-block;
+	width: unset;
+	cursor: pointer;
+}
+
+input[type="range"] {
+	cursor: pointer;
+}
+
+label[for] {
+	cursor: pointer;
 }
 
 
@@ -67,9 +90,11 @@ input.focus-underline {
 	border: none;
 	background-color: unset;
 	background-repeat: no-repeat;
-	background-image: linear-gradient(transparent calc(100% - 3px), darken($accent-alt, 8%) 0),
-					  linear-gradient(transparent calc(100% - 3px), darken($white, 2%) 0);
+	background-image: linear-gradient(transparent calc(100% - 3px), $form-focus-border 0),
+					  linear-gradient(transparent calc(100% - 3px), $form-border 0);
 	background-size: 0 100%, 100% 100%;
+	padding-left: 2px;
+	padding-right: 2px;
 	transition: background 300ms ease-out;
 
 	&:focus,

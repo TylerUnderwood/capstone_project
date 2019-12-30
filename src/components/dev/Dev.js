@@ -8,7 +8,10 @@ class Dev extends Component {
 	
 				<section className="frame gutter">
 					<div className="wrapper">
-						<Link to="/dev/typography" className="btn">Typography</Link>
+						<div className="auto-wrap">
+							<Link to="/dev/typography" className="btn auto-wrap__item">Typography</Link>
+							<Link to="/dev/inputs" className="btn auto-wrap__item">Inputs</Link>
+						</div>
 					</div>
 				</section>
 				
