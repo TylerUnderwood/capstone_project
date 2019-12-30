@@ -4,9 +4,9 @@ import { BrowserRouter } from 'react-router-dom'
 import store from './redux/store'
 import './App.scss'
 import Startup from './components/Startup'
-import Header from './containers/Header'
+import Header from './components/Header'
 import Router from './Router'
-import Footer from './containers/Footer'
+import Footer from './components/Footer'
 
 class App extends Component {
 

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { logout } from '../redux/actions'
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
@@ -8,7 +10,7 @@ class Header extends Component {
 
 		if ( confirmation ) {
 			this.props.logout()
-			document.cookie = 'loggedIn=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+			document.cookie = 'nulyphUser=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 		}
 	}
 
@@ -61,4 +63,16 @@ class Header extends Component {
 	}
 }
 
-export default Header
+const mapStateToProps = ( state ) => {
+    return {
+        currentUser: state.currentUser,
+    }
+}
+
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+		logout: () => dispatch( logout() )
+    }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )(Header)

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { login } from '../../redux/actions'
 
 class Login extends Component {
 
@@ -18,7 +20,7 @@ class Login extends Component {
 		
 		this.props.login( this.state.username )
 		
-		document.cookie = `loggedIn=true;max-age=60*1000`
+		document.cookie = `nulyphUser=${ this.state.username }; max-age=60*1000; path=/`
 		this.props.history.push('/')
 	}
 
@@ -51,4 +53,16 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+const mapStateToProps = ( state ) => {
+    return {
+        currentUser: state.currentUser,
+    }
+}
+
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+		login: ( username ) => dispatch( login( username ) )
+    }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )(Login)

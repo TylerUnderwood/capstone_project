@@ -7,10 +7,12 @@ class Startup extends Component {
 
 	componentDidMount() {
 		const cookies = cookie.parse(document.cookie)
-		const isLoggedIn = cookies["loggedIn"] ? true : false
+		// get the username from the cookie
+		const username = cookies["nulyphUser"]
+		const isLoggedIn = username ? true : false
 
 		if ( isLoggedIn ) {
-			this.props.login( 'Cookie Monster' )
+			this.props.login( username )
 		} else {
 			this.props.logout()
 		}
