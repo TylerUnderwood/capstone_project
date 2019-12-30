@@ -13,8 +13,6 @@ p {
 	font-size: $font-size;
 	hyphens: none;
 
-	// Use the first and last child to adjust margin
-	// to compensate for line-height as needed.
 	&:first-child {
 		margin-top: 0;
 	}
@@ -28,8 +26,6 @@ li {
 	line-height: 1.6;
 	font-size: $font-size;
 
-	// Use the first and last child to adjust margin
-	// to compensate for line-height as needed.
 	&:first-child {
 		margin-top: 0;
 	}
@@ -40,19 +36,18 @@ li {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 1em 0 0;
-	line-height: 1.2;
+	margin: 0;
+	padding: 1em 0 0.25em;
+	line-height: 0.75;
 	font-weight: normal;
 	font-family: $heading-font;
 
-	// Use the first and last child to adjust margin
-	// to compensate for line-height as needed.
 	&:first-child {
-		margin-top: -0.24em;
+		padding-top: 0;
 	}
 
 	&:last-child {
-		margin-bottom: -0.20em;
+		padding-bottom: 0;
 	}
 
 	& + p {
@@ -60,12 +55,12 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-h1 { font-size: 3.2rem; }
-h2 { font-size: 2.4rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.2rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1.2rem; }
+h1 { font-size: 4.8rem; }
+h2 { font-size: 3.6rem; }
+h3 { font-size: 2.4rem; }
+h4 { font-size: 1.6rem; }
+h5 { font-size: 1.6rem; }
+h6 { font-size: 1.6rem; }
 
 h1, h2, h3, h4 {
 	color: $heading-color;
@@ -80,8 +75,8 @@ h6 {
 // a heading followed by another heading should have little to no space above
 h1, h2, h3, h4, h5, h6 {
 	& + h1, & + h2, & + h3, & + h4, & + h5, & + h6 {
-		margin-top: 0.1rem;
-		padding-top: 0.1rem;
+		margin-top: 0.5rem;
+		padding-top: 0;
 	}
 }
 
@@ -91,7 +86,7 @@ hr {
 	border: unset;
 	border-top: 1px solid currentColor;
 	border-bottom: 1px solid currentColor;
-	color: $off-white;
+	color: $primary;
 
 	& + p {
 		margin-top: 0;

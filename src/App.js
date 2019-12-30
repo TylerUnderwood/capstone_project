@@ -3,15 +3,18 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import store from './redux/store'
 import './App.scss'
+import Startup from './components/Startup'
 import Header from './containers/Header'
 import Router from './Router'
 import Footer from './containers/Footer'
 
 class App extends Component {
+
 	render() {
 		return (
 			<Provider store={store}>
 				<BrowserRouter>
+					<Startup />
 					<Header />
 					<main id="main" className="viewbox scrollable">
 						<div id="top"></div>
@@ -26,4 +29,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default App

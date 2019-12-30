@@ -27,6 +27,8 @@
 /* dynamic */
 .mxw { max-width: $max-width; }
 
+.mxw-text { max-width: $text-max; }
+
 .mxw-xs { max-width: $xs-width; }
 
 .mxw-sm { max-width: $sm-width; }
@@ -36,11 +38,6 @@
 .mxw-lg { max-width: $lg-width; }
 
 .mxw-xl { max-width: $xl-width; }
-
-/* text */
-[class^="text-max"] { width: 100%; }
-
-.text-max { max-width: $text-max; }
 
 
 /* ===== WIDTHS ===== */

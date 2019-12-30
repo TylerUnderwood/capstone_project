@@ -9,7 +9,7 @@ class Error404 extends Component {
 				<section className="trim gutter">
 					<div className="wrapper">
 						<h3 className="mb">404: Page not found</h3>
-						<Link to="/">Back to the Homepage</Link>
+						<Link to="/" className="btn">Back to the Homepage</Link>
 					</div>
 				</section>
 				

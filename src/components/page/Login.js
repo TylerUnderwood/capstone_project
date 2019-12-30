@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 class Login extends Component {
 
 	state = {
-		username: '',
-		password: '',
+		username: 'admin',
+		password: 'password',
 	}
 
 	handleTextChange = ( event ) => {
@@ -19,7 +19,7 @@ class Login extends Component {
 		this.props.login( this.state.username )
 		
 		document.cookie = `loggedIn=true;max-age=60*1000`
-		this.props.history.push('/home')
+		this.props.history.push('/')
 	}
 
 	render() {

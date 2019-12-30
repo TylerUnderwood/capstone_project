@@ -3,7 +3,9 @@ import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
 import Home from './components/page/Home'
 import Login from './containers/Login'
-import Error404 from './components/errors/Error404'
+import Dev from './components/dev/Dev'
+import Typography from './components/dev/Typography'
+import Error404 from './components/errors/404'
 
 
 const checkAuth = () => {
@@ -28,10 +30,9 @@ const Router = () => {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
-			{/* <Route path="/listings" component={ListingArchive} />
-			<Route path="/listing/:id" component={ListingEntry} />
-            <ProtectedRoute path="/add-listing" component={ListingAdd} /> */}
 			<Route path="/login" component={Login} />
+			<ProtectedRoute exact path="/dev" component={Dev} />
+			<ProtectedRoute path="/dev/typography" component={Typography} />
 			<Route component={Error404} />
         </Switch>
     );

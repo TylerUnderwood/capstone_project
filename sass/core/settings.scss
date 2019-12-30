@@ -62,14 +62,14 @@ $accent-alt:        $dnd-blue;
 
 // Text
 $text-dark:         $primary-dark;
-$text-light:        $primary;
+$text-light:        $gray;
 $text-white:        $white;
 
 $text-color:        $text-dark;
 
 // Headings
-$heading-color:     $text-color;
-$heading-color-alt: $primary;
+$heading-color:     $text-dark;
+$heading-color-alt: $accent;
 
 $label-color:       $heading-color;
 
@@ -136,9 +136,7 @@ $font-size: 		1.0rem;
 $font-size-lg: 		1.2rem;
 $font-size-xl: 		1.6rem;
 
-$text-max-sm: 		24rem;
-$text-max: 			32rem;
-$text-max-lg: 		36rem;
+$text-max: 			36rem;
 
 
 

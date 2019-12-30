@@ -15,18 +15,16 @@
 .heading,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin: 0;
-	padding-top: 2em;
-	line-height: 1.2;
+	padding: 1.5em 0 0.25em;
+	line-height: 0.75;
 	font-weight: normal;
 	font-family: $heading-font;
 
 	&:first-child {
-		margin-top: -0.24em;
 		padding-top: 0;
 	}
 
 	&:last-child {
-		margin-bottom: -0.20em;
 		padding-bottom: 0;
 	}
 
@@ -49,43 +47,26 @@ h2.default {
 
 .h3,
 h3.default {
-	font-size: 1.6rem;
+	font-size: 2.0rem;
 	color: $heading-color;
 }
 
 .h4,
 h4.default {
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 	color: $heading-color;
 }
 
 .h5,
 h5.default {
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 	color: $heading-color-alt;
 }
 
 .h6,
 h6.default {
-	font-size: 1.2rem;
+	font-size: 1.6rem;
 	color: $text-light;
-}
-
-// this just keeps headings together by removing space between themselves
-.hgroup {
-	.h1, .h2, .h3, .h4, .h5, .h6,
-	h1, h2, h3, h4, h5, h6 {
-
-		&:not(:last-child) {
-			margin-bottom: 0;
-			padding-bottom: 0;
-		}
-	
-		&:not(:first-child) {
-			margin-top: 0;
-			padding-top: 0;
-		}
-	}
 }
 
 /* === Anchor Tags === */
@@ -118,24 +99,27 @@ a.default {
 
 /* === List Types === */
 
+$list-top: 0.8em;
+$list-left: 2em;
+
 .ul,
 ul.default {
-	margin: 1.6rem 0 0;
+	margin: $space 0 0;
 	max-width: $text-max;
 	line-height: 1.4;
 	list-style: none;
 
 	&:first-child {
-		margin-top: -0.4em;
+		margin-top: -$list-top / 2;
 	}
 
 	&:last-child {
 		margin-bottom: -0.3em;
 	}
 
-	li {
+	> li {
 		position: relative;
-		margin: 0.8em 0 0;
+		margin: $list-top 0 0;
 		padding: 0 0 0 2em;
 		
 		&:first-child {
@@ -144,21 +128,25 @@ ul.default {
 
 		&:before {
 			position: absolute;
-			top: 0.84em;
+			top: 0.4em;
 			left: 0;
-			transform: translateY(-50%);
-			border-radius: 50%;
-			width: 0.4em;
-			height: 0.4em;
-			background-color: $accent-alt;
+			transform: translate( 0, 50% );
+			width: $list-top / 2;
+			height: $list-top / 2;
+			background-color: $accent;
 			content: '';
 		}
 	}
+
+	& > ul, & > ol {
+		margin-top: $list-top;
+		margin-left: $list-left;
+	}
 }
 
-.ol
+.ol,
 ol.default {
-	margin: 1.6rem 0 0;
+	margin: $space 0 0;
 	max-width: $text-max;
 	padding: 0 0 0 1.2em;
 	line-height: 1.4;
@@ -171,14 +159,19 @@ ol.default {
 		margin-bottom: -0.3em;
 	}
 
-	li {
-		margin: 0.8em 0 0;
-		padding: 0 0 0 0.8em;
+	> li {
+		margin: $list-top 0 0 -0.1em;
+		padding: 0 0 0 1em;
 		list-style: decimal outside;
 
 		&:first-child {
 			margin-top: 0;
 		}
+	}
+
+	& > ul, & > ol {
+		margin-top: $list-top;
+		margin-left: $list-left;
 	}
 }
 
@@ -188,7 +181,7 @@ ol.default {
 blockquote.default {
 	margin: 1.6rem 0 0;
 	max-width: $text-max;
-	border-left: 0.2em solid $accent-alt;
+	border-left: 0.2em solid $accent;
 	padding: 0 0 0 1.2em;
 	font-size: 1.2rem;
 
@@ -202,16 +195,18 @@ blockquote.default {
 	}
 }
 
-.cite
+.cite,
 cite.default {
 	display: block;
-	margin: 0;
-	padding: 0 0.4rem 0 0;
+	margin: 0.2em 0 0;
+	max-width: $text-max;
+	padding: 0;
 	text-align: right;
 	line-height: 1.2rem;
 	font-size: 0.8rem;
 
 	&:before {
+		padding: 0 0.5em 0 0;
 		content: '\2014';
 	}
 }

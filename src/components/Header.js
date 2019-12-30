@@ -8,7 +8,7 @@ class Header extends Component {
 
 		if ( confirmation ) {
 			this.props.logout()
-			document.cookie = "loggedIn="
+			document.cookie = 'loggedIn=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 		}
 	}
 
@@ -19,9 +19,9 @@ class Header extends Component {
 
 					<nav className="static-nav flex justy-start">
 
-						<Link className="static-nav__item p-1" to="/home">Home</Link>
+						<Link className="static-nav__item p-1" to="/">Home</Link>
 
-						<Link className="static-nav__item p-1" to="/home">About</Link>
+						<Link className="static-nav__item p-1" to="/about">About</Link>
 
 					</nav>
 
@@ -36,7 +36,7 @@ class Header extends Component {
 					<nav className="static-nav flex justy-end">
 
 						{ this.props.currentUser.loggedIn && (
-							<Link className="static-nav__item p-1" to="/add-listing">Add</Link>
+							<Link className="static-nav__item p-1" to="/dev">Dev</Link>
 						)}
 
 						{ this.props.currentUser.loggedIn ? (
@@ -46,12 +46,16 @@ class Header extends Component {
 						)}
 
 					</nav>
-					{ this.props.currentUser.loggedIn && (
-						<div className="user">
-							<span>{this.props.currentUser.username}</span>
-						</div>
-					)}
 				</div>
+
+				{ this.props.currentUser.loggedIn && (
+					<div className="user wrapper pv-1 flex justy-end put-bottom text-color">
+						<details>
+							<summary>User</summary>
+							<span>{this.props.currentUser.username}</span>
+						</details>
+					</div>
+				)}
 			</header>
 		)
 	}

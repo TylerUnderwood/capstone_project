@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class Home extends Component {
+class Dev extends Component {
 	render() {
 		return (
-			<div className="page-home">
+			<div className="page-dev">
 	
 				<section className="frame gutter">
 					<div className="wrapper">
-						<Link to="/login" className="btn">Login</Link>
+						<Link to="/dev/typography" className="btn">Typography</Link>
 					</div>
 				</section>
 				
@@ -17,4 +17,4 @@ class Home extends Component {
 	}
 }
 
-export default Home
+export default Dev

@@ -21,9 +21,7 @@ $nav-time: 240ms;
 
 /* ===== LAYOUT ===== */
 
-#mainHeader {
-    position: relative;
-	z-index: 99;
+#header {
 	box-shadow: 0 0 10px 3px $text-color;
 	padding: $header-pad;
 	background-color: $nav-bg;
@@ -48,6 +46,7 @@ $nav-time: 240ms;
 	//
 	margin: 0;
 	height: $header-logo-ht;
+	padding-top: 0;
 	font-size: 2rem;
 	color: $nav-color;
 
