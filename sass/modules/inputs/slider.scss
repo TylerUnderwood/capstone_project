@@ -1,0 +1,164 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| MODULES: Slider 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+
+<div class="slider">
+	<input type="range" min="0" :max="max" class="slider__input" :value="value" @input="onInput">
+	<div class="slider__thumb" :style="rangeThumbPosition"></div>
+</div>
+	
+*/
+
+.slider {
+	position: relative;
+	border-radius: $round;
+	width: 100%;
+	height: 2rem;
+
+	&::before {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		border-radius: inherit;
+		width: 100%;
+		height: 8px;
+		background-color: $charcoal;
+		content: '';
+	}
+	
+	&__input {
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		height: inherit;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: transparent;
+		outline: none;
+	}
+
+	&__thumb {
+		position: absolute;
+		z-index: 0;
+		background-color: currentColor;
+		width: 0;
+		height: inherit;
+		bottom: 0;
+		color: $accent;
+
+		&::before,
+		&::after {
+			position: absolute;
+			bottom: 0;
+			content: '';
+		}
+
+		&::before {
+			left: 0;
+			transform: translateX(-100%);
+			border-top: 4px solid transparent;
+			border-right: 3px solid currentColor;
+			border-bottom: 4px solid currentColor;
+			border-left: 3px solid transparent;
+		}
+		&::after {
+			right: 0;
+			transform: translateX(100%);
+			border-top: 4px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 4px solid currentColor;
+			border-left: 3px solid currentColor;
+		}
+	}
+	
+	// unset default range styles
+	input[type=range] {
+		-webkit-appearance: none;
+		position: absolute;
+		outline: none;
+		border: none;
+		width: 100%;
+		height: inherit;
+		background: transparent;
+		cursor: pointer;
+
+		&:focus {
+			border: none;
+		}
+
+		// -webkit
+		&::-webkit-slider-runnable-track {
+			border-radius: 0;
+			border: none;
+			width: 100%;
+			height: inherit;
+			background: transparent;
+			cursor: pointer;
+		}
+			&:focus::-webkit-slider-runnable-track {
+				background: transparent;
+			}
+
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			position: initial;
+			outline: none;
+			border: none;
+			width: 0;
+			height: 0;
+			background-color: transparent;
+		}
+
+		// -ms
+		&::-ms-track {
+			border: none;
+			width: 100%;
+			height: inherit;
+			background: transparent;
+			color: transparent;
+		}
+
+		&::-ms-fill-lower {
+			background: transparent;
+			border: none;
+		}
+			&:focus::-ms-fill-lower {
+				background: transparent;
+				border: none;
+			}
+
+		&::-ms-fill-upper {
+			background: transparent;
+		}
+			&:focus::-ms-fill-upper {
+				background: transparent;
+			}
+
+		// -moz
+		&::-moz-range-track {
+			border-radius: 0;
+			border: none;
+			width: 100%;
+			height: inherit;
+			background: transparent;
+			cursor: pointer;
+		}
+
+		&::-moz-range-thumb {
+			position: initial;
+			outline: none;
+			border: none;
+			width: 0;
+			height: 0;
+			background-color: transparent;
+			cursor: pointer;
+		}
+
+		&::-moz-focus-outer {
+			border: 0;
+		}
+	}
+}

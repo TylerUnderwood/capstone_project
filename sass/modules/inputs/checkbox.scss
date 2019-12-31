@@ -1,0 +1,25 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| MODULES: Checkbox 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+
+<label class="checkbox" v-for="(option, index) in output.options">
+	<input 
+		type="checkbox" 
+		:id="index" 
+		:name="index" 
+		:checked="option.value" 
+		@input="updateOption(index, $event)">
+	<div class="checkbox__box">
+		<svg class="icon-checkmark" width="20" height="20" viewBox="0 0 20 20">
+			<polyline class="check-line" points="4 11 8 15 16 6"></polyline>
+		</svg>
+	</div>
+	<span class="checkbox__label" :for="index">{{ option.label }}</span>
+</label>
+
+*/
+
+.checkbox {
+
+}

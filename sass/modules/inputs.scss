@@ -1,0 +1,29 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| MODULES: Inputs 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+@import "inputs/checkbox";
+@import "inputs/toggle";
+@import "inputs/select";
+@import "inputs/slider";
+
+input.focus-underline {
+	border: none;
+	background-color: unset;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(transparent calc(100% - 3px), $form-focus-border 0),
+					  linear-gradient(transparent calc(100% - 3px), $form-border 0);
+	background-size: 0 100%, 100% 100%;
+	padding-left: 2px;
+	padding-right: 2px;
+	transition: background 300ms ease-out;
+
+	&:focus,
+	&:active {
+		border: none;
+		background-color: unset;
+		background-size: 100% 100%, 100% 100%;
+	}
+}

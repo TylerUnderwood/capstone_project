@@ -32,24 +32,22 @@ class Login extends Component {
 					<div className="wrapper mxw-text">
 						<form className="login-form" onSubmit={this.login}>
 							<input
-								//required
+								required
 								onChange={this.handleTextChange}
 								value={this.state.username}
 								name="username"
 								label="Username"
 								type="text" />
+							<br/>
 							<input
-								//required
+								required
 								onChange={this.handleTextChange}
 								value={this.state.password}
 								name="password"
 								label="Password"
 								type="password" />
-							<button
-								type="submit"
-								className="btn login-button"
-								variant="contained"
-								color="primary">Login</button>
+							<br/>
+							<button type="submit">Login</button>
 						</form>
 					</div>
 				</section>

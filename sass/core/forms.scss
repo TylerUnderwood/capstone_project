@@ -4,34 +4,42 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 
+br,
+.break {
+	display: block;
+	margin: 1rem 100% 0 0;
+	content: '';
+}
+
 form {
 	display: block;
 	max-width: $text-max;
 }
 
-fieldset,
+label {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+label[for] {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+
 input,
 select,
 textarea,
-label,
-button {
-	display: block;
-
-	&:not(:first-child) {
-		margin-top: 1rem;
-	}
-}
-
-input,
-select,
-textarea {
+fieldset,
+.input,
+.textarea {
 	display: block;
 	width: 100%;
-	box-shadow: none;
-	border: none;
 	outline: none;
+	box-shadow: none;
 	border: 2px solid $form-border;
-	border-radius: $border-radius;
+	border-radius: $round;
 	background-color: $form-bg;
 	padding: 0.5em 0.8em;
 	line-height: 1;
@@ -41,7 +49,7 @@ textarea {
 				background-color 300ms ease-in-out;
 
 	&::placeholder {
-		opacity: 0.8;
+		opacity: 0.3;
 		color: inherit;
 	}
 
@@ -50,6 +58,19 @@ textarea {
 		border-color: $form-focus-border;
 		background-color: $form-focus-bg;
 	}
+}
+
+input[readonly]
+fieldset {
+	&:focus,
+	&:active {
+		border-color: $form-border;
+		background-color: $form-bg;
+	}
+}
+
+legend {
+	padding: 0.1em 0.3em;
 }
 
 select {
@@ -62,6 +83,25 @@ textarea {
 	height: 12em;
 	resize: vertical;
 	line-height: 1.4;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+	
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+	}
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+	}
+}
+
+input[type="color"] {
+	height: 2.2em;
+	padding: 0.1em;
+	cursor: pointer;
 }
 
 input[type="checkbox"] {
@@ -78,29 +118,4 @@ input[type="radio"] {
 
 input[type="range"] {
 	cursor: pointer;
-}
-
-label[for] {
-	cursor: pointer;
-}
-
-
-
-input.focus-underline {
-	border: none;
-	background-color: unset;
-	background-repeat: no-repeat;
-	background-image: linear-gradient(transparent calc(100% - 3px), $form-focus-border 0),
-					  linear-gradient(transparent calc(100% - 3px), $form-border 0);
-	background-size: 0 100%, 100% 100%;
-	padding-left: 2px;
-	padding-right: 2px;
-	transition: background 300ms ease-out;
-
-	&:focus,
-	&:active {
-		border: none;
-		background-color: unset;
-		background-size: 100% 100%, 100% 100%;
-	}
 }
