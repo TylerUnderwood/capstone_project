@@ -2,9 +2,25 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 | MODULES: Checkbox 
 |––––––––––––––––––––––––––––––––––––––––––––––––––
+
+<label class="checkbox" v-for="(option, index) in output.options">
+	<input 
+		type="checkbox" 
+		:id="index" 
+		:name="index" 
+		:checked="option.value" 
+		@input="updateOption(index, $event)">
+	<div class="checkbox__box">
+		<svg class="icon-checkmark" width="20" height="20" viewBox="0 0 20 20">
+			<polyline class="check-line" points="4 11 8 15 16 6"></polyline>
+		</svg>
+	</div>
+	<span class="checkbox__label" :for="index">{{ option.label }}</span>
+</label>
+
 */
 
-.checkbox {
+.radio {
 	display: flex;
 	align-items: center;
 
@@ -20,23 +36,19 @@
 	}
 
 	&__box {
-		display: flex;
-		align-items: center;
 		position: relative;
 		flex-shrink: 0;
 		width: $checkbox-size;
 		height: $checkbox-size;
-		border: 2px solid $text-color;
+		border: 1px solid $text-color;
 		border-radius: $round;
-		background-color: $form-border;
-		padding: 1px;
+		background-color: $off-white;
 		transition: all 0.3s ease 200ms;
 	}
 
 	&__label {
-		padding-left: 0.8rem;
-		font-family: $link-font;
-		font-size: 0.8rem;
+		padding-left: 1rem;
+		font-size: 1em;
 		text-transform: uppercase;
 		white-space: nowrap;
 		cursor: pointer;
@@ -47,14 +59,16 @@
 	}
 	
 	.icon-checkmark {
-		position: relative;
-		width: 100%;
-		height: inherit;
+		position: absolute;
+		top: 0;
+		left: 2px;
 		fill: transparent;
+		width: calc(100% - 4px);
+		height: inherit;
 
 		.check-line {
 			fill: none;
-			stroke: $text-color;
+			stroke: $off-white;
 			stroke-width: 3;
 			stroke-linecap: round;
 			stroke-linejoin: round;
@@ -65,10 +79,12 @@
 	}
 	
 	input[type=checkbox]:checked + &__box {
-		background-color: $form-focus-border;
+		background-color: $text-color;
 		transition: background-color 200ms ease;
 
 		.icon-checkmark {
+			fill: $off-white;
+
 			.check-line {
 				stroke-dashoffset: 0;
 				transition: all 200ms ease 200ms;

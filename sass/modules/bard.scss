@@ -18,7 +18,7 @@ $half-bard-outer: $wrapper-half;
 	max-width: $bard-outer;
 
 	.bard-block {
-		margin: $x-space-sm auto 0;
+		margin: $space auto 0;
 		max-width: $bard-inner;
 		
 		&:first-child {
@@ -40,7 +40,7 @@ $half-bard-outer: $wrapper-half;
 	}
 
 	.blockquote {
-		padding: $x-space-sm 0;
+		padding: $space 0;
 	}
 
 	h2 {
@@ -79,7 +79,7 @@ $half-bard-outer: $wrapper-half;
     }
     
     figure {
-        margin: $x-space-sm auto 0;
+        margin: $space auto 0;
         
         &:first-child {
             margin-top: 0;
@@ -107,8 +107,8 @@ $half-bard-outer: $wrapper-half;
     /* === Alignment === */
 	.align-full,
 	.align-wide {
-		margin-top: $x-space-sm;
-		margin-bottom: $x-space-sm;
+		margin-top: $space;
+		margin-bottom: $space;
 	}
 
 	.align-left,
@@ -153,12 +153,12 @@ $half-bard-outer: $wrapper-half;
 
 	.align-left {
 		float: left;
-        margin-right: $x-space-sm;
+        margin-right: $space;
 	}
 
 	.align-right {
         float: right;
-		margin-left: $x-space-sm;
+		margin-left: $space;
 	}
 
 	@include below(tablet) {

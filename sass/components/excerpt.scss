@@ -8,11 +8,11 @@ article.excerpt {
 	display: flex;
 
 	& + & {
-		margin-top: $x-space;
+		margin-top: $space;
 	}
 
 	&:last-of-type {
-		margin-bottom: $x-space;
+		margin-bottom: $space;
 	}
 
 	.post-intro {

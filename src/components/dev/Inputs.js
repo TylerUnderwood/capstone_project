@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Checkbox from '../inputs/checkbox'
 
 class Inputs extends Component {
 
@@ -22,10 +23,12 @@ class Inputs extends Component {
 		checkbox: '',
 		radio: '',
 		range: '',
+
+		checked: true,
 	}
 
 	showForm = ( ) => {
-		alert(JSON.stringify(this.state))
+		alert( JSON.stringify(this.state) )
 	}
 
 	handleTextChange = ( event ) => {
@@ -37,9 +40,21 @@ class Inputs extends Component {
 	render() {
 		return (
 			<div className="page-inputs">
+				
+				<section className="frame gutter">
+					<div className="inner">
+						<form>
+							<Checkbox name="hello" checked={this.state.checked} />
+							<br />
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+				</section>
+
+				<hr/>
 	
 				<section className="frame gutter">
-					<div className="wrapper mxw-text">
+					<div className="inner">
 						<form className="login-form" onSubmit={this.showForm}>
 							<input 
 								onChange={this.handleTextChange}
@@ -96,7 +111,7 @@ class Inputs extends Component {
 								<option value="option4">Option 4</option>
 							</select>
 							<br/>
-							<label for="checkbox">
+							<label htmlFor="checkbox">
 								<input
 									id="checkbox"
 									name="checkbox"
@@ -107,7 +122,7 @@ class Inputs extends Component {
 							<br/>
 							<fieldset>
 								<legend>Radio</legend>
-								<label for="radio1">
+								<label htmlFor="radio1">
 									<input
 										id="radio1"
 										name="radio"
@@ -116,7 +131,7 @@ class Inputs extends Component {
 									<span className="ml-2">Radio 1</span>
 								</label>
 								<br/>
-								<label for="radio2">
+								<label htmlFor="radio2">
 									<input
 										id="radio2"
 										name="radio"
@@ -125,7 +140,7 @@ class Inputs extends Component {
 									<span className="ml-2">Radio 2</span>
 								</label>
 								<br/>
-								<label for="radio3">
+								<label htmlFor="radio3">
 									<input
 										id="radio3"
 										name="radio"
@@ -148,7 +163,7 @@ class Inputs extends Component {
 				<hr/>
 				
 				<section className="frame gutter">
-					<div className="wrapper mxw-text">
+					<div className="inner">
 						<form>
 							<input
 								placeholder="file"
@@ -170,7 +185,7 @@ class Inputs extends Component {
 				<hr/>
 				
 				<section className="frame gutter">
-					<div className="wrapper mxw-text">
+					<div className="inner">
 						<form>
 							<input
 								placeholder="datetime local"
@@ -210,7 +225,7 @@ class Inputs extends Component {
 				<hr/>
 
 				<section className="frame gutter">
-					<div className="wrapper mxw-text">
+					<div className="inner">
 						<textarea></textarea>
 						<br/>
 						<input

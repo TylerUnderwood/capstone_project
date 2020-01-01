@@ -60,7 +60,7 @@ fieldset,
 	}
 }
 
-input[readonly]
+input[readonly],
 fieldset {
 	&:focus,
 	&:active {

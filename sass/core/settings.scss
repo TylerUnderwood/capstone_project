@@ -53,29 +53,29 @@ $dnd-blue:          #1b9af0;
 /* site dynamic */
 
 // Branding
-$primary:       	$charcoal;
-$primary-light:		$dark-gray;
-$primary-dark: 		$off-black;
+$primary:               $charcoal;
+$primary-light:         $dark-gray;
+$primary-dark:          $off-black;
 
-$accent:            $dnd-red;
-$accent-alt:        $dnd-blue;
+$accent:                $dnd-red;
+$accent-alt:            $dnd-blue;
 
 // Text
-$text-dark:         $primary-dark;
-$text-light:        $gray;
-$text-white:        $white;
+$text-dark:             $primary-dark;
+$text-light:            $gray;
+$text-white:            $white;
 
-$text-color:        $text-dark;
+$text-color:            $text-dark;
+
+$label-color:           $text-light;
 
 // Headings
-$heading-color:     $text-dark;
-$heading-color-alt: $accent;
-
-$label-color:       $heading-color;
+$heading-color:         $text-dark;
+$heading-color-alt:     $accent;
 
 // Links
-$link-color:        $accent;
-$link-hover:        darken($link-color, 16%);
+$link-color:            $accent;
+$link-hover:            darken($link-color, 16%);
 
 // Buttons
 $button-color:          $white;
@@ -111,32 +111,32 @@ $default-serif:         Times, serif;
 $default-sans-serif:    Arial, sans-serif;
 
 /* site fonts */
-$grenze: 			'Grenze', $default-serif;
-$roboto: 			'Roboto', $default-sans-serif;
-$roboto-mono: 			'Roboto Mono', $default-serif;
+$grenze:            'Grenze', $default-serif;
+$roboto:            'Roboto', $default-sans-serif;
+$roboto-mono:       'Roboto Mono', $default-serif;
 
 /* dynamic fonts */
-$serif: 			$grenze;
-$sans-serif: 		$roboto;
-$geometric: 		$roboto-mono;
+$serif:             $grenze;
+$sans-serif:        $roboto;
+$geometric:         $roboto-mono;
 
 /* site dynamic fonts */
-$heading-font: 		$serif;
-$copy-font: 		$sans-serif;
-$link-font: 		$geometric;
+$heading-font:      $serif;
+$copy-font:         $sans-serif;
+$link-font:         $geometric;
 
 /* === FONT SIZE === */
 
-$font-min: 			16px;
-$font-max: 			20px;
+$font-min:          16px;
+$font-max:          20px;
 
-$font-size-xs: 		0.7rem;
-$font-size-sm: 		0.8rem;
-$font-size: 		1.0rem;
-$font-size-lg: 		1.2rem;
-$font-size-xl: 		1.6rem;
+$font-size-xs:      0.7rem;
+$font-size-sm:      0.8rem;
+$font-size:         1.0rem;
+$font-size-lg:      1.2rem;
+$font-size-xl:      1.6rem;
 
-$text-max: 			36rem;
+$text-max:          36rem;
 
 
 
@@ -158,33 +158,33 @@ $text-max: 			36rem;
 
 /* === RESPONSIVE === */
 
-$mobile: 			480px;
-$tablet: 			768px;
-$desktop: 			1024px;
+$mobile:            480px;
+$tablet:            768px;
+$desktop:           1024px;
 
-$full-hd: 			1080px; // HD
-$quad-hd: 			1440px; // 2K
-$ultra-hd: 			2180px; // 4K
+$full-hd:           1080px; // HD
+$quad-hd:           1440px; // 2K
+$ultra-hd:          2180px; // 4K
 
 /* === MAX WIDTHS === */
 
-$min-width: 		480px;
-$max-width: 		1600px;
+$min-width:         480px;
+$max-width:         1600px;
 
-$half-min: 			$min-width / 2;
-$half-max: 			$max-width / 2;
+$half-min:          $min-width / 2;
+$half-max:          $max-width / 2;
 
-$xs-width: 			16rem; // ~ 320px
-$sm-width: 			36rem; // ~ 720px
-$md-width: 			54rem; // ~ 1080px
-$lg-width: 			64rem; // ~ 1280px
-$xl-width: 			80rem; // ~ 1600px
+$xs-width:          16rem; // ~ 320px
+$sm-width:          36rem; // ~ 720px
+$md-width:          54rem; // ~ 1080px
+$lg-width:          64rem; // ~ 1280px
+$xl-width:          80rem; // ~ 1600px
 
-$half-xs: 			$xs-width / 2;
-$half-sm: 			$sm-width / 2;
-$half-md: 			$md-width / 2;
-$half-lg: 			$lg-width / 2;
-$half-xl: 			$xl-width / 2;
+$half-xs:           $xs-width / 2;
+$half-sm:           $sm-width / 2;
+$half-md:           $md-width / 2;
+$half-lg:           $lg-width / 2;
+$half-xl:           $xl-width / 2;
 
 /* === DYNAMIC MAX WIDTHS === */
 
@@ -201,34 +201,26 @@ $inner-half:        $inner / 2;
 
 /* === WHITESPACE === */
 
-$space:             1.6rem;
-
 // Mobile vertical space
-$x-space-min: 		32px;
+$x-space-min:       32px;
 // Desktop vertical space
-$x-space-max: 		64px;
+$x-space-max:       64px;
 
 // Mobile horizontal space
-$y-space-min: 		64px;
+$y-space-min:       64px;
 // Desktop horizontal space
-$y-space-max: 		96px;
+$y-space-max:       96px;
 
-$space-1: 			0.4rem; // ~  8px
-$space-2: 			0.8rem; // ~ 16px
-$space-3: 			1.2rem; // ~ 24px
-$space-4: 			1.6rem; // ~ 32px
-$space-5: 			2.0rem; // ~ 40px
-$space-6: 			2.4rem; // ~ 48px
-$space-7: 			2.8rem; // ~ 56px
-$space-8: 			3.2rem; // ~ 64px
+$space:             1.6rem;
 
-$x-space-sm: 		1.6rem;
-$x-space: 			2.4rem;
-$x-space-lg: 		3.2rem;
-
-$y-space-sm:   		3.2rem;
-$y-space: 			4.0rem;
-$y-space-lg:   		4.8rem;
+$space-1:           0.4rem; // ~  8px
+$space-2:           0.8rem; // ~ 16px
+$space-3:           1.2rem; // ~ 24px
+$space-4:           1.6rem; // ~ 32px
+$space-5:           2.0rem; // ~ 40px
+$space-6:           2.4rem; // ~ 48px
+$space-7:           2.8rem; // ~ 56px
+$space-8:           3.2rem; // ~ 64px
 
 
 
@@ -239,9 +231,9 @@ $y-space-lg:   		4.8rem;
 */
 
 /* === BORDER RADIUS === */
-$round: 1px;
+$round:             1px;
 
 /* === HEADER === */
-$header-pad: 1rem;
-$header-logo-ht: 2.4rem;
-$header-ht: $header-pad * 2 + $header-logo-ht;
+$header-pad:        1rem;
+$header-logo-ht:    2.4rem;
+$header-ht:         $header-pad * 2 + $header-logo-ht;

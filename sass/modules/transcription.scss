@@ -110,35 +110,31 @@ ul.default {
 	list-style: none;
 
 	&:first-child {
-		margin-top: -$list-top / 2;
-	}
-
-	&:last-child {
-		margin-bottom: -0.3em;
+		margin-top: 0;
 	}
 
 	> li {
 		position: relative;
 		margin: $list-top 0 0;
-		padding: 0 0 0 2em;
-		
+		padding: 0 0 0 $list-left;
+
 		&:first-child {
 			margin-top: 0;
 		}
 
 		&:before {
 			position: absolute;
-			top: 0.4em;
+			top: 0.6em;
 			left: 0;
-			transform: translate( 0, 50% );
-			width: $list-top / 2;
-			height: $list-top / 2;
+			width: 0.4em;
+			height: 0.4em;
 			background-color: $accent;
 			content: '';
 		}
 	}
 
-	& > ul, & > ol {
+	& > ul, 
+	& > ol {
 		margin-top: $list-top;
 		margin-left: $list-left;
 	}
@@ -148,28 +144,26 @@ ul.default {
 ol.default {
 	margin: $space 0 0;
 	max-width: $text-max;
-	padding: 0 0 0 1.2em;
+	padding: 0;
 	line-height: 1.4;
-	list-style: none;
-	
+	list-style: decimal outside;
+
 	&:first-child {
-		margin-top: -0.4em;
-	}
-	&:last-child {
-		margin-bottom: -0.3em;
+		margin-top: 0;
 	}
 
 	> li {
-		margin: $list-top 0 0 -0.1em;
-		padding: 0 0 0 1em;
-		list-style: decimal outside;
-
+		margin: $list-top 0 0 #{$list-left / 2 + 0.1em};
+		padding: 0 0 0 #{$list-left / 2 - 0.1em};
+		list-style: inherit;
+	
 		&:first-child {
 			margin-top: 0;
 		}
 	}
 
-	& > ul, & > ol {
+	& > ul, 
+	& > ol {
 		margin-top: $list-top;
 		margin-left: $list-left;
 	}
