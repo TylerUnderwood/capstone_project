@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { login, logout } from '../redux/actions'
 import cookie from 'cookie'
 
+
 class Startup extends Component {
 
 	componentDidMount() {
@@ -33,7 +34,7 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
     return {
-		login: ( user ) => dispatch( login( user ) ),
+		login: ( username ) => dispatch( login( username ) ),
 		logout: () => dispatch( logout() )
     }
 }

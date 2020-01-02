@@ -19,8 +19,12 @@ class Login extends Component {
 		event.preventDefault()
 		
 		this.props.login( this.state.username )
+
+		let now = new Date(),
+            milliSeconds = now - 0 + 30 * 24 * 3600 * 1000,
+            expiryDate = new Date(milliSeconds)
 		
-		document.cookie = `nulyphUser=${ this.state.username }; max-age=60*1000; path=/`
+		document.cookie = `nulyphUser=${ this.state.username }; expires=${ expiryDate.toGMTString() }; path=/`
 		this.props.history.push('/dev')
 	}
 
