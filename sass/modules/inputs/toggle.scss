@@ -2,59 +2,38 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 | MODULES: Toggle 
 |––––––––––––––––––––––––––––––––––––––––––––––––––
-
-<label class="toggle">
-	<input type="checkbox" class="checkbox" :checked="value" @input="toggle">
-	<div class="toggle__switch"></div>
-	<span class="toggle__label" v-show="value">Hue</span>
-	<span class="toggle__label" v-show="!value">Hsl</span>
-</label>
-	
 */
 
 .toggle {
 	display: inline-flex;
 	align-items: center;
+	font-size: 24px;
 	cursor: pointer;
 
-	.checkbox {
-		display: none;
-	}
-
-	&__switch {
-		margin-right: 0.8rem;
-	}
-
-	&__label {
-		animation: fadein 300ms forwards;
-	}
-
-	@keyframes fadein {
-		from { opacity: 0; }
-		to   { opacity: 1; }
+	input[type=checkbox] {
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
 	}
 
 	&__switch {
 		position: relative;
 		display: inline-flex;
-		border-radius: 5px;
-		width: 4rem;
-		height: 2rem;
-		background-color: #1f2020;
-		padding: 4px;
+		border-radius: 9999px;
+		width: 2em;
+		height: 1em;
+		border: 3px solid $primary;
+		background-color: $primary;
 		
 		&::after {
 			position: relative;
 			left: 0%;
 			transform: translateX(0%);
-	
-			border-radius: 3px;
-			width: 1.6rem;
-			background-color: #35C051;
-	
+			width: 18px;
+			border-radius: 9999px;
+			background-color: $accent;
 			transition: left 300ms ease-in-out,
 						transform 300ms ease-in-out;
-	
 			content: '';
 		}
 	
@@ -63,5 +42,62 @@
 			transform: translateX(-100%);
 		}
 	}
-}
 
+	& > &__label {
+		margin-left: 0.6rem;
+	}
+
+	&__label {
+		white-space: nowrap;
+		text-transform: uppercase;
+		font-family: $link-font;
+		font-size: 0.8rem;
+	}
+
+	&__text {
+		animation: fadein 300ms forwards;
+	}
+
+	@keyframes fadein {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+
+	$self: &;
+
+	@include between( mobile, tablet ) {
+		font-size: 20px;
+
+		#{$self}__switch {
+			border-width: 2px;
+
+			&::after {
+				width: 16px;
+			}
+		}
+	}
+
+	@include below( mobile ) {
+		font-size: 16px;
+
+		#{$self}__switch {
+			border-width: 2px;
+
+			&::after {
+				width: 12px;
+			}
+		}
+	}
+
+	&--small {
+		font-size: 16px;
+
+		#{$self}__switch {
+			border-width: 2px;
+
+			&::after {
+				width: 12px;
+			}
+		}
+	}
+}

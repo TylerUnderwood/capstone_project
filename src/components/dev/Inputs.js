@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import Checkbox from '../inputs/checkbox'
+import Checkbox from '../inputs/Checkbox'
+import Slider from '../inputs/Slider'
+import Toggle from '../inputs/Toggle'
 
 class Inputs extends Component {
 
@@ -44,7 +46,17 @@ class Inputs extends Component {
 				<section className="frame gutter">
 					<div className="inner">
 						<form>
-							<Checkbox name="hello" checked={this.state.checked} />
+							<Checkbox name="Coolness" checked={this.state.checked} />
+							<br />
+							<Checkbox name="Awesome" checked={this.state.checked} />
+							<br />
+							<Slider min="-100" max="100" value="0" />
+							<br />
+							<Toggle on="on" off="off" checked={this.state.checked} />
+							<br />
+							<Toggle on="on" off="off" checked={this.state.checked} />
+							<br />
+							<Toggle on="on" off="off" checked={this.state.checked} />
 							<br />
 							<button type="submit">Submit</button>
 						</form>
