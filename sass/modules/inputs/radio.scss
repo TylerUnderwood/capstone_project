@@ -1,94 +1,67 @@
 /*
 |––––––––––––––––––––––––––––––––––––––––––––––––––
-| MODULES: Checkbox 
+| MODULES: Radio 
 |––––––––––––––––––––––––––––––––––––––––––––––––––
-
-<label class="checkbox" v-for="(option, index) in output.options">
-	<input 
-		type="checkbox" 
-		:id="index" 
-		:name="index" 
-		:checked="option.value" 
-		@input="updateOption(index, $event)">
-	<div class="checkbox__box">
-		<svg class="icon-checkmark" width="20" height="20" viewBox="0 0 20 20">
-			<polyline class="check-line" points="4 11 8 15 16 6"></polyline>
-		</svg>
-	</div>
-	<span class="checkbox__label" :for="index">{{ option.label }}</span>
-</label>
-
 */
 
 .radio {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
+	font-size: 24px;
+	cursor: pointer;
 
-	$checkbox-size: 1.2rem;
-
-	input[type=checkbox] {
+	input[type=radio] {
 		position: absolute;
-		z-index: 99;
-		width: $checkbox-size;
-		height: $checkbox-size;
+		z-index: -1;
 		opacity: 0;
-		cursor: pointer;
 	}
 
 	&__box {
+		display: flex;
 		position: relative;
 		flex-shrink: 0;
-		width: $checkbox-size;
-		height: $checkbox-size;
-		border: 1px solid $text-color;
+		width: 1em;
+		height: 1em;
 		border-radius: $round;
-		background-color: $off-white;
-		transition: all 0.3s ease 200ms;
+		border: 2px solid $text-color;
+		background-color: $form-border;
+		padding: 2px;
+
+		&::before {
+			flex: 1;
+			transform: scale(0);
+			background-color: $form-focus-border;
+			content: '';
+			transition: transform 200ms ease;
+		}
+	
+		input[type=radio]:checked + &::before {
+			transform: scale(1);
+		}
+	}
+
+	& > &__label {
+		margin-left: 0.6rem;
 	}
 
 	&__label {
-		padding-left: 1rem;
-		font-size: 1em;
-		text-transform: uppercase;
 		white-space: nowrap;
-		cursor: pointer;
-
-		span {
-			text-transform: lowercase;
-		}
+		text-transform: uppercase;
+		font-family: $link-font;
+		font-size: 0.8rem;
 	}
-	
-	.icon-checkmark {
-		position: absolute;
-		top: 0;
-		left: 2px;
-		fill: transparent;
-		width: calc(100% - 4px);
-		height: inherit;
 
-		.check-line {
-			fill: none;
-			stroke: $off-white;
-			stroke-width: 3;
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-dasharray: 18px;
-			stroke-dashoffset: 18px;
-			transition: all 0.3s ease;
-		}
+	$self: &;
+
+	@include between( mobile, tablet ) {
+		font-size: 20px;
 	}
-	
-	input[type=checkbox]:checked + &__box {
-		background-color: $text-color;
-		transition: background-color 200ms ease;
 
-		.icon-checkmark {
-			fill: $off-white;
+	@include below( mobile ) {
+		font-size: 16px;
 
-			.check-line {
-				stroke-dashoffset: 0;
-				transition: all 200ms ease 200ms;
-			}
+		#{$self}__box {
+			border-width: 1px;
 		}
 	}
 }

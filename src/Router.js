@@ -11,7 +11,7 @@ import Error404 from './components/errors/404'
 
 const checkAuth = () => {
 	const cookies = cookie.parse(document.cookie)
-	return cookies["nulyphUser"] ? true : false
+	return cookies["NULYPH_USER"] ? true : false
 }
 
 

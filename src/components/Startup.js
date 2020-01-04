@@ -9,7 +9,7 @@ class Startup extends Component {
 	componentDidMount() {
 		const cookies = cookie.parse(document.cookie)
 		// get the username from the cookie
-		const username = cookies["nulyphUser"]
+		const username = cookies["NULYPH_USER"]
 		const isLoggedIn = username ? true : false
 
 		if ( isLoggedIn ) {

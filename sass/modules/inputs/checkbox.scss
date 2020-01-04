@@ -28,6 +28,34 @@
 		background-color: $form-border;
 		padding: 1px;
 		transition: background-color 200ms ease 200ms;
+
+		.icon-checkmark {
+			position: relative;
+			width: 100%;
+			height: inherit;
+			fill: transparent;
+	
+			.check-line {
+				fill: none;
+				stroke: $text-color;
+				stroke-width: 3;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+				stroke-dasharray: 18px;
+				stroke-dashoffset: 18px;
+				transition: stroke-dashoffset 200ms ease;
+			}
+		}
+	
+		input[type=checkbox]:checked + & {
+			background-color: $form-focus-border;
+			transition: background-color 200ms ease;
+
+			.icon-checkmark .check-line {
+				stroke-dashoffset: 0;
+				transition: stroke-dashoffset 200ms ease 200ms;
+			}
+		}
 	}
 
 	& > &__label {
@@ -39,36 +67,6 @@
 		text-transform: uppercase;
 		font-family: $link-font;
 		font-size: 0.8rem;
-	}
-	
-	.icon-checkmark {
-		position: relative;
-		width: 100%;
-		height: inherit;
-		fill: transparent;
-
-		.check-line {
-			fill: none;
-			stroke: $text-color;
-			stroke-width: 3;
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-dasharray: 18px;
-			stroke-dashoffset: 18px;
-			transition: stroke-dashoffset 200ms ease;
-		}
-	}
-	
-	input[type=checkbox]:checked + &__box {
-		background-color: $form-focus-border;
-		transition: background-color 200ms ease;
-
-		.icon-checkmark {
-			.check-line {
-				stroke-dashoffset: 0;
-				transition: stroke-dashoffset 200ms ease 200ms;
-			}
-		}
 	}
 
 	$self: &;

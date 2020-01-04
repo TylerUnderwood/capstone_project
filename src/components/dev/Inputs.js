@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Checkbox from '../inputs/Checkbox'
+import Radio from '../inputs/Radio'
 import Slider from '../inputs/Slider'
 import Toggle from '../inputs/Toggle'
 
@@ -29,14 +30,15 @@ class Inputs extends Component {
 		checked: true,
 	}
 
-	showForm = ( ) => {
-		alert( JSON.stringify(this.state) )
-	}
-
 	handleTextChange = ( event ) => {
 		const state = { ...this.state }
 		state[event.target.name] = event.target.value
 		this.setState(state)
+	}
+
+	showForm = ( event ) => {
+		console.log( event.target )
+		alert( JSON.stringify( this.state, null, 4 ) )
 	}
 
 	render() {
@@ -45,11 +47,20 @@ class Inputs extends Component {
 				
 				<section className="frame gutter">
 					<div className="inner">
-						<form>
+						<form onSubmit={this.showForm}>
 							<Checkbox name="Coolness" checked={this.state.checked} />
 							<br />
 							<Checkbox name="Awesome" checked={this.state.checked} />
 							<br />
+							<fieldset>
+								<legend>Radio</legend>
+								<Radio name="reactRadio" id="reactRadio1" label="Radio 1" />
+								<br/>
+								<Radio name="reactRadio" id="reactRadio2" label="Radio 2" />
+								<br/>
+								<Radio name="reactRadio" id="reactRadio3" label="Radio 3" />
+							</fieldset>
+							<br/>
 							<Slider min="-100" max="100" value="0" />
 							<br />
 							<Toggle on="on" off="off" checked={this.state.checked} />
@@ -67,7 +78,7 @@ class Inputs extends Component {
 	
 				<section className="frame gutter">
 					<div className="inner">
-						<form className="login-form" onSubmit={this.showForm}>
+						<form onSubmit={this.showForm}>
 							<input 
 								onChange={this.handleTextChange}
 								value={this.state.text}
