@@ -10,12 +10,6 @@
 	font-size: 24px;
 	cursor: pointer;
 
-	input[type=checkbox] {
-		position: absolute;
-		z-index: -1;
-		opacity: 0;
-	}
-
 	&__switch {
 		position: relative;
 		display: inline-flex;
@@ -25,7 +19,7 @@
 		border: 3px solid $primary;
 		background-color: $primary;
 		
-		&::after {
+		&::before {
 			position: relative;
 			left: 0%;
 			transform: translateX(0%);
@@ -37,24 +31,17 @@
 			content: '';
 		}
 	
-		:checked + &::after {
+		:checked + &::before {
 			left: 100%;
 			transform: translateX(-100%);
 		}
 	}
 
-	& > &__label {
+	& > .label {
 		margin-left: 0.6rem;
 	}
 
-	&__label {
-		white-space: nowrap;
-		text-transform: uppercase;
-		font-family: $link-font;
-		font-size: 0.8rem;
-	}
-
-	&__text {
+	&__value {
 		animation: fadein 300ms forwards;
 	}
 
@@ -71,7 +58,7 @@
 		#{$self}__switch {
 			border-width: 2px;
 
-			&::after {
+			&::before {
 				width: 16px;
 			}
 		}
@@ -83,7 +70,7 @@
 		#{$self}__switch {
 			border-width: 2px;
 
-			&::after {
+			&::before {
 				width: 12px;
 			}
 		}
@@ -95,7 +82,7 @@
 		#{$self}__switch {
 			border-width: 2px;
 
-			&::after {
+			&::before {
 				width: 12px;
 			}
 		}

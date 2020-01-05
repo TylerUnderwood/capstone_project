@@ -5,43 +5,52 @@ class Toggle extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			checked: this.props.checked,
-			onOff: false,
+			id: this.props.id ? this.props.id : this.props.name,
+			name: this.props.name,
+			labelOn: this.props.labelOn ? this.props.labelOn : false,
+			labelOff: this.props.labelOff ? this.props.labelOff : false,
+			value: this.props.value,
 		};
 	}
 
-	onChange = ( event ) => {
-		const target = event.target;
-		const value = target.type === 'checkbox' ? target.checked : target.value;
-		const name = target.name;
+	static defaultProps = {
+		name: 'toggle',
+		value: false,
+	}
 
+	onChange = ( event ) => {
 		this.setState({
-			[name]: value,
-			onOff: !this.state.onOff,
-		});
+			value: event.target.checked,
+		})
+
+		if ( this.props.update ) {
+			this.props.update( event )
+		}
 	}
 
 	render() {
 		return (
-			<label className="toggle" htmlFor={ this.props.name }>
+			<label className="toggle" htmlFor={ this.state.id }>
 
-				<input  
+				<input 
+					className="toggle__input input--override"
 					type="checkbox" 
-					id={ this.props.name } 
-					name={ this.props.name }  
+					id={ this.state.id } 
+					name={ this.state.name } 
+					checked={ this.state.value } 
 					onChange={ this.onChange }
 				/>
 
 				<div className="toggle__switch"></div>
 
 				{ /* if there is both an off and on prop, switch between the two */ }
-				{ ( this.props.on && this.props.off ) && (
-					<div className="toggle__label">
-					{ this.state.onOff && (
-						<span className="toggle__text">{ this.props.on }</span>
+				{( this.state.labelOn && this.state.labelOff ) && (
+					<div className="label">
+					{ this.state.value && (
+						<span className="toggle__value">{ this.state.labelOn }</span>
 					)}
-					{ !this.state.onOff && (
-						<span className="toggle__text">{ this.props.off }</span>
+					{ !this.state.value && (
+						<span className="toggle__value">{ this.state.labelOff }</span>
 					)}
 					</div>
 				)}

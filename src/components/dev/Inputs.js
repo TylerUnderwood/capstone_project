@@ -7,37 +7,59 @@ import Toggle from '../inputs/Toggle'
 class Inputs extends Component {
 
 	state = {
+		coolness: false,
+		awesome: true,
+		reactRadio: 'reactRadio2',
+		reactSlider: 0,
+		toggle1: true,
+		toggle2: false,
+		toggle3: true,
+
 		text: '',
 		url: '',
 		email: '',
 		password: '',
 		number: '',
 		tel: '',
+		textarea: '',
 
-		file: '',
-		color: '',
-
-		datetimeLocal: '',
-		date: '',
-		month: '',
-		week: '',
-		time: '',
-
+		select: '',
 		checkbox: '',
 		radio: '',
 		range: '',
 
-		checked: true,
+		date: '',
+		time: '',
+
+		file: '',
+		color: '',
+
+		username: '',
 	}
 
-	handleTextChange = ( event ) => {
-		const state = { ...this.state }
-		state[event.target.name] = event.target.value
-		this.setState(state)
+	onUpdate = ( event ) => {
+		const target = event.target
+		const name = target.name
+		let value = undefined
+
+		if ( target.type === 'checkbox' ) {
+			value = target.checked
+		}
+		else if ( target.type === 'radio' ) {
+			value = target.id
+		}
+		else {
+			value = target.value
+		}
+
+		this.setState({
+			[name]: value,
+		})
 	}
 
 	showForm = ( event ) => {
-		console.log( event.target )
+		event.preventDefault()
+		// console.log( event.target )
 		alert( JSON.stringify( this.state, null, 4 ) )
 	}
 
@@ -48,26 +70,78 @@ class Inputs extends Component {
 				<section className="frame gutter">
 					<div className="inner">
 						<form onSubmit={this.showForm}>
-							<Checkbox name="Coolness" checked={this.state.checked} />
+							<Checkbox 
+								name="coolness" 
+								label="Coolness" 
+								value={ this.state.coolness } 
+								update={ this.onUpdate } 
+							/>
 							<br />
-							<Checkbox name="Awesome" checked={this.state.checked} />
+							<Checkbox 
+								name="awesome" 
+								label="Awesome" 
+								value={ this.state.awesome } 
+								update={ this.onUpdate } 
+							/>
 							<br />
 							<fieldset>
-								<legend>Radio</legend>
-								<Radio name="reactRadio" id="reactRadio1" label="Radio 1" />
+								<legend>React Radio</legend>
+								<Radio 
+									id="reactRadio1" 
+									name="reactRadio" 
+									label="Radio 1" 
+									value={ this.state.reactRadio } 
+									update={ this.onUpdate } 
+								/>
 								<br/>
-								<Radio name="reactRadio" id="reactRadio2" label="Radio 2" />
+								<Radio 
+									id="reactRadio2" 
+									name="reactRadio" 
+									label="Radio 2" 
+									value={ this.state.reactRadio } 
+									update={ this.onUpdate } 
+								/>
 								<br/>
-								<Radio name="reactRadio" id="reactRadio3" label="Radio 3" />
+								<Radio 
+									id="reactRadio3" 
+									name="reactRadio" 
+									label="Radio 3" 
+									value={ this.state.reactRadio } 
+									update={ this.onUpdate } 
+								/>
 							</fieldset>
 							<br/>
-							<Slider min="-100" max="100" value="0" />
+							<Slider 
+								name="reactSlider" 
+								min="-100" 
+								max="100" 
+								value={ this.state.reactSlider } 
+								update={ this.onUpdate } 
+							/>
 							<br />
-							<Toggle on="on" off="off" checked={this.state.checked} />
+							<Toggle 
+								name="toggle1" 
+								labelOn="on" 
+								labelOff="off" 
+								value={ this.state.toggle1 } 
+								update={ this.onUpdate } 
+							/>
 							<br />
-							<Toggle on="on" off="off" checked={this.state.checked} />
+							<Toggle 
+								name="toggle2" 
+								labelOn="on" 
+								labelOff="off" 
+								value={ this.state.toggle2 } 
+								update={ this.onUpdate } 
+							/>
 							<br />
-							<Toggle on="on" off="off" checked={this.state.checked} />
+							<Toggle 
+								name="toggle3" 
+								labelOn="on" 
+								labelOff="off" 
+								value={ this.state.toggle3 } 
+								update={ this.onUpdate } 
+							/>
 							<br />
 							<button type="submit">Submit</button>
 						</form>
@@ -80,54 +154,66 @@ class Inputs extends Component {
 					<div className="inner">
 						<form onSubmit={this.showForm}>
 							<input 
-								onChange={this.handleTextChange}
-								value={this.state.text}
-								placeholder="text"
-								name="text"
-								label="Text"
-								type="text" />
-							<br/>
-							<input
-								onChange={this.handleTextChange}
-								value={this.state.url}
-								placeholder="url"
-								name="url"
-								label="url"
-								type="url" />
-							<br/>
-							<input
-								onChange={this.handleTextChange}
-								value={this.state.email}
-								placeholder="email"
-								name="email"
-								label="email"
-								type="email" />
+								type="text" 
+								name="text" 
+								placeholder="text" 
+								value={this.state.text} 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
 							<input 
-								onChange={this.handleTextChange}
-								value={this.state.password}
-								placeholder="password"
-								name="password"
-								label="password"
-								type="password" />
+								type="url" 
+								name="url" 
+								placeholder="url" 
+								value={this.state.url} 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
-							<input
-								onChange={this.handleTextChange}
-								value={this.state.number}
-								placeholder="number"
-								name="number"
-								label="number"
-								type="number" />
+							<input 
+								type="email" 
+								name="email" 
+								placeholder="email" 
+								value={this.state.email} 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
-							<input
-								onChange={this.handleTextChange}
-								value={this.state.tel}
-								placeholder="tel"
-								name="tel"
-								label="tel"
-								type="tel" />
+							<input 
+								type="password" 
+								name="password" 
+								placeholder="password" 
+								value={this.state.password} 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
-							<select>
+							<input 
+								type="number" 
+								name="number" 
+								placeholder="number" 
+								value={this.state.number} 
+								onChange={this.onUpdate} 
+							/>
+							<br/>
+							<input 
+								type="tel" 
+								name="tel" 
+								placeholder="tel" 
+								value={this.state.tel} 
+								onChange={this.onUpdate} 
+							/>
+							<br/>
+							<textarea></textarea>
+							<br/>
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+				</section>
+
+				<hr/>
+				
+				<section className="frame gutter">
+					<div className="inner">
+						<form onSubmit={this.showForm}>
+							<select name="select" onChange={this.onUpdate}>
 								<option value="option1">Option 1</option>
 								<option value="option2">Option 2</option>
 								<option value="option3">Option 3</option>
@@ -139,7 +225,8 @@ class Inputs extends Component {
 									id="checkbox"
 									name="checkbox"
 									label="Checkbox"
-									type="checkbox" />
+									type="checkbox" 
+									onChange={this.onUpdate}/>
 								<span className="ml-2">Checkbox</span>
 							</label>
 							<br/>
@@ -150,7 +237,8 @@ class Inputs extends Component {
 										id="radio1"
 										name="radio"
 										label="Radio 1"
-										type="radio" />
+										type="radio" 
+										onChange={this.onUpdate}/>
 									<span className="ml-2">Radio 1</span>
 								</label>
 								<br/>
@@ -159,7 +247,8 @@ class Inputs extends Component {
 										id="radio2"
 										name="radio"
 										label="Radio 2"
-										type="radio" />
+										type="radio" 
+										onChange={this.onUpdate}/>
 									<span className="ml-2">Radio 2</span>
 								</label>
 								<br/>
@@ -168,7 +257,8 @@ class Inputs extends Component {
 										id="radio3"
 										name="radio"
 										label="Radio 3"
-										type="radio" />
+										type="radio" 
+										onChange={this.onUpdate}/>
 									<span className="ml-2">Radio 3</span>
 								</label>
 							</fieldset>
@@ -176,7 +266,9 @@ class Inputs extends Component {
 							<input
 								name="range"
 								label="Range"
-								type="range" />
+								type="range" 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
 							<button type="submit">Submit</button>
 						</form>
@@ -187,18 +279,22 @@ class Inputs extends Component {
 				
 				<section className="frame gutter">
 					<div className="inner">
-						<form>
+						<form onSubmit={this.showForm}>
 							<input
 								placeholder="file"
 								name="file"
 								label="file"
-								type="file" />
+								type="file" 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
 							<input
 								placeholder="color"
 								name="color"
 								label="color"
-								type="color" />
+								type="color" 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
 							<button type="submit">Submit</button>
 						</form>
@@ -209,36 +305,22 @@ class Inputs extends Component {
 				
 				<section className="frame gutter">
 					<div className="inner">
-						<form>
-							<input
-								placeholder="datetime local"
-								name="datetimeLocal"
-								label="datetimeLocal"
-								type="datetime-local" />
-							<br/>
+						<form onSubmit={this.showForm}>
 							<input
 								placeholder="date"
 								name="date"
 								label="date"
-								type="date" />
-							<br/>
-							<input
-								placeholder="month"
-								name="month"
-								label="month"
-								type="month" />
-							<br/>
-							<input
-								placeholder="week"
-								name="week"
-								label="week"
-								type="week" />
+								type="date" 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
 							<input
 								placeholder="time"
 								name="time"
 								label="time"
-								type="time" />
+								type="time" 
+								onChange={this.onUpdate} 
+							/>
 							<br/>
 							<button type="submit">Submit</button>
 						</form>
@@ -249,20 +331,20 @@ class Inputs extends Component {
 
 				<section className="frame gutter">
 					<div className="inner">
-						<textarea></textarea>
-						<br/>
-						<input
-							className="focus-underline"
-							onChange={this.handleTextChange}
-							value={this.state.username}
-							placeholder="username"
-							name="username"
-							label="Username"
-							type="text" />
+						<form onSubmit={this.showForm}>
+							<input
+								className="focus-underline"
+								placeholder="username" 
+								type="text" 
+								name="username" 
+								value={this.state.username} 
+								onChange={this.onUpdate} 
+							/>
+							<br/>
+							<button type="submit">Submit</button>
+						</form>
 					</div>
 				</section>
-
-				<hr/>
 				
 			</div>
 		)

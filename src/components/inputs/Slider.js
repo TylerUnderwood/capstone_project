@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
+
 class Slider extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
+			id: this.props.id ? this.props.id : this.props.name,
 			name: this.props.name,
 			min: this.props.min,
 			max: this.props.max,
@@ -14,6 +16,7 @@ class Slider extends Component {
 	}
 
 	static defaultProps = {
+		// id: 'slider',
 		name: 'slider',
 		min: 0,
 		max: 100,
@@ -22,18 +25,18 @@ class Slider extends Component {
 	}
 
 	onChange = ( event ) => {
-		const target = event.target;
-		const value = target.type === 'checkbox' ? target.checked : target.value;
-		const name = target.name;
-
 		this.setState({
-			[name]: value,
-			value: value,
-		});
+			value: event.target.value,
+		})
+
+		if ( this.props.update ) {
+			this.props.update( event )
+		}
 	}
 
 	render() {
 
+		const id = this.state.id
 		const name = this.state.name
 		const min = this.state.min
 		const max = this.state.max
@@ -42,19 +45,20 @@ class Slider extends Component {
 
 		const range = max - min
 		const percentage = ( ( value - min ) / range ) * 100
-			
+
 		const thumbStyles = {
 			left: `${ percentage }%`,
 			transform: `translate( -${ percentage }%, -50% )`,
 		}
 
 		return (
-			<label className="slider" htmlFor={ name }>
+			<label className="slider" htmlFor={ id }>
 
-				<input className="slider__input"
-					id={ name }
-					name={ name }
+				<input 
+					className="slider__input" 
 					type="range" 
+					id={ id }
+					name={ name }
 					min={ min } 
 					max={ max } 
 					step={ step }
