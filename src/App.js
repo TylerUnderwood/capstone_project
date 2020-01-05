@@ -17,9 +17,9 @@ class App extends Component {
 				<BrowserRouter>
 					<Startup />
 					<Header />
-					<div id="main" className="viewbox scrollable">
+					<div className="viewbox">
 						<div id="top"></div>
-						<main className="viewable">
+						<main id="main" className="viewable">
 							<Router />
 						</main>
 						<Footer />

@@ -37,7 +37,7 @@ class Inputs extends Component {
 		username: '',
 	}
 
-	onUpdate = ( event ) => {
+	onChange = ( event ) => {
 		const target = event.target
 		const name = target.name
 		let value = undefined
@@ -74,14 +74,14 @@ class Inputs extends Component {
 								name="coolness" 
 								label="Coolness" 
 								value={ this.state.coolness } 
-								update={ this.onUpdate } 
+								update={ this.onChange } 
 							/>
 							<br />
 							<Checkbox 
 								name="awesome" 
 								label="Awesome" 
 								value={ this.state.awesome } 
-								update={ this.onUpdate } 
+								update={ this.onChange } 
 							/>
 							<br />
 							<fieldset>
@@ -91,7 +91,7 @@ class Inputs extends Component {
 									name="reactRadio" 
 									label="Radio 1" 
 									value={ this.state.reactRadio } 
-									update={ this.onUpdate } 
+									update={ this.onChange } 
 								/>
 								<br/>
 								<Radio 
@@ -99,7 +99,7 @@ class Inputs extends Component {
 									name="reactRadio" 
 									label="Radio 2" 
 									value={ this.state.reactRadio } 
-									update={ this.onUpdate } 
+									update={ this.onChange } 
 								/>
 								<br/>
 								<Radio 
@@ -107,7 +107,7 @@ class Inputs extends Component {
 									name="reactRadio" 
 									label="Radio 3" 
 									value={ this.state.reactRadio } 
-									update={ this.onUpdate } 
+									update={ this.onChange } 
 								/>
 							</fieldset>
 							<br/>
@@ -116,7 +116,7 @@ class Inputs extends Component {
 								min="-100" 
 								max="100" 
 								value={ this.state.reactSlider } 
-								update={ this.onUpdate } 
+								update={ this.onChange } 
 							/>
 							<br />
 							<Toggle 
@@ -124,7 +124,7 @@ class Inputs extends Component {
 								labelOn="on" 
 								labelOff="off" 
 								value={ this.state.toggle1 } 
-								update={ this.onUpdate } 
+								update={ this.onChange } 
 							/>
 							<br />
 							<Toggle 
@@ -132,7 +132,7 @@ class Inputs extends Component {
 								labelOn="on" 
 								labelOff="off" 
 								value={ this.state.toggle2 } 
-								update={ this.onUpdate } 
+								update={ this.onChange } 
 							/>
 							<br />
 							<Toggle 
@@ -140,7 +140,7 @@ class Inputs extends Component {
 								labelOn="on" 
 								labelOff="off" 
 								value={ this.state.toggle3 } 
-								update={ this.onUpdate } 
+								update={ this.onChange } 
 							/>
 							<br />
 							<button type="submit">Submit</button>
@@ -158,7 +158,7 @@ class Inputs extends Component {
 								name="text" 
 								placeholder="text" 
 								value={this.state.text} 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<input 
@@ -166,7 +166,7 @@ class Inputs extends Component {
 								name="url" 
 								placeholder="url" 
 								value={this.state.url} 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<input 
@@ -174,7 +174,7 @@ class Inputs extends Component {
 								name="email" 
 								placeholder="email" 
 								value={this.state.email} 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<input 
@@ -182,7 +182,7 @@ class Inputs extends Component {
 								name="password" 
 								placeholder="password" 
 								value={this.state.password} 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<input 
@@ -190,7 +190,7 @@ class Inputs extends Component {
 								name="number" 
 								placeholder="number" 
 								value={this.state.number} 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<input 
@@ -198,7 +198,7 @@ class Inputs extends Component {
 								name="tel" 
 								placeholder="tel" 
 								value={this.state.tel} 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<textarea></textarea>
@@ -213,7 +213,7 @@ class Inputs extends Component {
 				<section className="frame gutter">
 					<div className="inner">
 						<form onSubmit={this.showForm}>
-							<select name="select" onChange={this.onUpdate}>
+							<select name="select" onChange={this.onChange}>
 								<option value="option1">Option 1</option>
 								<option value="option2">Option 2</option>
 								<option value="option3">Option 3</option>
@@ -226,7 +226,7 @@ class Inputs extends Component {
 									name="checkbox"
 									label="Checkbox"
 									type="checkbox" 
-									onChange={this.onUpdate}/>
+									onChange={this.onChange}/>
 								<span className="ml-2">Checkbox</span>
 							</label>
 							<br/>
@@ -238,7 +238,7 @@ class Inputs extends Component {
 										name="radio"
 										label="Radio 1"
 										type="radio" 
-										onChange={this.onUpdate}/>
+										onChange={this.onChange}/>
 									<span className="ml-2">Radio 1</span>
 								</label>
 								<br/>
@@ -248,7 +248,7 @@ class Inputs extends Component {
 										name="radio"
 										label="Radio 2"
 										type="radio" 
-										onChange={this.onUpdate}/>
+										onChange={this.onChange}/>
 									<span className="ml-2">Radio 2</span>
 								</label>
 								<br/>
@@ -258,7 +258,7 @@ class Inputs extends Component {
 										name="radio"
 										label="Radio 3"
 										type="radio" 
-										onChange={this.onUpdate}/>
+										onChange={this.onChange}/>
 									<span className="ml-2">Radio 3</span>
 								</label>
 							</fieldset>
@@ -267,7 +267,7 @@ class Inputs extends Component {
 								name="range"
 								label="Range"
 								type="range" 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<button type="submit">Submit</button>
@@ -285,7 +285,7 @@ class Inputs extends Component {
 								name="file"
 								label="file"
 								type="file" 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<input
@@ -293,7 +293,7 @@ class Inputs extends Component {
 								name="color"
 								label="color"
 								type="color" 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<button type="submit">Submit</button>
@@ -311,7 +311,7 @@ class Inputs extends Component {
 								name="date"
 								label="date"
 								type="date" 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<input
@@ -319,7 +319,7 @@ class Inputs extends Component {
 								name="time"
 								label="time"
 								type="time" 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<button type="submit">Submit</button>
@@ -338,7 +338,7 @@ class Inputs extends Component {
 								type="text" 
 								name="username" 
 								value={this.state.username} 
-								onChange={this.onUpdate} 
+								onChange={this.onChange} 
 							/>
 							<br/>
 							<button type="submit">Submit</button>

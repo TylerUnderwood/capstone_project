@@ -47,6 +47,64 @@
 	align-items: space-between;
 }
 
+@include below(tablet) {
+	.mb\: {
+		&flex {
+			display: flex;	
+
+			&--row {
+				flex-direction: row;
+			}
+			&--col {
+				flex-direction: column;
+			}
+			&--row-reverse {
+				flex-direction: row-reverse;
+			}
+			&--col-reverse {
+				flex-direction: column-reverse;
+			}
+		}
+		&justy-start { justify-content: flex-start; }
+		&justy-end { justify-content: flex-end; }
+		&justy-center { justify-content: center; }
+		&justy-between { justify-content: space-between; }
+		&items-start { align-items: flex-start; }
+		&items-end { align-items: flex-end; }
+		&items-center { align-items: center; }
+		&items-between { align-items: space-between; }
+	}
+}
+
+@include above(tablet) {
+	.dt\: {
+		&flex {
+			display: flex;
+			
+			&--row {
+				flex-direction: row;
+			}
+			&--col {
+				flex-direction: column;
+			}
+			&--row-reverse {
+				flex-direction: row-reverse;
+			}
+			&--col-reverse {
+				flex-direction: column-reverse;
+			}
+		}
+		&justy-start { justify-content: flex-start; }
+		&justy-end { justify-content: flex-end; }
+		&justy-center { justify-content: center; }
+		&justy-between { justify-content: space-between; }
+		&items-start { align-items: flex-start; }
+		&items-end { align-items: flex-end; }
+		&items-center { align-items: center; }
+		&items-between { align-items: space-between; }
+	}
+}
+
 /* === Flex Row === */
 
 .flex-row {
