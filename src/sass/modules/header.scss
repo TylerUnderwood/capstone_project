@@ -69,6 +69,7 @@ $nav-time: 240ms;
 }
 
 /* ===== STATIC NAV ===== */
+
 .static-nav {
 	display: flex;
 	//
@@ -97,289 +98,136 @@ $nav-time: 240ms;
 	}
 }
 
-/* ===== DRAWER NAV ===== */
+/* ===== NAV BUTTON ===== */
 
-.drawer-nav {
+.menu-btn {
 	display: flex;
-	flex-flow: column;
-	//
-	position: fixed;
-	z-index: 2;
-	//
-	top: 0;
-	left: unset;
-	bottom: 0;
-	right: calc(100% - 100vw  + 1px);
-	transform-origin: left top;
-	margin-right: calc(50vw - 50%);
-	width: calc(100vw + 2px);
-	height: 100vh;
-	background-color: $drawer-nav-bg;
-	padding: 0;
-	padding-top: $header-ht;
-	line-height: 1;
-	font-size: 2.4rem;
+	align-items: center;
 
-	// These before and afters are for fading the nav items
-	// top and bottom as you scroll through them.
-	&:before,
-	&:after {
-		position: absolute;
-		z-index: 9;
-		left: 0;
-		width: 100%;
-		height: 1em;
-		content: '';
-	}
-
-	&:before {
-		top: $header-ht;
-		background: linear-gradient(rgba($drawer-nav-bg, 1) 0%, 
-									rgba($drawer-nav-bg, 0) 100%);
-	}
-
-	&:after {
-		bottom: 0;
-		background: linear-gradient(rgba($drawer-nav-bg, 0) 0%, 
-									rgba($drawer-nav-bg, 1) 100%);
-	}
-
-	.inner-nav {
-		display: flex;
-		flex-direction: column;
-		margin: 0 auto;
-		width: 100%;
-		max-width: $max-width;
-		overflow-x: hidden;
-		overflow-y: scroll;
-		padding: 1em 0 0;
-
-		// padding bottom isn't defining the bottom scroll position,
-		// so I am using this ::after to create some space for the last-child
-		&::after {
-			display: block;
-			opacity: 0;
-			min-height: 1em;
-			content: ' ';
-		}
-
-		> * {
-			margin: 0.5rem 0;
-	
-			&:first-child { margin-top: 0; }
-	
-			&:last-child { margin-bottom: 0; }
-		}
-	}
-
-	a {
-		display: inline-block;
-		margin-right: auto;
-		padding: 0.8rem $header-pad;
-		text-transform: capitalize;
-		font-family: $heading-font;
-		font-weight: normal;
-		transition: opacity 200ms ease-in-out;
-
-		&:hover,
-		&:active {
-			opacity: 0.8;
-		}
-	}
-
-	/* === NAVIGATION LINKS === */
-	nav.site-header-nav {
-		display: flex;
-		flex-flow: column;
-		
-		a {
-			font-size: inherit;
-			color: $drawer-nav-color;
-		}
-	}
-
-	/* === CONTACT LINKS === */
-	.contact-links {
-		display: flex;
-		flex-flow: column;
-
-		a {
-			display: flex;
-			align-items: center;
-			font-size: 1rem;
-			font-family: $copy-font;
-			color: $drawer-nav-color;
-		}
-
-		span {
-			display: inline-block;
-		}
-
-		.icon {
-			width: 1rem;
-			fill: $drawer-nav-color;
-		}
-
-		.text {
-			margin-left: 1rem;
-		}
-	}
-
-	// ANIMATIONS
-	@keyframes open_drawer {
-		from {
-			opacity: 0;
-			transform: scale(1.05);
-		}
-		to {
-			opacity: 1;
-			transform: scale(1);
-		}
-	}
-
-	@keyframes close_drawer {
-		from {
-			opacity: 1;
-			transform: scale(1);
-		}
-		to {
-			opacity: 0;
-			transform: scale(1.05);
-		}
-	}
-
-	// ACTIVE STATES
-	.nav-closed & {
-		visibility: hidden;	
-    }
-
-    .nav-opening & {
-		animation: open_drawer $nav-time ease-in-out forwards;
-	}
-
-	.nav-opened & {
-        visibility: visible;
-    }
-
-    .nav-closing & {
-		animation: close_drawer $nav-time ease-in-out forwards;
+	&__text {
+		margin-left: 0.8rem;
 	}
 }
 
-/* === NAV BUTTON === */
-button.nav-button {
+.user-btn {
 	display: flex;
-	justify-content: center;
-	align-content: center;
 	align-items: center;
-	//
-	position: absolute;
-	z-index: 99;
-	right: 2em;
-	//
-	outline: none;
-	border: none;
-	border-radius: 50%;
-	width: 4em;
-	height: 4em;
-	background-color: transparent;
-	padding: 2em;
-	// font size canges the whole size
-	font-size: 8px;
-	transition: background-color 250ms ease;
+
+	&__text {
+		margin-right: 0.8rem;
+	}
+}
+
+/* ===== NAV BUTTON ===== */
+
+$nav-btn-bar: 6px;
+
+.nav-btn {
+	display: inline-block;
+	margin: -6px;
+	padding: 6px;
 	cursor: pointer;
 
-	span {
-		background-color: $nav-color;
-	}
+	$self: &;
 
-    .dots {
-		display: flex;
-		justify-content: space-evenly;
-        align-items: center;
-        width: 50%;
-        min-width: 40px;
-        overflow: hidden;
-		cursor: pointer;
-        
-        span {
-			display: inline-block;
-			border-radius: 50%;
-            width: 5px;
-            height: 5px;
-        }
-    }
-
-    .close-x {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: absolute;
-        width: 3em;
-        height: 3em;
-		cursor: pointer;
-        
-        span {
-			display: block;
-			position: absolute;
-			border-radius: 2px;
-            width: 0;
-            height: 4px;
-
-            &:first-child {
-                transform: rotate(-45deg);
-            }
-            &:last-child {
-                transform: rotate(45deg);
-            }
-        }
+	&__bar {
+		border-radius: 1px;
+		background-color: currentColor;
+		width: 30px;
+		height: 4px;
+		transition: opacity 300ms ease,
+					transform 300ms ease;
+		
+		&:not(:first-child) {
+			margin-top: 6px;
+		}
 	}
 	
-	// HOVER STATES
-	&:hover,
-    &:focus {
-        background-color: transparent;
-    }
-
-	// ACTIVE STATES
-	.nav-open &,
-	.nav-opening & {
-		background-color: transparent;
-
-        .dots {
-            width: 0;
-            min-width: 0;
-            transition: all $nav-time ease;
-        }
-        .close-x span {
-			width: 2rem;
-			transition: all $nav-time ease;
+	&--active {
+		#{$self}__bar:nth-child(1){
+			transform: rotate(-45deg) translate(-7px, 7px);
 		}
-		
-		span {
-			background-color: $drawer-nav-color;
+		#{$self}__bar:nth-child(2) {
+			opacity: 0;
+		}
+		#{$self}__bar:nth-child(3) {
+			transform: rotate(45deg) translate(-7px, -7px);
+		}
+	}
+}
+
+/* ===== DRAWER NAV ===== */
+
+$drawer-width: 12rem;
+
+.drawer-nav {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: unset;
+	bottom: 0;
+	transform: translate( 0, 100% );
+	width: $drawer-width;
+	height: calc( 100vh - #{$header-ht} );
+	background-color: $nav-bg;
+	transition: transform 500ms ease;
+
+	&--left {
+		right: unset;
+		left: 0;
+		transform: translate( -100%, 100% );
+	}
+
+	&--right {
+		right: 0;
+		left: unset;
+		transform: translate( 100%, 100% );
+	}
+
+	&--active {
+		transform: translate( 0, 100% );
+	}
+}
+
+.viewbox {
+	position: relative;
+	transition: transform 500ms ease;
+
+	&::after {
+		position: absolute;
+		z-index: -99;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: #333;
+		opacity: 0;
+		transition: opacity 500ms ease,
+					z-index 0ms ease 500ms;
+		content: '';
+	}
+
+	&.slide-to-the-right,
+	&.slide-to-the-left {
+		overflow: hidden;
+
+		&::after {
+			z-index: 99;
+			opacity: 0.3;
+			transition: opacity 500ms ease,
+						z-index 0ms ease;
 		}
 	}
 
-	.nav-closed &,
-	.nav-closing & {
-        background-color: transparent;
-
-        .dots {
-            transition: all $nav-time ease;
-        }
-        .close-x span {
-			transition: all $nav-time ease;
-		}
+	&.slide-to-the-right {
+		transform: translate( -$drawer-width / 2, 0 );
 	}
 
-	/* ABOVE MOBILE */
-	@include above(mobile) {
-		font-size: 10px;
+	&.slide-to-the-left {
+		transform: translate( $drawer-width / 2, 0 );
 	}
 
-	/* ABOVE TABLET */
-	@include above(tablet) {
-		font-size: 12px;
+	&.slide-to-the-right.slide-to-the-left {
+		transform: translate( 0, 0 );
 	}
 }

@@ -55,6 +55,18 @@
 
 		&__page {
 			width: 100%;
+			-webkit-box-shadow: 
+				-3px 3px 0px 0px #b8a78d, 
+				-6px 6px 0px 0px lighten(#b8a78d, 5%), 
+				-9px 9px 0px 0px lighten(#b8a78d, 10%), 
+				-12px 12px 0px 0px lighten(#b8a78d, 15%), 
+				-15px 15px 0px 0px lighten(#b8a78d, 20%);
+			box-shadow: 
+				-3px 3px 0px 0px #b8a78d, 
+				-6px 6px 0px 0px lighten(#b8a78d, 5%), 
+				-9px 9px 0px 0px lighten(#b8a78d, 10%), 
+				-12px 12px 0px 0px lighten(#b8a78d, 15%), 
+				-15px 15px 0px 0px lighten(#b8a78d, 20%);
 
 			&:first-child {
 				margin-bottom: $space-2;

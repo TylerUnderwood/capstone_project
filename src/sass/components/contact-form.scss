@@ -46,7 +46,9 @@
 	flex-flow: row wrap;
 	max-width: 640px;
 
-	label, input, button {
+	label, 
+	input, 
+	button {
 		display: block;
 		margin: 0;
 		height: 40px;
