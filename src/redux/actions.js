@@ -1,11 +1,9 @@
-
 export const login = ( username ) => {
     return {
         type: 'LOGIN',
         value: username
     }
 }
-
 export const logout = () => {
     return {
         type: 'LOGOUT',
@@ -13,16 +11,19 @@ export const logout = () => {
     }
 }
 
-export const addListing = ( listing ) => {
+
+export const activateNavLeft = () => {
     return {
-        type: 'ADD_BUSINESS',
-        value: listing
+        type: 'NAV_LEFT'
     }
 }
-
-export const removeListing = ( index ) => {
+export const activateNavRight = () => {
     return {
-        type: 'REMOVE_BUSINESS',
-        value: index
+        type: 'NAV_RIGHT'
+    }
+}
+export const closeNavs = () => {
+    return {
+        type: 'NAV_CLOSE'
     }
 }

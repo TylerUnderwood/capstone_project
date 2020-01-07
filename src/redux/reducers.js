@@ -3,41 +3,51 @@ import initialState from '../redux/state';
 
 const currentUser = ( state = initialState, action ) => {
 
-	const updatedUser = { }
-
-    switch(action.type) {
+    switch( action.type ) {
         case 'LOGIN':
-			updatedUser.username = action.value
-			updatedUser.loggedIn = true
             return {
 				...state,
-				username: updatedUser.username,
-				loggedIn: updatedUser.loggedIn
+				username: action.value,
+				loggedIn: true
 			}
         case 'LOGOUT':
-			updatedUser.username = action.value
-			updatedUser.loggedIn = false
 			return {
 				...state,
-				username: updatedUser.username,
-				loggedIn: updatedUser.loggedIn
+				username: action.value,
+				loggedIn: false
 			}
         default:
             return state
     }
 }
 
-const characters = ( state = [], action ) => {
-    switch(action.type) {
-        case 'ADD_CHARACTER':
-            return [ ...state, action.value ]
-        case 'REMOVE_CHARACTER':
-            const characters = [ ...state ]
-            characters.splice(action.value, 1)
-            return characters
-        default:
-            return state
-    }
+const activeElements = ( state = initialState, action ) => {
+
+	switch( action.type ) {
+		case 'NAV_LEFT':
+			let navLeft = !state.navLeft
+			return {
+				...state,
+				navLeft: navLeft
+			}
+		case 'NAV_RIGHT':
+			let navRight = !state.navRight
+			return {
+				...state,
+				navRight: navRight
+			}
+		case 'NAV_CLOSE':
+			return {
+				...state,
+				navLeft: false,
+				navRight: false,
+			}
+		default:
+			return state
+	}
 }
 
-export default combineReducers({ currentUser, characters })
+export default combineReducers({ 
+	currentUser,
+	activeElements,
+})

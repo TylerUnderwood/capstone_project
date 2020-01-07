@@ -51,50 +51,8 @@ $nav-time: 240ms;
 	color: $nav-color;
 
 	svg, img {
-		fill:currentColor;
+		fill: currentColor;
 		height: inherit;
-	}
-
-	// ACTIVE STATES
-	.nav-open &,
-	.nav-opening & {
-		transition: color $nav-time ease-in-out;
-		color: $drawer-nav-color;
-	}
-
-	.nav-closed &,
-	.nav-closing & {
-		transition: color $nav-time ease-in-out;
-	}
-}
-
-/* ===== STATIC NAV ===== */
-
-.static-nav {
-	display: flex;
-	//
-	position: relative;
-	z-index: 1;
-	//
-    width: 100%;
-	max-width: 50%;
-
-	nav.site-header-nav a {
-		color: inherit;
-		transition: color 300ms ease-in-out;
-
-		&:hover,
-		&:active {
-			color: $nav-hover;
-		}
-	}
-
-	a.hide { display: none; }
-
-	/* === RESPONSIVE === */
-
-	@include below(desktop) {
-		display: none;
 	}
 }
 
@@ -134,12 +92,12 @@ $nav-btn-bar: 6px;
 		border-radius: 1px;
 		background-color: currentColor;
 		width: 30px;
-		height: 4px;
+		height: 3px;
 		transition: opacity 300ms ease,
 					transform 300ms ease;
 		
 		&:not(:first-child) {
-			margin-top: 6px;
+			margin-top: 7px;
 		}
 	}
 	
@@ -186,6 +144,26 @@ $drawer-width: 12rem;
 
 	&--active {
 		transform: translate( 0, 100% );
+	}
+
+	&__item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-bottom: 2px solid darken($nav-bg, 4%);
+		width: 100%;
+		height: 3.2rem;
+		padding: 0.8rem;
+		transition: background 300ms ease;
+
+		&:first-child {
+			border-top: 2px solid darken($nav-bg, 4%);
+		}
+
+		&:hover,
+		&:focus {
+			background-color: lighten($nav-bg, 2%);
+		}
 	}
 }
 
