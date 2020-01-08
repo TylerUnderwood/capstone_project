@@ -111,13 +111,19 @@ class Inputs extends Component {
 								/>
 							</fieldset>
 							<br/>
-							<Slider 
-								name="reactSlider" 
-								min="-100" 
-								max="100" 
-								value={ this.state.reactSlider } 
-								update={ this.onChange } 
-							/>
+							<div className="range">
+								<span className="range__text label">Health</span>
+								<div className="range__wrap">
+									<Slider 
+										name="reactSlider" 
+										min="-100" 
+										max="100" 
+										value={ this.state.reactSlider } 
+										update={ this.onChange } 
+									/>
+								</div>
+								<span className="range__text label">{this.state.reactSlider}</span>
+							</div>
 							<br />
 							<Toggle 
 								name="toggle1" 

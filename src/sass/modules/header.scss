@@ -9,46 +9,30 @@
 // See settings for more
 
 $nav-bg: $primary-dark;
-$nav-color: $white;
-$nav-hover: $link-color;
-
-$drawer-nav-bg: $primary-dark;
-$drawer-nav-color: $white;
-
-$nav-time: 240ms;
-
 
 
 /* ===== LAYOUT ===== */
 
-#header {
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	box-shadow: 0 0 10px 3px $text-color;
 	padding: $header-pad;
 	background-color: $nav-bg;
-	color: $nav-color;
+	color: $white;
 }
 
 /* ===== COMPONENTS ===== */
 
 /* === LOGO === */
-/*
-| The logo height is how the header's whole size is determined, width will be automatically set.
-*/
 
 #logo {
-	display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-	align-items: center;
-	//
-	position: relative;
-	z-index: 3;
-	//
 	margin: 0;
 	height: $header-logo-ht;
 	padding-top: 0;
 	font-size: 2rem;
-	color: $nav-color;
+	color: $link-color;
 
 	svg, img {
 		fill: currentColor;
@@ -56,7 +40,7 @@ $nav-time: 240ms;
 	}
 }
 
-/* ===== NAV BUTTON ===== */
+/* === NAV BUTTONS === */
 
 .menu-btn {
 	display: flex;
@@ -76,22 +60,27 @@ $nav-time: 240ms;
 	}
 }
 
-/* ===== NAV BUTTON ===== */
-
-$nav-btn-bar: 6px;
+/* === NAV BUTTON === */
 
 .nav-btn {
 	display: inline-block;
-	margin: -6px;
-	padding: 6px;
+	margin: -12px -10px;
+	border-radius: 50%;
+	padding: 12px 10px;
+	transition: background 300ms ease;
 	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: $charcoal;
+	}
 
 	$self: &;
 
 	&__bar {
 		border-radius: 1px;
 		background-color: currentColor;
-		width: 30px;
+		width: 28px;
 		height: 3px;
 		transition: opacity 300ms ease,
 					transform 300ms ease;
@@ -114,7 +103,7 @@ $nav-btn-bar: 6px;
 	}
 }
 
-/* ===== DRAWER NAV ===== */
+/* === DRAWER NAV === */
 
 $drawer-width: 12rem;
 
@@ -126,7 +115,7 @@ $drawer-width: 12rem;
 	bottom: 0;
 	transform: translate( 0, 100% );
 	width: $drawer-width;
-	height: calc( 100vh - #{$header-ht} );
+	height: calc( 100vh - 100% );
 	background-color: $nav-bg;
 	transition: transform 500ms ease;
 
@@ -162,7 +151,7 @@ $drawer-width: 12rem;
 
 		&:hover,
 		&:focus {
-			background-color: lighten($nav-bg, 2%);
+			background-color: $charcoal;
 		}
 	}
 }

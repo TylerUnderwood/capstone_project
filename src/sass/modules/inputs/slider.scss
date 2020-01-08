@@ -4,6 +4,28 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 
+.range {
+	display: flex;
+	align-items: center;
+
+	&__wrap {
+		flex: 1;
+		font-size: 0;
+		padding: 0 1rem;
+	}
+
+	&__text {
+		min-width: 8%;
+
+		&:first-child {
+			text-align: left;
+		}
+		&:last-child {
+			text-align: right;
+		}
+	}
+}
+
 .slider {
 	position: relative;
 	border-radius: $round;

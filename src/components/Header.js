@@ -28,7 +28,7 @@ class Header extends Component {
 		const navRightActive = this.props.activeElements.navRight
 
 		return (
-			<header id="header" className="bg-dark p-2 flex items-center">
+			<header id="header" className="site-header fixed-header">
 
 				<label className="menu-btn" htmlFor="menu-btn">
 					<button 
@@ -62,57 +62,14 @@ class Header extends Component {
 					</Link>
 				</nav>
 
-				<div className="wrapper flex items-center">
-
-					{/* <nav className="nav justy-start">
-						<Link className="nav__link" to="/">Home</Link>
-						<Link className="nav__link" to="/about">About</Link>
-					</nav> */}
-
-					<div className="filler"></div>
-
-					<h5 id="logo" className="nav-logo">
-						<Link to="/">Nulyph</Link>
-					</h5>
-
-					<div className="filler"></div>
-
-					{/* <nav className="nav justy-end">
-						{ loggedIn && (
-							<Link className="nav__link" to="/dev">Dev</Link>
-						)}
-
-						{ loggedIn ? (
-							<div className="nav__link">
-								<details className="relative">
-									<summary>{username}</summary>
-									<Link 
-										className="put-bottom" 
-										to="/login" onClick={() => this.logout()}>
-										LOGOUT
-									</Link>
-								</details>
-							</div>
-						):(
-							<Link className="nav__link" to="/login">LOGIN</Link>
-						)}
-					</nav> */}
-
-				</div>
+				<h5 id="logo" className="nav-logo">
+					<Link to="/">Nulyph</Link>
+				</h5>
 
 				<nav className={`
 					drawer-nav 
 					drawer-nav--right 
 					${navRightActive ? "drawer-nav--active" : ''}`}>
-
-					{ loggedIn && (
-						<Link 
-							className="nav__link drawer-nav__item" 
-							to="/dev"
-							onClick={() => this.props.closeNavs()}>
-								Dev
-						</Link>
-					)}
 
 					{ loggedIn ? (
 						<Link 
@@ -130,10 +87,19 @@ class Header extends Component {
 						</Link>
 					)}
 
+					{ loggedIn && (
+						<Link 
+							className="nav__link drawer-nav__item" 
+							to="/dev"
+							onClick={() => this.props.closeNavs()}>
+								Dev
+						</Link>
+					)}
+
 				</nav>
 
 				<label className="user-btn" htmlFor="user-btn">
-					<span className="user-btn__text">User: {username}</span>
+					<span className="user-btn__text"><span className="put-left ph-2">{username}</span>User</span>
 					<button 
 						id="user-btn" 
 						className={`nav-btn ${navRightActive ? "nav-btn--active" : ''}`} 

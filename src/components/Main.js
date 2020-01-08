@@ -13,9 +13,7 @@ class Main extends Component {
 
 		return (
 			<div 
-				className={`
-					viewbox 
-					scrollable 
+				className={`viewbox 
 					${navLeftActive ? 'slide-to-the-left' : ''} 
 					${navRightActive ? 'slide-to-the-right' : ''}
 				`}
