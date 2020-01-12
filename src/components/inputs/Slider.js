@@ -36,12 +36,14 @@ class Slider extends Component {
 
 	render() {
 
-		const id = this.state.id
-		const name = this.state.name
-		const min = this.state.min
-		const max = this.state.max
-		const step = this.state.step
-		const value = this.state.value
+		const { 
+			id,
+			name,
+			min,
+			max,
+			step,
+			value,  
+		} = this.state
 
 		const range = max - min
 		const percentage = ( ( value - min ) / range ) * 100

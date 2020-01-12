@@ -10,13 +10,15 @@ import { Link } from 'react-router-dom'
 
 class Header extends Component {
 
-	logout = () => {
+	logout = ( event ) => {
 		let confirmation = window.confirm( 'Are you sure you want to logout?' )
 
 		if ( confirmation ) {
 			this.props.closeNavs()
 			this.props.logout()
 			document.cookie = 'NULYPH_USER=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+		} else {
+			event.preventDefault()
 		}
 	}
 
@@ -75,7 +77,7 @@ class Header extends Component {
 						<Link 
 							className="nav__link drawer-nav__item" 
 							to="/login" 
-							onClick={() => this.logout()}>
+							onClick={(event) => this.logout(event)}>
 								LOGOUT
 						</Link>
 					):(

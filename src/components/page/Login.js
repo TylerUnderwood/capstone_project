@@ -22,7 +22,7 @@ class Login extends Component {
 
 		let now = new Date(),
             milliSeconds = now - 0 + 30 * 24 * 3600 * 1000,
-            expiryDate = new Date(milliSeconds)
+			expiryDate = new Date(milliSeconds)
 		
 		document.cookie = `NULYPH_USER=${ this.state.username }; expires=${ expiryDate.toGMTString() }; path=/`
 		this.props.history.push('/dev')
