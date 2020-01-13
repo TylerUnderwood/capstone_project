@@ -17,9 +17,9 @@ class App extends Component {
 			<Provider store={store}>
 				<BrowserRouter>
 					<Startup />
+					<div id="top"></div>
 					<Header />
 					<Main>
-						<div id="top"></div>
 						<main id="main" className="viewable">
 							<Router />
 						</main>

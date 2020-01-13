@@ -4,12 +4,12 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 
-$modalGutter: 2rem;
+/* === variables === */
 
-body.modal-open,
-body.modal-opening {
-    overflow: hidden;
-}
+$modalGutter: 2rem;
+$modalTime: 300ms;
+
+/* === animations === */
 
 @keyframes modal_pop_in {
     from {
@@ -45,140 +45,118 @@ body.modal-opening {
     to { opacity: 0; }
 }
 
+/* === content === */
 
-// Keep the modal from flowing off screen
-.modal-wrapper {
-    display: block;
-    position: fixed;
-    z-index: 990;
-    top: 0;
-    right: 0;
-    bottom: 0;
+.modal {
+	display: block;
+	position: fixed;
+	z-index: 990;
+	top: 0;
+	right: 0;
+	bottom: 0;
 	left: 0;
 	background-color: rgba( darken( $primary-light, 50% ), 0.5);
 	overflow: auto;
-    padding: $modalGutter $modalGutter 0 $modalGutter;
-    text-align: center;
+	padding: $modalGutter $modalGutter 0 $modalGutter;
+	text-align: center;
 
-    &::after {
-        display: inline-block;
-        height: 100%;
-        content: '';
-	}
-	
-	&.modal-closed {
-        visibility: hidden;
-    }
-
-    &.modal-opening {
-		animation: modal_fade_in 320ms forwards ease-in-out;
-	}
-	
-    &.modal-opened {
-        visibility: visible;
-    }
-
-    &.modal-closing {
-		animation: modal_fade_out 320ms forwards ease-in-out;
-    }
-}
-
-.modal-overlay {
-	display: block;
-    position: absolute;
-    z-index: 991;
-    top: 0;
-    right: 0;
-    bottom: 0;
-	left: 0;
-	content: '';
-	cursor: pointer;
-}
-
-// this is what centers the modal vertically
-.modal, .modal-wrapper::after {
-    vertical-align: middle;
-}
-
-// The modal itself!
-.modal {
-    display: inline-flex;
-    position: relative;
-    z-index: 998;
-    margin: $modalGutter 0;
-    max-width: 100%;
-    box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.2);
-	background-color: $white;
-	
-	.modal-closed > & {
-        visibility: hidden;
-    }
-
-    .modal-opening > & {
-        animation: modal_pop_in 320ms forwards ease-in-out;
+	// this is what centers the modal vertically
+	&::after {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		content: '';
 	}
 
-	.modal-opened > & {
-        visibility: visible;
-    }
+	&__container {
+		display: inline-flex;
+		position: relative;
+		z-index: 998;
+		margin: $modalGutter 0;
+		max-width: 100%;
+		box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.2);
+		background-color: $white;
+		vertical-align: middle;
+	}
 
-    .modal-closing > & {
-        animation: modal_pop_out 320ms forwards ease-in-out;
-    }
-}
-
-.modal-close-button {
-    display: block;
-    position: absolute;
-    z-index: 999;
-    top: 0;
-    right: 0;
-    left: unset;
-    transform: translate( 60%, -60% );
-    border: 0;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    
-    &::after {
-        display: block;
-        box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.2);
-        border-radius: 50%;
-        width: 1.5em;
-        height: 1.5em;
-        background-color: $white;
-        line-height: 1.5em;
-        font-size: 24px;
-        color: $light-gray;
-        content: "\00d7";
-        transition: color 200ms ease-in-out,
-                background 200ms ease-in-out;
-    }
-
-    &:hover::after,
-    &:focus::after {
-        background-color: $link-color;
-        color: $text-color;
-    }
-}
-
-.modal-inner {
-	display: block;
-}
-
-////////////////////////////
-.test-fill {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 24rem;
-	height: 13.5rem;
-	padding: 1rem;
+	&__overlay {
+		display: block;
+		position: absolute;
+		z-index: 991;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		content: '';
+		cursor: pointer;
+	}
 	
-	span {
-		text-align: center;
-		text-transform: uppercase;
-		font-size: 2rem;
+	&__close-button {
+		display: block;
+		position: absolute;
+		z-index: 999;
+		top: 0;
+		right: 0;
+		left: unset;
+		transform: translate( 60%, -60% );
+		border-radius: 50%;
+		border: 0;
+		box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.2);
+		background-color: $white;
+		width: 1.5em;
+		height: 1.5em;
+		padding: 0;
+		line-height: 0;
+		font-size: 24px;
+		color: $light-gray;
+		transition: background 300ms ease-in-out,
+		            color 300ms ease-in-out;
+		cursor: pointer;
+		
+		&::after {
+			display: block;
+			padding:  0 0 1px 1px;
+			content: "\00d7";
+		}
+	
+		&:hover,
+		&:focus {
+			background-color: $link-color;
+			color: $text-color;
+		}
+	}
+
+	$self: &;
+	
+	&--closed {
+		visibility: hidden;
+
+		#{$self}__container {
+			visibility: hidden;
+		}
+	}
+
+	&--opening {
+		animation: modal_fade_in $modalTime forwards ease-in;
+
+		#{$self}__container {	
+			animation: modal_pop_in $modalTime forwards ease-in;
+		}
+	}
+	
+	&--opened {
+		visibility: visible;
+
+		#{$self}__container {
+			visibility: visible;
+		}
+	}
+
+	&--closing {
+		animation: modal_fade_out $modalTime forwards ease-out;
+
+		#{$self}__container {
+			animation: modal_pop_out $modalTime forwards ease-out;
+		}
 	}
 }
-////////////////////////////

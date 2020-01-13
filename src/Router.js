@@ -6,6 +6,7 @@ import Login from './components/page/Login'
 import Dev from './components/dev/Dev'
 import Typography from './components/dev/Typography'
 import Inputs from './components/dev/Inputs'
+import Sandbox from './components/dev/Sandbox'
 import Error404 from './components/errors/404'
 
 
@@ -35,6 +36,7 @@ const Router = () => {
 			<ProtectedRoute exact path="/dev" component={Dev} />
 			<ProtectedRoute path="/dev/typography" component={Typography} />
 			<ProtectedRoute path="/dev/inputs" component={Inputs} />
+			<ProtectedRoute path="/dev/sandbox" component={Sandbox} />
 			<Route component={Error404} />
         </Switch>
     );

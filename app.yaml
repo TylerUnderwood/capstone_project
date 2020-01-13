@@ -1,0 +1,10 @@
+runtime: nodejs10
+env_variables:
+  CLOUD_INSTANCE: capstone-project-4503:us-east1:capstone-project-4503
+
+instance_class: F2
+
+resources:
+  # cpu: 0.5
+  memory_gb: 0.25
+  # disk_size_gb: 10

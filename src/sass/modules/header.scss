@@ -18,7 +18,8 @@ $nav-bg: $primary-dark;
 	justify-content: space-between;
 	align-items: center;
 	box-shadow: 0 0 10px 3px $text-color;
-	padding: $header-pad;
+	height: $header-ht;
+	padding: 1rem;
 	background-color: $nav-bg;
 	color: $white;
 }
@@ -29,7 +30,6 @@ $nav-bg: $primary-dark;
 
 #logo {
 	margin: 0;
-	height: $header-logo-ht;
 	padding-top: 0;
 	font-size: 2rem;
 	color: $link-color;
