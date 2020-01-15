@@ -23,20 +23,56 @@ const currentUser = ( state = initialState, action ) => {
 
 const activeElements = ( state = initialState, action ) => {
 
+	const bodyClasses    = document.body.classList
+	const lockClass      = 'scroll-lock'
+	const leftClass      = 'nav-left--active'
+	const rightClass     = 'nav-right--active'
+	const navLeftActive  = state.navLeft
+	const navRightActive = state.navRight
+
+	let newState;
+
 	switch( action.type ) {
 		case 'NAV_LEFT':
-			let navLeft = !state.navLeft
+			if ( !navLeftActive && !navRightActive ) {
+				bodyClasses.add(lockClass)
+			}
+			// Toggle the current state
+			newState = !navLeftActive
+			// Toggle the class for the body
+			bodyClasses.toggle(leftClass)
+			// If the nav is turning off and the other nav isnt active unlock the body
+			if ( navLeftActive && !navRightActive ) {
+				bodyClasses.remove(lockClass)
+			}
+			// Update state
 			return {
 				...state,
-				navLeft: navLeft
+				navLeft: newState
 			}
 		case 'NAV_RIGHT':
-			let navRight = !state.navRight
+			if ( !navLeftActive && !navRightActive ) {
+				bodyClasses.add(lockClass)
+			}
+			// Toggle the current state
+			newState = !navRightActive
+			// Toggle the class for the body
+			bodyClasses.toggle(rightClass)
+			// If the nav is turning off and the other nav isnt active unlock the body
+			if ( !navLeftActive && navRightActive ) {
+				bodyClasses.remove(lockClass)
+			}
+			// Update state
 			return {
 				...state,
-				navRight: navRight
+				navRight: newState
 			}
 		case 'NAV_CLOSE':
+			// Remove all the active classes
+			if ( navLeftActive || navRightActive ) {
+				bodyClasses.remove(lockClass, leftClass, rightClass)
+			}
+			// Update state
 			return {
 				...state,
 				navLeft: false,

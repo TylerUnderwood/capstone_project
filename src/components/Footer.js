@@ -16,7 +16,7 @@ class Footer extends Component {
 
 					<nav className="static-nav flex justy-end">
 
-						<Link className="static-nav__item" to="#top">TOP</Link>
+						<a className="static-nav__item" href="#top">TOP</a>
 
 					</nav>
 

@@ -28,11 +28,11 @@ class Inputs extends Component {
 		radio: '',
 		range: '',
 
+		file: '',
+		color: '#333333',
+
 		date: '',
 		time: '',
-
-		file: '',
-		color: '',
 
 		username: '',
 	}
@@ -291,6 +291,7 @@ class Inputs extends Component {
 								name="file"
 								label="file"
 								type="file" 
+								value={this.state.file} 
 								onChange={this.onChange} 
 							/>
 							<br/>
@@ -299,6 +300,7 @@ class Inputs extends Component {
 								name="color"
 								label="color"
 								type="color" 
+								value={this.state.color} 
 								onChange={this.onChange} 
 							/>
 							<br/>
@@ -317,6 +319,7 @@ class Inputs extends Component {
 								name="date"
 								label="date"
 								type="date" 
+								value={this.state.date} 
 								onChange={this.onChange} 
 							/>
 							<br/>
@@ -325,6 +328,7 @@ class Inputs extends Component {
 								name="time"
 								label="time"
 								type="time" 
+								value={this.state.time} 
 								onChange={this.onChange} 
 							/>
 							<br/>

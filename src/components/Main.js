@@ -6,6 +6,15 @@ import {
 
 class Main extends Component {
 
+	closeNavs() {
+		const navLeftActive = this.props.activeElements.navLeft
+		const navRightActive = this.props.activeElements.navRight
+
+		if ( navLeftActive || navRightActive ) {
+			this.props.closeNavs()
+		}
+	}
+
 	render() {
 
 		const navLeftActive = this.props.activeElements.navLeft
@@ -13,14 +22,15 @@ class Main extends Component {
 
 		return (
 			<div 
+				id="container"
 				className={`viewbox 
 					${navLeftActive ? 'slide-to-the-left' : ''} 
 					${navRightActive ? 'slide-to-the-right' : ''}
-				`}
-				onClick={() => this.props.closeNavs()}>
+				`}>
 
 				{this.props.children}
 
+				<div className="container__overlay" onClick={() => this.closeNavs()}></div>
 			</div>
 		)
 	}

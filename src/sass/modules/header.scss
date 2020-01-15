@@ -156,12 +156,13 @@ $drawer-width: 12rem;
 	}
 }
 
-.viewbox {
+#container {
 	position: relative;
 	transition: transform 500ms ease;
 
-	&::after {
-		position: absolute;
+	.container__overlay {
+		flex: 1;
+		position: fixed;
 		z-index: -99;
 		top: 0;
 		right: 0;
@@ -169,6 +170,7 @@ $drawer-width: 12rem;
 		left: 0;
 		background-color: #333;
 		opacity: 0;
+		height: 100%;
 		transition: opacity 500ms ease,
 					z-index 0ms ease 500ms;
 		content: '';
@@ -176,9 +178,7 @@ $drawer-width: 12rem;
 
 	&.slide-to-the-right,
 	&.slide-to-the-left {
-		overflow: hidden;
-
-		&::after {
+		.container__overlay {
 			z-index: 99;
 			opacity: 0.3;
 			transition: opacity 500ms ease,

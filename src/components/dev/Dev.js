@@ -15,7 +15,7 @@ class Dev extends Component {
 							<Link to="/dev/inputs" className="btn auto-wrap__item">Inputs</Link>
 							<div className="auto-wrap__item">
 								<Modal>
-									<img src={ Duck } />
+									<img src={ Duck } alt="duck" />
 								</Modal>
 							</div>
 							<Link to="/dev/sandbox" className="btn auto-wrap__item">Sandbox</Link>

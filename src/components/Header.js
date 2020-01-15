@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 class Header extends Component {
 
-	logout = ( event ) => {
+	logout( event ) {
 		let confirmation = window.confirm( 'Are you sure you want to logout?' )
 
 		if ( confirmation ) {
@@ -24,8 +24,7 @@ class Header extends Component {
 
 	render() {
 
-		const loggedIn = this.props.currentUser.loggedIn
-		const username = this.props.currentUser.username
+		const { loggedIn, username } = this.props.currentUser
 		const navLeftActive = this.props.activeElements.navLeft
 		const navRightActive = this.props.activeElements.navRight
 

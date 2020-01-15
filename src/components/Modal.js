@@ -8,12 +8,11 @@ class Modal extends Component {
 			buttonClass: 'btn',
 			buttonText: 'Modal',
 			currentClass: 'modal--closed',
-			isOpen: true,
+			isOpen: false,
 		};
 	}
 
 	open() {
-		this.isOpen = true;
 		this.modalOpening();
 		setTimeout(() => {
 			this.modalOpen();
@@ -24,28 +23,35 @@ class Modal extends Component {
 		this.modalClosing();
 		setTimeout(() => {
 			this.modalClosed();
-			this.isOpen = false;
 		}, 320);
 	}
 
 	modalOpening() {
-		document.body.classList.add('scroll-lock', 'modal--active');
-		this.setState({currentClass: 'modal--opening'});
+		document.body.classList.add('scroll-lock', 'modal--active')
+		this.setState({
+			currentClass: 'modal--opening',
+			isOpen: true,
+		})
 	}
 	modalOpen() {
-		this.setState({currentClass: 'modal--open'});
+		this.setState({currentClass: 'modal--open'})
 	}
 	modalClosing() {
-		this.setState({currentClass: 'modal--closing'});
+		this.setState({currentClass: 'modal--closing'})
 	}
 	modalClosed() {
-		document.body.classList.remove('scroll-lock', 'modal--active');
-		this.setState({currentClass: 'modal--closed'});
+		document.body.classList.remove('scroll-lock', 'modal--active')
+		this.setState({
+			currentClass: 'modal--closed',
+			isOpen: false,
+		})
 	}
 
 	render() { return (
 		<div className="modal__wrapper">
-			<a className="btn" onClick={() => { this.open() }}>{ this.state.buttonText }</a>
+			<button className={ this.state.buttonClass } onClick={() => { this.open() }}>
+				{ this.state.buttonText }
+			</button>
 			<div className={['modal', this.state.currentClass].join(' ')}>
 				<div className="modal__overlay" onClick={() => { this.close() }}></div>
 				<div className="modal__container">
