@@ -67,8 +67,6 @@ $text-white:            $white;
 
 $text-color:            $text-dark;
 
-$label-color:           $text-light;
-
 // Headings
 $heading-color:         $text-dark;
 $heading-color-alt:     $accent;
@@ -76,16 +74,6 @@ $heading-color-alt:     $accent;
 // Links
 $link-color:            $accent;
 $link-hover:            darken($link-color, 16%);
-
-// Buttons
-$button-color:          $white;
-$button-hover-color:    $white;
-
-$button-border:         $link-color;
-$button-hover-border:   $link-hover;
-
-$button-bg:             $link-color;
-$button-hover-bg:       $link-hover;
 
 // Forms
 $form-border:           darken($white, 6%);

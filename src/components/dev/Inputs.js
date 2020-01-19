@@ -233,7 +233,7 @@ class Inputs extends Component {
 									label="Checkbox"
 									type="checkbox" 
 									onChange={this.onChange}/>
-								<span className="ml-2">Checkbox</span>
+								<span className="mar-l-2">Checkbox</span>
 							</label>
 							<br/>
 							<fieldset>
@@ -245,7 +245,7 @@ class Inputs extends Component {
 										label="Radio 1"
 										type="radio" 
 										onChange={this.onChange}/>
-									<span className="ml-2">Radio 1</span>
+									<span className="mar-l-2">Radio 1</span>
 								</label>
 								<br/>
 								<label htmlFor="radio2">
@@ -255,7 +255,7 @@ class Inputs extends Component {
 										label="Radio 2"
 										type="radio" 
 										onChange={this.onChange}/>
-									<span className="ml-2">Radio 2</span>
+									<span className="mar-l-2">Radio 2</span>
 								</label>
 								<br/>
 								<label htmlFor="radio3">
@@ -265,7 +265,7 @@ class Inputs extends Component {
 										label="Radio 3"
 										type="radio" 
 										onChange={this.onChange}/>
-									<span className="ml-2">Radio 3</span>
+									<span className="mar-l-2">Radio 3</span>
 								</label>
 							</fieldset>
 							<br/>

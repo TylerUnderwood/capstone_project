@@ -1,12 +1,18 @@
-.pipline-list {
+.inline-list {
 	display: flex;
 	flex-flow: row wrap;
 
     & > &__item {
 		display: block;
 	}
-	
+
 	& > &__item + &__item::before {
+		display: inline-block;
+		margin: 0 0.5em;
+		content: "";
+	}
+	
+	&--pipline > &__item + &__item::before {
 		display: inline-block;
 		vertical-align: baseline;
 		width: 1px;
@@ -16,7 +22,14 @@
 		content: "";
 	}
 
-	@include below(mobile) {
+	&--middot > &__item + &__item::before {
+		display: inline-block;
+		vertical-align: baseline;
+		margin: 0 1em;
+		content: "\00B7";
+	}
+
+	@include below( tablet ) {
 		& > &__item {
 			width: 100%;
 			text-align: center;

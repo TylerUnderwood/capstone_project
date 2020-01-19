@@ -5,20 +5,16 @@ class Footer extends Component {
 
 	render() {
 		return (
-			<footer id="footer" className="bg-dark p-2">
-				<div className="wrapper flex items-center">
+			<footer id="footer" className="site-footer">
+				<div className="wrapper site-footer__inner">
 
-					<h5 id="logo" className="nav-logo">
+					<h5 id="logo" className="footer__logo">
 						<Link to="/">Nulyph</Link>
 					</h5>
 
 					<div className="filler"></div>
 
-					<nav className="static-nav flex justy-end">
-
-						<a className="static-nav__item" href="#top">TOP</a>
-
-					</nav>
+					<a className="link geo-text" href="#top">Back To Top</a>
 
 				</div>
 			</footer>

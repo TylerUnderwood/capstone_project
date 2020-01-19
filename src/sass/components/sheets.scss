@@ -1,0 +1,107 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Sheets
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.sheets {
+	$self: &;
+	$bg_color: #d5cbbc;
+	$width: 36rem;
+	$height: $width * 1.414;
+	$time: 400ms;
+
+	position: relative;
+	box-shadow: 3px 3px 12px 3px rgba(0,0,0,0.2);
+	border-radius: $round;
+	background-color: $bg_color;
+	width: 100%;
+	max-width: $width;
+	min-height: $height;
+
+	&__page {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		overflow-y: scroll;
+		border-radius: $round;
+		border: solid 2px darken($bg_color, 4%);
+		background-color: $bg_color;
+		padding: 1rem;
+		transition: opacity $time ease,
+					transform $time ease;		
+	
+		&:not(&--active) {
+			opacity: 0;
+			transform: translateX( 10% );
+			z-index: 1;
+		}
+
+		&--active {
+			opacity: 1;
+			transform: translateX( 0 );
+			z-index: 9;
+		}
+	}
+
+	&__nav {
+		position: relative;
+		font-size: 20px;
+
+		& #{$self}__tab {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			right: unset;
+			left: 0;
+			transform: translateX(-100%);
+			background-color: $accent;
+			width: 3em;
+			height: 2em;
+			color: $white;
+			transition: left $time ease,
+						padding $time ease;
+	
+			&::before,
+			&::after {
+				display: block;
+				position: absolute;
+				right: unset;
+				left: 0;
+				transform: translateX(-100%);
+				border: 0.75em solid $accent;
+				content: '';
+			}
+			&::before {
+				top: 0;
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+			}
+			&::after {
+				bottom: 0;
+				border-top-color: transparent;
+				border-left-color:  transparent;
+			}
+	
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					top: (($i - 1) * 2em) + ($i * 0.5em);
+				}
+			}
+	
+			&:not(&--active) {
+				left: 1em;
+				padding-right: 1em;
+			}
+	
+			&--active {
+				left: 0;
+				padding-right: 0;
+				cursor: default;
+			}
+		}
+	}
+}

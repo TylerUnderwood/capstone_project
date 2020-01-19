@@ -71,7 +71,7 @@
 	position: absolute;
 	top: 0;
 	bottom: unset;
-	transform: translateY(-100%);
+	transform: translateY(100%);
 }
 
 .put-right {
@@ -85,7 +85,7 @@
 	position: absolute;
 	top: unset;
 	bottom: 0;
-	transform: translateY(100%);
+	transform: translateY(-100%);
 }
 
 .put-left {

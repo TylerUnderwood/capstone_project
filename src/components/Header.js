@@ -97,10 +97,19 @@ class Header extends Component {
 						</Link>
 					)}
 
+					{ loggedIn && (
+						<Link 
+							className="nav__link drawer-nav__item" 
+							to="/characters"
+							onClick={() => this.props.closeNavs()}>
+								Characters
+						</Link>
+					)}
+
 				</nav>
 
 				<label className="user-btn" htmlFor="user-btn">
-					<span className="user-btn__text"><span className="put-left ph-2">{username}</span>User</span>
+					<span className="user-btn__text"><span className="put-left pad-r">{username}</span>User</span>
 					<button 
 						id="user-btn" 
 						className={`nav-btn ${navRightActive ? "nav-btn--active" : ''}`} 
