@@ -1,0 +1,60 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Character Sheets
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.cs {
+	$self: &;
+	// layout
+
+	&__box-label {
+		margin-bottom: 1rem;
+	}
+
+	&-overview {
+		display: grid;
+	
+		#{$self}__header {
+			grid-area: header;
+		}
+	
+		#{$self}__abilities {
+			grid-area: ability;
+		}
+	
+		#{$self}__saving-throws {
+			grid-area: saving;
+		}
+	
+		#{$self}__skills {
+			grid-area: skills;
+		}
+	
+		#{$self}__attack {
+			grid-area: attack;
+		}
+	
+		#{$self}__spell-slots {
+			grid-area: spell;
+		}
+
+		@include below( tablet ) {
+			grid: " header  " auto
+				  " ability " auto
+				  " saving  " auto
+				  " skills  " auto
+				  " attack  " auto
+				  " spell   " auto
+				  / auto
+		}
+	
+		@include above( tablet ) {
+			grid: " header  header  header  header  header  header  " auto
+				  " ability ability ability ability ability ability " auto
+				  " saving  saving  saving  saving  skills  skills  " 2fr
+				  " attack  attack  attack  spell   spell   spell   " 1fr
+				  / auto    auto    auto    auto    auto    auto
+		}
+	}
+}

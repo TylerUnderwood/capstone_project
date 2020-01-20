@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import CharacterOverview from '../character-sheet/CharacterOverview'
+import CharacterStats from '../character-sheet/CharacterStats'
+import CharacterEquipment from '../character-sheet/CharacterEquipment'
+import CharacterSpells from '../character-sheet/CharacterSpells'
+import CharacterDescription from '../character-sheet/CharacterDescription'
+import CharacterNotes from '../character-sheet/CharacterNotes'
 
 
 class Character extends Component {
@@ -96,7 +101,7 @@ class Character extends Component {
 			<div className="entry-character">
 	
 				<section className="trim gutter">
-					<div className="inner">
+					<div className="sheets__wrapper">
 
 						<div className="sheets__nav">
 							<button 
@@ -151,33 +156,28 @@ class Character extends Component {
 							</div>
 							<div 
 								className={`sheets__page 
-								${statsActive ? 'sheets__page--active' : ''} 
-								character-stats`}>
-								<h3>Stats</h3>
+								${statsActive ? 'sheets__page--active' : ''}`}>
+								<CharacterStats />
 							</div>
 							<div 
 								className={`sheets__page 
-								${equipmentActive ? 'sheets__page--active' : ''} 
-								character-eqipment`}>
-								<h3>Eqipment</h3>
+								${equipmentActive ? 'sheets__page--active' : ''}`}>
+								<CharacterEquipment />
 							</div>
 							<div 
 								className={`sheets__page 
-								${spellsActive ? 'sheets__page--active' : ''} 
-								character-spells`}>
-								<h3>Spells</h3>
+								${spellsActive ? 'sheets__page--active' : ''}`}>
+								<CharacterSpells />
 							</div>
 							<div 
 								className={`sheets__page 
-								${descriptionActive ? 'sheets__page--active' : ''} 
-								character-description`}>
-								<h3>Description</h3>
+								${descriptionActive ? 'sheets__page--active' : ''}`}>
+								<CharacterDescription />
 							</div>
 							<div 
 								className={`sheets__page 
-								${notesActive ? 'sheets__page--active' : ''} 
-								character-notes`}>
-								<h3>Notes</h3>
+								${notesActive ? 'sheets__page--active' : ''}`}>
+								<CharacterNotes />
 							</div>
 						</div>
 						

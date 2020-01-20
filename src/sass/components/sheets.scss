@@ -4,11 +4,17 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 
+.sheets__wrapper {
+	display: flex;
+	justify-content: center;
+	padding: 0 0 0 5rem;
+}
+
 .sheets {
 	$self: &;
 	$bg_color: #d5cbbc;
-	$width: 36rem;
-	$height: $width * 1.414;
+	$width: 48rem;
+	$ratio: 141.4%;
 	$time: 400ms;
 
 	position: relative;
@@ -17,7 +23,7 @@
 	background-color: $bg_color;
 	width: 100%;
 	max-width: $width;
-	min-height: $height;
+	padding-top: $ratio;
 
 	&__page {
 		position: absolute;
@@ -29,7 +35,6 @@
 		border-radius: $round;
 		border: solid 2px darken($bg_color, 4%);
 		background-color: $bg_color;
-		padding: 1rem;
 		transition: opacity $time ease,
 					transform $time ease;		
 	
@@ -48,7 +53,6 @@
 
 	&__nav {
 		position: relative;
-		font-size: 20px;
 
 		& #{$self}__tab {
 			display: flex;
@@ -61,9 +65,9 @@
 			background-color: $accent;
 			width: 3em;
 			height: 2em;
+			padding-right: 1rem;
 			color: $white;
-			transition: left $time ease,
-						padding $time ease;
+			transition: left $time ease;
 	
 			&::before,
 			&::after {
@@ -94,14 +98,41 @@
 	
 			&:not(&--active) {
 				left: 1em;
-				padding-right: 1em;
 			}
 	
 			&--active {
 				left: 0;
-				padding-right: 0;
 				cursor: default;
 			}
+		}
+
+
+		@include below( tablet ) {
+			font-size: 20px;
+		}
+
+		@include between( tablet, desktop ) {
+			font-size: 22px;
+		}
+
+		@include above( desktop ) {
+			font-size: 24px;
+		}
+	}
+
+	.sheet {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: 0.25rem;
+
+		&-box {
+			border-radius: $round;
+			border: solid 2px darken($bg_color, 4%);
+			margin: 0.25rem;
+			padding: 0.5rem;
 		}
 	}
 }
