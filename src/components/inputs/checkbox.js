@@ -46,7 +46,7 @@ class Checkbox extends Component {
 					</svg>
 				</div>
 
-				{ this.state.label && (
+				{ this.state.label && ( 
 					<span className="label">{ this.state.label }</span>
 				)}
 				

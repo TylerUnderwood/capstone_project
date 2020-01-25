@@ -25,14 +25,15 @@ class Login extends Component {
 			expiryDate = new Date(milliSeconds)
 		
 		document.cookie = `NULYPH_USER=${ this.state.username }; expires=${ expiryDate.toGMTString() }; path=/`
-		this.props.history.push('/dev')
+		this.props.history.push('/characters')
 	}
 
 	render() {
 		return (
 			<div className="page-login">
 	
-				<section className="frame gutter">
+				<img className="w-100" src="https://res.cloudinary.com/cyborgspaceviking/image/upload/v1579925237/post-147969-0-91848500-1479361168_s7utts.png"/>
+				<section className="frame frame-bot gutter relative">
 					<div className="wrapper mxw-text">
 						<form className="login-form" onSubmit={this.login}>
 							<input
@@ -52,6 +53,7 @@ class Login extends Component {
 								type="password" />
 							<br/>
 							<button type="submit">Login</button>
+							<div className="trim"></div>
 						</form>
 					</div>
 				</section>

@@ -61,10 +61,16 @@ class Header extends Component {
 						onClick={() => this.props.closeNavs()}>
 							About
 					</Link>
+					<Link 
+						className="nav__link drawer-nav__item" 
+						to="/dungeon" 
+						onClick={() => this.props.closeNavs()}>
+							Dungeon
+					</Link>
 				</nav>
 
 				<h5 id="logo" className="nav-logo">
-					<Link to="/">Nulyph</Link>
+					<Link to="/">Nu-lyph</Link>
 				</h5>
 
 				<nav className={`

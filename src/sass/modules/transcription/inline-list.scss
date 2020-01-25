@@ -29,15 +29,15 @@
 		content: "\00B7";
 	}
 
-	@include below( tablet ) {
-		& > &__item {
-			width: 100%;
-			text-align: center;
-			line-height: 1.6;
-		}
+	// @include below( tablet ) {
+	// 	& > &__item {
+	// 		width: 100%;
+	// 		text-align: center;
+	// 		line-height: 1.6;
+	// 	}
 
-		& > &__item + &__item::before {
-			display: none;
-		}
-	}
+	// 	& > &__item + &__item::before {
+	// 		display: none;
+	// 	}
+	// }
 }

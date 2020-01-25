@@ -19,3 +19,30 @@
         color: inherit;
     }
 }
+
+.dungeon {
+	border-spacing: 1px;
+	width: 100%;
+
+	&--no-border {
+		border-collapse: collapse;
+	}
+
+	&__square {
+		padding: 0;
+
+		&:before {
+			display: block;
+			padding-top: 100%;
+			content: '';
+		}
+
+		&--tunnel {
+			background-color: #eee;
+		}
+	
+		&--wall {
+			background-color: #333;
+		}
+	}
+}

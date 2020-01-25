@@ -8,7 +8,6 @@ class Modal extends Component {
 			buttonClass: 'btn',
 			buttonText: 'Modal',
 			currentClass: 'modal--closed',
-			isOpen: false,
 		};
 	}
 
@@ -27,24 +26,22 @@ class Modal extends Component {
 	}
 
 	modalOpening() {
-		document.body.classList.add('scroll-lock', 'modal--active')
+		document.body.classList.add('scroll-lock', 'modal--active');
 		this.setState({
 			currentClass: 'modal--opening',
-			isOpen: true,
-		})
+		});
 	}
 	modalOpen() {
-		this.setState({currentClass: 'modal--open'})
+		this.setState({currentClass: 'modal--open'});
 	}
 	modalClosing() {
-		this.setState({currentClass: 'modal--closing'})
+		this.setState({currentClass: 'modal--closing'});
 	}
 	modalClosed() {
-		document.body.classList.remove('scroll-lock', 'modal--active')
+		document.body.classList.remove('scroll-lock', 'modal--active');
 		this.setState({
 			currentClass: 'modal--closed',
-			isOpen: false,
-		})
+		});
 	}
 
 	render() { return (
@@ -52,7 +49,7 @@ class Modal extends Component {
 			<button className={ this.state.buttonClass } onClick={() => { this.open() }}>
 				{ this.state.buttonText }
 			</button>
-			<div className={['modal', this.state.currentClass].join(' ')}>
+			<div className={`modal ${this.state.currentClass}`}>
 				<div className="modal__overlay" onClick={() => { this.close() }}></div>
 				<div className="modal__container">
 					<button className="modal__close-button" onClick={() => { this.close() }}></button>
