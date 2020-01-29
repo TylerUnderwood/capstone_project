@@ -115,14 +115,22 @@ class Header extends Component {
 				</nav>
 
 				<label className="user-btn" htmlFor="user-btn">
-					<span className="user-btn__text"><span className="put-left pad-r">{username}</span>User</span>
+					<span className="user-btn__text">{username}</span>
 					<button 
 						id="user-btn" 
-						className={`nav-btn ${navRightActive ? "nav-btn--active" : ''}`} 
+						className="user-nav-btn"
 						onClick={() => this.props.activateNavRight()}>
-						<div className="nav-btn__bar"></div>
-						<div className="nav-btn__bar"></div>
-						<div className="nav-btn__bar"></div>
+						{ loggedIn ? (
+							<div 
+								className="user-nav-btn__image bg-img bg-square" 
+								style={{ backgroundImage: "url(https://res.cloudinary.com/cyborgspaceviking/image/upload/v1579994996/pixel-tyler_zxdsog.jpg)" }}>
+							</div>
+						):(
+							<div 
+								className="user-nav-btn__image bg-img bg-square" 
+								style={{ backgroundImage: "url(https://res.cloudinary.com/cyborgspaceviking/image/upload/v1579994961/blank-profile-picture_ixpvxu.png)" }}>
+							</div>
+						)}
 					</button>
 				</label>
 

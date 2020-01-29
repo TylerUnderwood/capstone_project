@@ -10,6 +10,7 @@ import Inputs from './components/dev/Inputs'
 import Sandbox from './components/dev/Sandbox'
 import Characters from './components/archive/Characters'
 import Character from './components/entry/Character'
+import CharacterCreator from './components/creator/CharacterCreator'
 import Error404 from './components/errors/404'
 
 
@@ -43,6 +44,7 @@ const Router = () => {
 			<ProtectedRoute path="/dev/sandbox" component={Sandbox} />
 			<ProtectedRoute exact path="/characters" component={Characters} />
 			<ProtectedRoute path="/characters/character" component={Character} />
+			<ProtectedRoute path="/character-creator" component={CharacterCreator} />
 			<Route component={Error404} />
         </Switch>
     );

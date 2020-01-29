@@ -1,0 +1,21 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: New Character Form
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.new-character-form {
+	display: flex;
+	flex-flow: row wrap;
+	margin: -1rem -0.5rem 0;
+	max-width: unset;
+
+	.ncf {
+		&__item {
+			display: flex;
+			flex-flow: column;
+			align-items: flex-start;
+			padding: 1rem 0.5rem 0;
+		}
+	}
+}

@@ -22,6 +22,13 @@ $nav-bg: $primary-dark;
 	padding: 1rem;
 	background-color: $nav-bg;
 	color: $white;
+
+	#logo {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 }
 
 /* ===== COMPONENTS ===== */
@@ -103,6 +110,24 @@ $nav-bg: $primary-dark;
 	}
 }
 
+.user-nav-btn {
+	margin: -4px;
+	border-radius: 50%;
+	width: 48px;
+	padding: 4px;
+	overflow: hidden;
+	transition: background 300ms ease-in-out;
+
+	&:hover,
+	&:focus {
+		background-color: $charcoal;
+	}
+
+	&__image {
+		border-radius: 50%;
+	}
+}
+
 /* === DRAWER NAV === */
 
 $drawer-width: 12rem;
@@ -176,8 +201,8 @@ $drawer-width: 12rem;
 		content: '';
 	}
 
-	&.slide-to-the-right,
-	&.slide-to-the-left {
+	&.slide_to_the_right,
+	&.slide_to_the_left {
 		.container__overlay {
 			z-index: 99;
 			opacity: 0.3;
@@ -186,15 +211,15 @@ $drawer-width: 12rem;
 		}
 	}
 
-	&.slide-to-the-right {
+	&.slide_to_the_right {
 		transform: translate( -$drawer-width / 2, 0 );
 	}
 
-	&.slide-to-the-left {
+	&.slide_to_the_left {
 		transform: translate( $drawer-width / 2, 0 );
 	}
 
-	&.slide-to-the-right.slide-to-the-left {
+	&.slide_to_the_right.slide_to_the_left {
 		transform: translate( 0, 0 );
 	}
 }

@@ -51,7 +51,7 @@ class CharacterAbilities extends Component {
 		return (
 			<div className="character-abilities">
 			{this.state.abilitiesList.map(( ability, index ) => (
-				<div className="ability" key={index}>
+				<div className="ability" key={index} title={ ability.title }>
 					<span className="ability__title geo-text">{ ability.title }</span>
 					<span className="ability__abbr geo-text">{ ability.abbr }</span>
 					<span className="ability__score heading">{ ability.score }</span>

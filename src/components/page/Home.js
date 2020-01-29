@@ -6,7 +6,7 @@ class Home extends Component {
 		return (
 			<div className="page-home">
 
-				<section id="hero" className="hero has-image">
+				<section id="hero" className="hero has-image outer">
 					<div className="hero-image-wrap hero-overlay-dark">
 						<div 
 							className="hero-image"

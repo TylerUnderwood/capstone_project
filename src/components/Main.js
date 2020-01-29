@@ -24,8 +24,8 @@ class Main extends Component {
 			<div 
 				id="container"
 				className={`viewbox 
-					${navLeftActive ? 'slide-to-the-left' : ''} 
-					${navRightActive ? 'slide-to-the-right' : ''}
+					${navLeftActive ? 'slide_to_the_left' : ''} 
+					${navRightActive ? 'slide_to_the_right' : ''}
 				`}>
 
 				{this.props.children}
