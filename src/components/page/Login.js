@@ -32,7 +32,7 @@ class Login extends Component {
 		return (
 			<div className="page-login">
 	
-				<img className="w-100" src="https://res.cloudinary.com/cyborgspaceviking/image/upload/v1579925237/post-147969-0-91848500-1479361168_s7utts.png"/>
+				<img className="w-100" src="https://res.cloudinary.com/cyborgspaceviking/image/upload/v1579925237/post-147969-0-91848500-1479361168_s7utts.png" alt="mordenkainen"/>
 				<section className="frame frame-bot gutter relative">
 					<div className="wrapper mxw-text">
 						<form className="login-form" onSubmit={this.login}>

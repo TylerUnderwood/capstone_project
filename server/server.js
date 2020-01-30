@@ -13,9 +13,9 @@ app.use('/users', usersRouter)
 app.use('/auth', authRouter)
 
 app.get('/', (req, res) => {
-  res.send('Welcome to our updated server yo!!')
+	res.send('Welcome to our updated server yo!!')
 })
 
 app.listen(port, () => {
-  console.log(`Web server is listening on port ${port}!`);
+	console.log(`Web server is listening on port ${port}!`);
 });

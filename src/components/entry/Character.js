@@ -83,6 +83,8 @@ class Character extends Component {
 					})
 				}
 				break;
+			default:
+				console.log('NOT A PAGE')
 		}
 	}
 

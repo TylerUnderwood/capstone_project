@@ -4,12 +4,6 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 
-.sheets__wrapper {
-	display: flex;
-	justify-content: center;
-	padding: 0 0 0 5rem;
-}
-
 .sheets {
 	$self: &;
 	$bg_color: #d5cbbc;
@@ -24,6 +18,11 @@
 	width: 100%;
 	max-width: $width;
 	padding-top: $ratio;
+
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+	}
 
 	&__page {
 		position: absolute;
@@ -59,13 +58,7 @@
 			justify-content: center;
 			align-items: center;
 			position: absolute;
-			right: unset;
-			left: 0;
-			transform: translateX(-100%);
 			background-color: $accent;
-			width: 3em;
-			height: 2em;
-			padding-right: 1rem;
 			color: $white;
 			transition: left $time ease;
 	
@@ -73,11 +66,91 @@
 			&::after {
 				display: block;
 				position: absolute;
+				border: 0.75em solid $accent;
+				content: '';
+			}
+		}
+
+		@include below( tablet ) {
+			font-size: 20px;
+		}
+
+		@include between( tablet, desktop ) {
+			font-size: 22px;
+		}
+
+		@include above( desktop ) {
+			font-size: 24px;
+		}
+	}
+
+	@include below( desktop ) {
+		&__wrapper {
+			padding: 5rem 0 0 0;
+		}
+
+		&__nav #{$self}__tab {
+			top: 0;
+			bottom: unset;
+			width: 2.5em;
+			height: 2.5em;
+			padding-bottom: 1rem;
+			transform: translateY(-100%);
+			transition: top $time ease;
+
+			&::before,
+			&::after {
+				top: 0;
+				bottom: unset;
+				transform: translateY(-100%);
+			}
+			&::before {
+				right: 0;
+				border-top-color: transparent;
+				border-left-color: transparent;
+			}
+			&::after {
+				left: 0;
+				border-top-color: transparent;
+				border-right-color:  transparent;
+			}
+
+			@for $i from 1 through 10 {
+				&:nth-child(#{$i}) {
+					left: (($i - 1) * 2.5em) + ($i * 0.5em);
+				}
+			}
+	
+			&:not(&--active) {
+				top: 1em;
+			}
+	
+			&--active {
+				top: 0;
+				cursor: default;
+			}
+		}
+	}
+
+	@include above( desktop ) {
+		&__wrapper {
+			padding: 0 0 0 5rem;
+		}
+		
+		&__nav #{$self}__tab {
+			right: unset;
+			left: 0;
+			width: 3em;
+			height: 2em;
+			padding-right: 1rem;
+			transform: translateX(-100%);
+			transition: left $time ease;
+
+			&::before,
+			&::after {
 				right: unset;
 				left: 0;
 				transform: translateX(-100%);
-				border: 0.75em solid $accent;
-				content: '';
 			}
 			&::before {
 				top: 0;
@@ -89,7 +162,7 @@
 				border-top-color: transparent;
 				border-left-color:  transparent;
 			}
-	
+
 			@for $i from 1 through 10 {
 				&:nth-child(#{$i}) {
 					top: (($i - 1) * 2em) + ($i * 0.5em);
@@ -104,19 +177,6 @@
 				left: 0;
 				cursor: default;
 			}
-		}
-
-
-		@include below( tablet ) {
-			font-size: 20px;
-		}
-
-		@include between( tablet, desktop ) {
-			font-size: 22px;
-		}
-
-		@include above( desktop ) {
-			font-size: 24px;
 		}
 	}
 

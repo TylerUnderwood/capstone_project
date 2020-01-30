@@ -13,6 +13,9 @@ class Inputs extends Component {
 		intelligence: 8,
 		wisdom: 8,
 		charisma: 8,
+		characterList: [
+
+		],
 	}
 
 	onChange = ( event ) => {
@@ -45,7 +48,7 @@ class Inputs extends Component {
 		event.preventDefault();
 		// console.log('test')
 		// using self helps separate out this from other events
-		let self = this;
+		// let self = this;
 		// On submit of the form, send a POST request with the data to the server.
 		fetch('/characters', {
 			method: 'POST',
@@ -73,6 +76,18 @@ class Inputs extends Component {
 		})
 	}
 
+	componentDidMount() {
+		// using self helps separate out this from other events
+		// let self = this;
+		// On submit of the form, send a POST request with the data to the server.
+		fetch('/characters', {
+			method: 'SELECT',
+		})
+		.then(function( response ) {
+			return response.json()
+		})
+	}
+
 	render() {
 		return (
 			<div className="page-inputs">
@@ -80,7 +95,7 @@ class Inputs extends Component {
 				<section className="frame gutter">
 					<div className="wrapper">
 						<form className="new-character-form" onSubmit={this.showForm}>
-							<label className="ncf__item w-75" for="name">
+							<label className="ncf__item w-75" htmlFor="name">
 								Name
 								<input 
 									className="mar-t-1"
@@ -91,7 +106,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-25" for="level">
+							<label className="ncf__item w-25" htmlFor="level">
 								Level
 								<input 
 									className="mar-t-1"
@@ -104,7 +119,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-50" for="race">
+							<label className="ncf__item w-50" htmlFor="race">
 								Race
 								<input 
 									className="mar-t-1"
@@ -115,7 +130,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-50" for="class">
+							<label className="ncf__item w-50" htmlFor="class">
 								Class
 								<input 
 									className="mar-t-1"
@@ -126,7 +141,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-16" for="strength">
+							<label className="ncf__item w-16" htmlFor="strength">
 								Strength
 								<input 
 									className="mar-t-1" 
@@ -139,7 +154,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-16" for="dexterity">
+							<label className="ncf__item w-16" htmlFor="dexterity">
 								Dexterity
 								<input 
 									className="mar-t-1" 
@@ -152,7 +167,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-16" for="constitution">
+							<label className="ncf__item w-16" htmlFor="constitution">
 								Constitution
 								<input 
 									className="mar-t-1" 
@@ -165,7 +180,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-16" for="intelligence">
+							<label className="ncf__item w-16" htmlFor="intelligence">
 								Intelligence
 								<input 
 									className="mar-t-1" 
@@ -178,7 +193,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-16" for="wisdom">
+							<label className="ncf__item w-16" htmlFor="wisdom">
 								Wisdom
 								<input 
 									className="mar-t-1" 
@@ -191,7 +206,7 @@ class Inputs extends Component {
 									onChange={this.onChange} 
 								/>
 							</label>
-							<label className="ncf__item w-16" for="charisma">
+							<label className="ncf__item w-16" htmlFor="charisma">
 								Charisma
 								<input 
 									className="mar-t-1" 
@@ -208,6 +223,36 @@ class Inputs extends Component {
 								<button className="btn" type="submit">Submit</button>
 							</div>
 						</form>
+					</div>
+				</section>
+
+				<hr/>
+
+				
+				<section className="frame gutter">
+					<div className="wrapper">
+
+						<table className="w-100">
+							<thead>
+								<tr>
+									<td>name </td>
+									<td>level</td>
+									<td>race </td>
+									<td>class</td>
+								</tr>
+							</thead>
+
+						{this.state.characterList.map(( character, index ) => (
+							<tr key={index}>
+								<td>{ character.name }</td>
+								<td>{ character.level }</td>
+								<td>{ character.race }</td>
+								<td>{ character.class }</td>
+							</tr>
+						))}
+						</table>
+						
+
 					</div>
 				</section>
 				
