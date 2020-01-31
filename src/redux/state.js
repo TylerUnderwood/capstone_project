@@ -7,4 +7,7 @@ export default {
 		navLeft: false,
 		navRight: false,
 	},
+	charactersList: [
+
+	],
 };

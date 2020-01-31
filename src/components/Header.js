@@ -70,7 +70,7 @@ class Header extends Component {
 				</nav>
 
 				<h5 id="logo" className="nav-logo">
-					<Link to="/">Nu-lyph</Link>
+					<Link to="/" onClick={() => this.props.closeNavs()}>Nu-lyph</Link>
 				</h5>
 
 				<nav className={`

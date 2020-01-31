@@ -7,9 +7,10 @@
 .parchment {
 	display: block;
 	position: relative;
-	background-image: url('../../assets/img/parchment-square.jpeg');
+	// background-image: url('../../assets/img/parchment-square.jpeg');
 	background-position: top left;
 	background-size: contain;
+	background-color: #b8a78d;
 	width: 100%;
 
 	&::before {

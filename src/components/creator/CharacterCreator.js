@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { 
+	fetchCharacters,
+} from '../../redux/actions'
 
 class Inputs extends Component {
 
@@ -66,8 +70,8 @@ class Inputs extends Component {
 				character_charisma: this.state.charisma,
 			})
 		})
-		.then(function( response ) {
-			return response.json()
+		.then(function( res ) {
+			return res.json()
 		})
 		.then(function( body ) {
 			// console.log(body);
@@ -77,15 +81,7 @@ class Inputs extends Component {
 	}
 
 	componentDidMount() {
-		// using self helps separate out this from other events
-		// let self = this;
-		// On submit of the form, send a POST request with the data to the server.
-		fetch('/characters', {
-			method: 'SELECT',
-		})
-		.then(function( response ) {
-			return response.json()
-		})
+		console.log(this.props.charactersList)
 	}
 
 	render() {
@@ -235,9 +231,9 @@ class Inputs extends Component {
 						<table className="w-100">
 							<thead>
 								<tr>
-									<td>name </td>
+									<td>name</td>
 									<td>level</td>
-									<td>race </td>
+									<td>race</td>
 									<td>class</td>
 								</tr>
 							</thead>
@@ -261,4 +257,16 @@ class Inputs extends Component {
 	}
 }
 
-export default Inputs
+const mapStateToProps = ( state ) => {
+    return {
+		charactersList: state.charactersList,
+    }
+}
+
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+		fetchCharacters: () => dispatch( fetchCharacters() ),
+    }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )(Inputs)

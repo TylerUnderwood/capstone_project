@@ -1,20 +1,27 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 const usersRouter = require('./routers/users');
 const authRouter = require('./routers/auth');
-const { logger } = require('./middleware')
+const charactersRouter = require('./routers/characters');
+// const { logger } = require('./middleware')
 
 const app = express();
 const port = process.env.PORT || 4001;
 
 app.use(bodyParser.json())
-app.use(logger)
-app.use('/users', usersRouter)
-app.use('/auth', authRouter)
+// app.use(logger)
+app.use('api/users', usersRouter)
+app.use('api/auth', authRouter)
+app.use('api/characters', charactersRouter)
 
-app.get('/', (req, res) => {
-	res.send('Welcome to our updated server yo!!')
-})
+// app.get('/', (req, res) => {
+// 	res.send('Welcome to our updated server yo!!')
+// })
+
+app.get('*', function(req, res) {
+	console.log('LISTENING');
+	res.sendFile(path.join(__dirname, '../build', 'index.html'));
+});
 
 app.listen(port, () => {
 	console.log(`Web server is listening on port ${port}!`);

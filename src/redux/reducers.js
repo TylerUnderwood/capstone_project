@@ -83,7 +83,22 @@ const activeElements = ( state = initialState, action ) => {
 	}
 }
 
+const charactersList = (state = [], action) => {
+	switch(action.type) {
+		case 'FETCH_CHARCTERS':
+			return action.value
+		case 'ADD_CHARCTER':
+			return [ ...state, action.value ]
+		case 'REMOVE_CHARCTER':
+			charactersList.splice(action.value, 1)
+			return charactersList
+		default:
+			return state
+	}
+}
+
 export default combineReducers({ 
 	currentUser,
 	activeElements,
+	charactersList,
 })

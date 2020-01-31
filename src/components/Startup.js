@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { login, logout } from '../redux/actions'
+import { 
+	login,
+	logout,
+	fetchCharacters,
+ } from '../redux/actions'
 import cookie from 'cookie'
 
 
 class Startup extends Component {
 
 	componentDidMount() {
+		fetchCharacters()
+
 		const cookies = cookie.parse(document.cookie)
 		// get the username from the cookie
 		const username = cookies["NULYPH_USER"]
@@ -36,7 +42,8 @@ const mapStateToProps = ( state ) => {
 const mapDispatchToProps = ( dispatch ) => {
     return {
 		login: ( username ) => dispatch( login( username ) ),
-		logout: () => dispatch( logout() )
+		logout: () => dispatch( logout() ),
+		fetchCharacters: () => dispatch( fetchCharacters() ),
     }
 }
 
