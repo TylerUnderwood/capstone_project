@@ -39,13 +39,13 @@ class Home extends Component {
 					<div className="half-row__column-right">
 						<div className="trim gutter half-row__block {{ type }}">
 							<div className="gutter half-row__wrap {{ type }}__wrap">
-								<div class="heading-content">
+								<div className="heading-content">
 									<h5>Some Subheading Thing</h5>
 									<h3>The Main Heading</h3>
-									<div class="copy">
+									<div className="copy">
 										<p>Sed sodales elit sed quam volutpat posuere. Quisque ut nulla maximus, ultrices tellus ac, sollicitudin metus. Nam vitae neque ornare, posuere erat at, tempus metus. Vestibulum mattis justo vitae velit egestas fermentum.</p>
 									</div>
-									<a class="btn" href="/dev">
+									<a className="btn" href="/dev">
 										Development
 									</a>
 								</div>
@@ -58,13 +58,13 @@ class Home extends Component {
 					<div className="half-row__column-left">
 						<div className="trim gutter half-row__block {{ type }}">
 							<div className="gutter half-row__wrap {{ type }}__wrap">
-								<div class="heading-content">
+								<div className="heading-content">
 									<h5>Some Subheading Thing</h5>
 									<h3>The Main Heading</h3>
-									<div class="copy">
+									<div className="copy">
 										<p>Sed sodales elit sed quam volutpat posuere. Quisque ut nulla maximus, ultrices tellus ac, sollicitudin metus. Nam vitae neque ornare, posuere erat at, tempus metus. Vestibulum mattis justo vitae velit egestas fermentum.</p>
 									</div>
-									<a class="btn" href="/dungeon">
+									<a className="btn" href="/dungeon">
 										Dungeon
 									</a>
 								</div>

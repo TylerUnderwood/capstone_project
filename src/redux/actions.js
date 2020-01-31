@@ -13,6 +13,7 @@ export const logout = () => {
 	}
 }
 
+
 // NAV
 export const activateNavLeft = () => {
 	return {
@@ -30,6 +31,7 @@ export const closeNavs = () => {
 	}
 }
 
+
 // CHARACTERS
 export const fetchCharacters = () => {
 	console.log("FETCHING")
@@ -37,6 +39,7 @@ export const fetchCharacters = () => {
 		fetch("/api/characters")
 		.then(res => res.json())
 		.then(res => {
+			console.log(res)
 			const action = {
 				type: "FETCH_CHARACTERS",
 				value: res

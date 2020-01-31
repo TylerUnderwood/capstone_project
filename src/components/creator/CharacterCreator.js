@@ -17,9 +17,6 @@ class Inputs extends Component {
 		intelligence: 8,
 		wisdom: 8,
 		charisma: 8,
-		characterList: [
-
-		],
 	}
 
 	onChange = ( event ) => {
@@ -54,7 +51,7 @@ class Inputs extends Component {
 		// using self helps separate out this from other events
 		// let self = this;
 		// On submit of the form, send a POST request with the data to the server.
-		fetch('/characters', {
+		fetch('api/characters', {
 			method: 'POST',
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify ({
@@ -238,7 +235,7 @@ class Inputs extends Component {
 								</tr>
 							</thead>
 
-						{this.state.characterList.map(( character, index ) => (
+						{this.props.charactersList.map(( character, index ) => (
 							<tr key={index}>
 								<td>{ character.name }</td>
 								<td>{ character.level }</td>

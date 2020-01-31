@@ -85,11 +85,12 @@ const activeElements = ( state = initialState, action ) => {
 
 const charactersList = (state = [], action) => {
 	switch(action.type) {
-		case 'FETCH_CHARCTERS':
+		case 'FETCH_CHARACTERS':
+			console.log(action.value)
 			return action.value
-		case 'ADD_CHARCTER':
+		case 'ADD_CHARACTERS':
 			return [ ...state, action.value ]
-		case 'REMOVE_CHARCTER':
+		case 'REMOVE_CHARACTERS':
 			charactersList.splice(action.value, 1)
 			return charactersList
 		default:

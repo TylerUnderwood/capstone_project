@@ -1,6 +1,5 @@
 INSERT INTO characters
 	(
-		character_id,
 		character_name,
 		character_level,
 		character_race,
@@ -14,10 +13,9 @@ INSERT INTO characters
 	)
 VALUES
 	(
-		NULL,
 		'Krunk',
 		1,
-		'Orc'
+		'Orc',
 		'Bard',
 		17,
 		8,

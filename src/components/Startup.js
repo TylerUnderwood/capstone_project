@@ -41,9 +41,9 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
     return {
-		login: ( username ) => dispatch( login( username ) ),
-		logout: () => dispatch( logout() ),
-		fetchCharacters: () => dispatch( fetchCharacters() ),
+		login:           ( username ) => dispatch( login( username ) ),
+		logout:          ()           => dispatch( logout() ),
+		fetchCharacters: ()           => dispatch( fetchCharacters() ),
     }
 }
 

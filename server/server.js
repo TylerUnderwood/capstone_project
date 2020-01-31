@@ -6,7 +6,7 @@ const charactersRouter = require('./routers/characters');
 // const { logger } = require('./middleware')
 
 const app = express();
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json())
 // app.use(logger)
@@ -18,8 +18,10 @@ app.use('api/characters', charactersRouter)
 // 	res.send('Welcome to our updated server yo!!')
 // })
 
+app.use(express.static(path.join(__dirname, "../build")));
+
 app.get('*', function(req, res) {
-	console.log('LISTENING');
+	console.log('GETTING');
 	res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
