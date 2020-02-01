@@ -30,8 +30,8 @@ class Handbook extends Component {
 	}
 
 	getSpells = ( ) => {
-		fetch(`https://dnd5eapi.co/api/spells/`)
-			.then( res => res.json() )
+		fetch(`/dndApi/spells`)
+			.then( res => res.json())
 			.then( data => {
 				console.log(data)
 				if ( data.results.length === 0) {
@@ -48,7 +48,7 @@ class Handbook extends Component {
 					})
 				}
 			})
-			.catch( error => console.log(error) );
+			.catch(error => console.log(error));
 	};
 
 	componentDidMount() {

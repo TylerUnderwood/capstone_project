@@ -45,11 +45,11 @@ class CharacterCreator extends Component {
 		alert( JSON.stringify( this.state, null, 4 ) )
 	}
 
-	handleSubmit( event ) {
+	handleSubmit = ( event ) => {
 		event.preventDefault();
 		// console.log(event)
 		// using self helps separate out this from other events
-		let self = this.state;
+		let self = { ...this.state };
 		// On submit of the form, send a POST request with the data to the server.
 		fetch('api/characters', {
 			method: 'POST',

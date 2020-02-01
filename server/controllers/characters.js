@@ -20,8 +20,19 @@ const getCharacterById = (req, res) => {
 }
 
 const createCharacter = (req, res) => {
-	const { firstName, lastName } = req.body
-	let sql = "INSERT INTO characters (first_name, last_name) VALUES (?, ?)"
+	const { 
+		name,
+		level,
+		race,
+		class,
+		strength,
+		dexterity,
+		constitution,
+		intelligence,
+		wisdom,
+		charisma,
+	} = req.body
+	let sql = "INSERT INTO characters (name, level, race, class, strength, dexterity, constitution, intelligence, wisdom, charisma) VALUES (?, ?)"
 	sql = mysql.format(sql, [ firstName, lastName ])
 
 	pool.query(sql, (err, results) => {
