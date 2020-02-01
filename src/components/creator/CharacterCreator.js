@@ -71,9 +71,9 @@ class CharacterCreator extends Component {
 			return res.json()
 		})
 		.then( ( body ) => {
-			console.log(body);
-			// window.location.replace("/characters")
+			// console.log(body);
 			// this.props.history.push('/characters')
+			this.props.fetchCharacters()
 		})
 	}
 
@@ -220,9 +220,7 @@ class CharacterCreator extends Component {
 				<section className="frame gutter">
 					<div className="wrapper">
 
-						<button className="btn" onClick={ this.props.fetchCharacters }>Fetch</button>
-
-						<table className="w-100 mar-t">
+						<table className="w-100">
 							
 							<thead>
 								<tr>

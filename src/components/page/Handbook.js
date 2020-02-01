@@ -33,7 +33,6 @@ class Handbook extends Component {
 		fetch(`/dndApi/spells`)
 			.then( res => res.json())
 			.then( data => {
-				console.log(data)
 				if ( data.results.length === 0) {
 					this.setState({
 						spellsList: [{
@@ -72,6 +71,7 @@ class Handbook extends Component {
 					<div className="wrapper">
 
 						<table className="w-100">
+
 							<thead>
 								<tr>
 									<td>Index</td>
@@ -79,12 +79,15 @@ class Handbook extends Component {
 								</tr>
 							</thead>
 
-						{this.state.spellsList.map(( spell, index ) => (
-							<tr key={index}>
-								<td>{ spell.index }</td>
-								<td>{ spell.name }</td>
-							</tr>
-						))}
+							<tbody>
+							{this.state.spellsList.map(( spell, index ) => (
+								<tr key={index}>
+									<td>{ spell.index }</td>
+									<td>{ spell.name }</td>
+								</tr>
+							))}
+							</tbody>
+						
 						</table>
 
 					</div>
