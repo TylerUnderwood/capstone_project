@@ -24,7 +24,6 @@ const createCharacter = (req, res) => {
 		name,
 		level,
 		race,
-		class,
 		strength,
 		dexterity,
 		constitution,
@@ -32,8 +31,19 @@ const createCharacter = (req, res) => {
 		wisdom,
 		charisma,
 	} = req.body
-	let sql = "INSERT INTO characters (name, level, race, class, strength, dexterity, constitution, intelligence, wisdom, charisma) VALUES (?, ?)"
-	sql = mysql.format(sql, [ firstName, lastName ])
+	let sql = "INSERT INTO characters (name, level, race, class, strength, dexterity, constitution, intelligence, wisdom, charisma) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+	sql = mysql.format(sql, [ 
+		name,
+		level,
+		race,
+		req.body.class,
+		strength,
+		dexterity,
+		constitution,
+		intelligence,
+		wisdom,
+		charisma,
+	 ])
 
 	pool.query(sql, (err, results) => {
 		if (err) return handleSQLError(res, err)
