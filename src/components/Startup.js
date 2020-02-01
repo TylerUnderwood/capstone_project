@@ -11,7 +11,8 @@ import cookie from 'cookie'
 class Startup extends Component {
 
 	componentDidMount() {
-		fetchCharacters()
+		fetchCharacters();
+		console.log(this.props.charactersList)
 
 		const cookies = cookie.parse(document.cookie)
 		// get the username from the cookie
@@ -35,7 +36,8 @@ class Startup extends Component {
 
 const mapStateToProps = ( state ) => {
     return {
-        currentUser: state.currentUser,
+		currentUser: state.currentUser,
+		// charactersList: state.charactersList,
     }
 }
 

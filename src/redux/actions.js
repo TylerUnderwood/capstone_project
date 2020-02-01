@@ -36,16 +36,16 @@ export const closeNavs = () => {
 export const fetchCharacters = () => {
 	console.log("FETCHING")
 	return dispatch => {
-		fetch("/api/characters")
-		.then(res => res.json())
-		.then(res => {
-			console.log(res)
+		fetch( "api/characters" )
+		.then( res => {console.log('Response:', res); res.json()} )
+		.then( data => {
+			console.log(data)
 			const action = {
 				type: "FETCH_CHARACTERS",
-				value: res
+				value: data,
 			};
 			dispatch(action);
 		})
-		.catch(error => console.log(error));
+		.catch( error => console.log(error) );
 	};
 };

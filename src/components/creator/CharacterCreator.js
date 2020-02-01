@@ -4,7 +4,7 @@ import {
 	fetchCharacters,
 } from '../../redux/actions'
 
-class Inputs extends Component {
+class CharacterCreator extends Component {
 
 	state = {
 		name: '',
@@ -47,47 +47,43 @@ class Inputs extends Component {
 
 	handleSubmit( event ) {
 		event.preventDefault();
-		// console.log('test')
+		// console.log(event)
 		// using self helps separate out this from other events
-		// let self = this;
+		let self = this.state;
 		// On submit of the form, send a POST request with the data to the server.
 		fetch('api/characters', {
 			method: 'POST',
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify ({
-				character_name: this.state.name,
-				character_level: this.state.level,
-				character_race: this.state.race,
-				character_class: this.state.class,
-				character_strength: this.state.strength,
-				character_dexterity: this.state.dexterity,
-				character_constitution: this.state.constitution,
-				character_intelligence: this.state.intelligence,
-				character_wisdom: this.state.wisdom,
-				character_charisma: this.state.charisma,
+				character_name: self.name,
+				character_level: self.level,
+				character_race: self.race,
+				character_class: self.class,
+				character_strength: self.strength,
+				character_dexterity: self.dexterity,
+				character_constitution: self.constitution,
+				character_intelligence: self.intelligence,
+				character_wisdom: self.wisdom,
+				character_charisma: self.charisma,
 			})
 		})
-		.then(function( res ) {
+		.then( ( res ) => {
 			return res.json()
 		})
-		.then(function( body ) {
-			// console.log(body);
+		.then( ( body ) => {
+			console.log(body);
 			// window.location.replace("/characters")
-			this.props.history.push('/characters')
+			//this.props.history.push('/characters')
 		})
-	}
-
-	componentDidMount() {
-		console.log(this.props.charactersList)
 	}
 
 	render() {
 		return (
-			<div className="page-inputs">
+			<div className="page-character-creator">
 				
 				<section className="frame gutter">
 					<div className="wrapper">
-						<form className="new-character-form" onSubmit={this.showForm}>
+						<form className="new-character-form" onSubmit={this.handleSubmit}>
 							<label className="ncf__item w-75" htmlFor="name">
 								Name
 								<input 
@@ -220,12 +216,13 @@ class Inputs extends Component {
 				</section>
 
 				<hr/>
-
 				
 				<section className="frame gutter">
 					<div className="wrapper">
 
-						<table className="w-100">
+						<button className="btn" onClick={ this.props.fetchCharacters }>Fetch</button>
+
+						<table className="w-100 mar-t">
 							<thead>
 								<tr>
 									<td>name</td>
@@ -266,4 +263,4 @@ const mapDispatchToProps = ( dispatch ) => {
     }
 }
 
-export default connect( mapStateToProps, mapDispatchToProps )(Inputs)
+export default connect( mapStateToProps, mapDispatchToProps )(CharacterCreator)

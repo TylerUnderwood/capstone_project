@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
 import Home from './components/page/Home'
 import Login from './components/page/Login'
+import Handbook from './components/page/Handbook'
 import Dungeon from './components/page/Dungeon'
 import Dev from './components/dev/Dev'
 import Typography from './components/dev/Typography'
@@ -37,6 +38,7 @@ const Router = () => {
         <Switch>
             <Route exact path="/" component={Home} />
 			<Route path="/login" component={Login} />
+			<Route path="/handbook" component={Handbook} />
 			<Route path="/dungeon" component={Dungeon} />
 			<ProtectedRoute exact path="/dev" component={Dev} />
 			<ProtectedRoute path="/dev/typography" component={Typography} />

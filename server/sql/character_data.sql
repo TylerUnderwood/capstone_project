@@ -1,15 +1,15 @@
 INSERT INTO characters
 	(
-		character_name,
-		character_level,
-		character_race,
-		character_class,
-		character_strength,
-		character_dexterity,
-		character_constitution,
-		character_intelligence,
-		character_wisdom,
-		character_charisma
+		name,
+		level,
+		race,
+		class,
+		strength,
+		dexterity,
+		constitution,
+		intelligence,
+		wisdom,
+		charisma
 	)
 VALUES
 	(
@@ -26,6 +26,6 @@ VALUES
 	)
 ;
 
-SELECT * FROM characters ORDER BY character_id;
+SELECT * FROM characters ORDER BY id;
 
 -- DROP TABLE characters
