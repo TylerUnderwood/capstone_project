@@ -4,15 +4,14 @@ import {
 	login,
 	logout,
 	fetchCharacters,
- } from '../redux/actions'
+} from '../redux/actions'
 import cookie from 'cookie'
 
 
 class Startup extends Component {
 
 	componentDidMount() {
-		fetchCharacters();
-		console.log(this.props.charactersList)
+		this.props.fetchCharacters()
 
 		const cookies = cookie.parse(document.cookie)
 		// get the username from the cookie
@@ -37,7 +36,7 @@ class Startup extends Component {
 const mapStateToProps = ( state ) => {
     return {
 		currentUser: state.currentUser,
-		// charactersList: state.charactersList,
+		charactersList: state.charactersList,
     }
 }
 

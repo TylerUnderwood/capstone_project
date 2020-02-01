@@ -86,7 +86,6 @@ const activeElements = ( state = initialState, action ) => {
 const charactersList = (state = [], action) => {
 	switch(action.type) {
 		case 'FETCH_CHARACTERS':
-			console.log(action.value)
 			return action.value
 		case 'ADD_CHARACTERS':
 			return [ ...state, action.value ]

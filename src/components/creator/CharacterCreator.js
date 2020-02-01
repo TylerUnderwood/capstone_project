@@ -55,16 +55,16 @@ class CharacterCreator extends Component {
 			method: 'POST',
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify ({
-				character_name: self.name,
-				character_level: self.level,
-				character_race: self.race,
-				character_class: self.class,
-				character_strength: self.strength,
-				character_dexterity: self.dexterity,
-				character_constitution: self.constitution,
-				character_intelligence: self.intelligence,
-				character_wisdom: self.wisdom,
-				character_charisma: self.charisma,
+				name: self.name,
+				level: self.level,
+				race: self.race,
+				class: self.class,
+				strength: self.strength,
+				dexterity: self.dexterity,
+				constitution: self.constitution,
+				intelligence: self.intelligence,
+				wisdom: self.wisdom,
+				charisma: self.charisma,
 			})
 		})
 		.then( ( res ) => {
@@ -73,7 +73,7 @@ class CharacterCreator extends Component {
 		.then( ( body ) => {
 			console.log(body);
 			// window.location.replace("/characters")
-			//this.props.history.push('/characters')
+			// this.props.history.push('/characters')
 		})
 	}
 
@@ -223,6 +223,7 @@ class CharacterCreator extends Component {
 						<button className="btn" onClick={ this.props.fetchCharacters }>Fetch</button>
 
 						<table className="w-100 mar-t">
+							
 							<thead>
 								<tr>
 									<td>name</td>
@@ -232,16 +233,18 @@ class CharacterCreator extends Component {
 								</tr>
 							</thead>
 
-						{this.props.charactersList.map(( character, index ) => (
-							<tr key={index}>
-								<td>{ character.name }</td>
-								<td>{ character.level }</td>
-								<td>{ character.race }</td>
-								<td>{ character.class }</td>
-							</tr>
-						))}
+							<tbody>
+							{this.props.charactersList.map(( character, index ) => (
+								<tr key={index}>
+									<td>{ character.name }</td>
+									<td>{ character.level }</td>
+									<td>{ character.race }</td>
+									<td>{ character.class }</td>
+								</tr>
+							))}
+							</tbody>
+
 						</table>
-						
 
 					</div>
 				</section>
